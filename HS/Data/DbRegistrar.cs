@@ -23,6 +23,7 @@ namespace HS.Data
                         break;
                 }
             })
+            .AddTransient<DbInitializer>()
         ;
     }
 }
