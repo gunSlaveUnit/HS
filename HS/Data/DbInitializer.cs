@@ -1,4 +1,5 @@
-﻿using HS.Context;
+﻿using System.Threading.Tasks;
+using HS.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 
@@ -15,9 +16,10 @@ namespace HS.Data
             _logger = logger;
         }
 
-        public void Initialize()
+        public async Task Initialize()
         {
-            _context.Database.Migrate();
+            await _context.Database.EnsureCreatedAsync().ConfigureAwait(false);
+            await _context.Database.MigrateAsync();
         }
     }
 }

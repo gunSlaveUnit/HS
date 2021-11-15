@@ -23,6 +23,9 @@ namespace HS
 
         protected override async void OnStartup(StartupEventArgs e)
         {
+            using var scope = Services.CreateScope();
+            await scope.ServiceProvider.GetRequiredService<DbInitializer>().Initialize();
+            
             var host = Host;
             base.OnStartup(e);
             await host.StartAsync();
