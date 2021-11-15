@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Windows;
-using Hotel;
-using Hotel.Data;
 using Hotel.ViewModels;
 using HS.Data;
 using Microsoft.Extensions.DependencyInjection;
@@ -18,7 +16,6 @@ namespace HS
         public static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
             .AddDatabase(host.Configuration.GetSection("Database"))
             .AddViewModels()
-            .AddRepositories()
         ;
 
         protected override async void OnStartup(StartupEventArgs e)

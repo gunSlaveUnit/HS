@@ -1,9 +1,8 @@
 ﻿using Hotel.Context.Entities;
 using Hotel.Interfaces;
-using HS.Data;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Hotel.Data
+namespace HS.Data
 {
     public static class RepositoryRegistrar
     {

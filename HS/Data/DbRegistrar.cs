@@ -24,6 +24,7 @@ namespace HS.Data
                 }
             })
             .AddTransient<DbInitializer>()
+            .AddRepositories()
         ;
     }
 }
