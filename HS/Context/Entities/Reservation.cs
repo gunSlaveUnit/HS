@@ -13,6 +13,5 @@ namespace Hotel.Context.Entities
         public DateTime DepartureDate { get; set; }
         public int ClientId { get; set; }
         public virtual Client Client { get; set; }
-        public float Price { get; set; }
     }
 }
