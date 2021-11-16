@@ -23,9 +23,7 @@ namespace HS.ViewModels
         private bool CanShowClientsViewCommandExecute(object parameter) => true;
 
         private void OnShowClientsViewCommandExecute(object parameter)
-        {
-            
-        }
+            => CurrentViewModel = new ClientsViewModel(_clientsRepository);
 
         #endregion
         #region ShowReservationsView
@@ -38,14 +36,15 @@ namespace HS.ViewModels
         private bool CanShowReservationsViewCommandExecute(object parameter) => true;
 
         private void OnShowReservationsViewCommandExecute(object parameter)
-        {
-            
-        }
+            => CurrentViewModel = new ReservationsViewModel(_reservationsRepository);
 
         #endregion
         
         #endregion
         #region Properties
+        
+        private readonly IRepository<Client> _clientsRepository;
+        private readonly IRepository<Reservation> _reservationsRepository;
 
         #region CurrentViewModel
 
@@ -60,8 +59,12 @@ namespace HS.ViewModels
         #endregion
         
         #endregion
-        public MainViewModel(IRepository<Client> clientsRepository, IBookingService bookingService)
+        public MainViewModel(IRepository<Client> clientsRepository,
+            IRepository<Reservation> reservationsRepository,
+            IBookingService bookingService)
         {
+            _clientsRepository = clientsRepository;
+            _reservationsRepository = reservationsRepository;
             var items = clientsRepository.All.ToArray();
             var r = bookingService.Reservate(items.FirstOrDefault(), DateTime.Now, DateTime.Now);
         }
