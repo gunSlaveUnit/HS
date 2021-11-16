@@ -5,7 +5,7 @@ using Hotel.Interfaces;
 
 namespace HS.Services
 {
-    public class BookingService
+    public class BookingService : IBookingService
     {
         private readonly IRepository<Reservation> _reservations;
 
