@@ -18,24 +18,26 @@
         <TextBlock Foreground="DarkGray" FontSize="15" Text="Sign up to continue to Hotel"></TextBlock>
         
         <StackPanel Margin="0 20 0 0">
-            <TextBox md:HintAssist.Hint="Surname" FontSize="15" Width="200" 
+            <TextBox md:HintAssist.Hint="Surname" FontSize="15" Width="200" Text="{Binding Surname}"
                      Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
-            <TextBox md:HintAssist.Hint="Name" FontSize="15" Width="200" 
+            <TextBox md:HintAssist.Hint="Name" FontSize="15" Width="200" Text="{Binding Name}"
                      Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
-            <TextBox md:HintAssist.Hint="Patronymic" FontSize="15" Width="200"
+            <TextBox md:HintAssist.Hint="Patronymic" FontSize="15" Width="200" Text="{Binding Patronymic}"
                      Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
-            <TextBox md:HintAssist.Hint="Passport" FontSize="15" Width="200"
+            <TextBox md:HintAssist.Hint="Passport" FontSize="15" Width="200" Text="{Binding Passport}"
                      Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
-            <TextBox md:HintAssist.Hint="PhoneNumber" FontSize="15" Width="200"
+            <TextBox md:HintAssist.Hint="PhoneNumber" FontSize="15" Width="200" Text="{Binding PhoneNumber}"
                      Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
             
-            <TextBox md:HintAssist.Hint="Login" FontSize="15" Width="200"
+            <TextBox md:HintAssist.Hint="Login" FontSize="15" Width="200" Text="{Binding Login}"
                      Margin="0 30 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
-            <PasswordBox md:HintAssist.Hint="Password" FontSize="15" Width="200" Margin="0 0 0 10"
-                         md:TextFieldAssist.UnderlineBrush="DarkBlue"></PasswordBox>
-            <PasswordBox md:HintAssist.Hint="Password Confirm" FontSize="15" Width="200" Margin="0 0 0 10"
-                         md:TextFieldAssist.UnderlineBrush="DarkBlue"></PasswordBox>
-            <Button Background="DarkBlue" BorderBrush="DarkBlue" Width="120" Margin="0 30 0 0" 
+            <TextBox md:HintAssist.Hint="Password" FontSize="15" Width="200" Margin="0 0 0 10"
+                     Text="{Binding Password}"
+                     md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+            <TextBox md:HintAssist.Hint="Password Confirm" FontSize="15" Width="200" Margin="0 0 0 10"
+                     Text="{Binding PasswordConfirm}"
+                     md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+            <Button Command="{Binding SignUpCommand}" Background="DarkBlue" BorderBrush="DarkBlue" Width="120" Margin="0 30 0 0" 
                     FontSize="20" Content="Sign Up" Height="40" Foreground="WhiteSmoke"/>
         </StackPanel>
     </StackPanel>
