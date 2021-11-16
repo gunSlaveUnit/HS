@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hotel.Infrastructure.Commands.Base
+namespace HS.Infrastructure.Commands.Base
 {
     public class RelayCommand : Command
     {

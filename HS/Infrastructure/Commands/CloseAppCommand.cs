@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using Hotel.Infrastructure.Commands.Base;
+using HS.Infrastructure.Commands.Base;
 
-namespace Hotel.Infrastructure.Commands
+namespace HS.Infrastructure.Commands
 {
     public class CloseAppCommand : Command
     {

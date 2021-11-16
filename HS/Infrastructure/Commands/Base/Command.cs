@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace Hotel.Infrastructure.Commands.Base
+namespace HS.Infrastructure.Commands.Base
 {
     public abstract class Command : ICommand
     {

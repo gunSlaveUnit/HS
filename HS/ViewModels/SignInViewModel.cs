@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
-using Hotel.Infrastructure.Commands.Base;
 using Hotel.Views.Windows;
+using HS.Infrastructure.Commands.Base;
 using HS.ViewModels.Base;
 
 namespace HS.ViewModels
