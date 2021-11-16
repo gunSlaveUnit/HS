@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "XsKyTlgHWrmOt1qGjftp9mn2NA7qqJMO0/a7zkhEkRjZbcQmNq7JCyG5+E68DG3Haw913Ije8dxGJ7DXZcIalQ==",
+  "dgSpecHash": "50/tk3jepGu3snS8DhI+JObEuxRDadZTlWN4xCahAMaCCCpjXVj1R+1ArcnEpETQA0t8YCHUn/cxm7Xs4Ck5yw==",
   "success": true,
   "projectFilePath": "C:\\Users\\ellmac\\Documents\\Projects\\RiderProjects\\HS\\HS\\HS.csproj",
   "expectedPackageFiles": [
@@ -53,6 +53,7 @@
     "C:\\Users\\ellmac\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\ellmac\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ellmac\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\ellmac\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.37\\microsoft.xaml.behaviors.wpf.1.1.37.nupkg.sha512",
     "C:\\Users\\ellmac\\.nuget\\packages\\system.collections.immutable\\6.0.0\\system.collections.immutable.6.0.0.nupkg.sha512",
     "C:\\Users\\ellmac\\.nuget\\packages\\system.configuration.configurationmanager\\4.7.0\\system.configuration.configurationmanager.4.7.0.nupkg.sha512",
     "C:\\Users\\ellmac\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",

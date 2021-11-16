@@ -6,6 +6,7 @@ namespace HS.Services
     {
         public static IServiceCollection AddServices(this IServiceCollection services) => services
             .AddTransient<IBookingService, BookingService>()
+            .AddTransient<IClientService, ClientService>()
         ;
     }
 }

@@ -4,6 +4,9 @@ namespace HS.ViewModels
 {
     public class SignUpViewModel : ViewModel
     {
-        
+        public SignUpViewModel()
+        {
+            
+        }
     }
 }
