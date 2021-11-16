@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:commands="clr-namespace:Hotel.Infrastructure.Commands"
              xmlns:viewModels1="clr-namespace:HS.ViewModels"
+             xmlns:commands1="clr-namespace:HS.Infrastructure.Commands"
              StartupUri="Views/Windows/SignInWindow.xaml">
     <Application.Resources>
         <ResourceDictionary>
@@ -13,7 +14,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
             </ResourceDictionary.MergedDictionaries>
              
-            <commands:CloseAppCommand x:Key="CloseAppCommand"/>
+            <commands1:CloseAppCommand x:Key="CloseAppCommand"/>
             <viewModels1:ViewModelLocator x:Key="Locator"/>
         </ResourceDictionary>
     </Application.Resources>
