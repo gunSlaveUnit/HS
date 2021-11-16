@@ -40,10 +40,6 @@
         "net6.0-windows7.0": {
           "targetAlias": "net6.0-windows",
           "dependencies": {
-            "EntityFramework": {
-              "target": "Package",
-              "version": "[6.4.4, )"
-            },
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[4.2.1, )"

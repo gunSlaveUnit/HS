@@ -1,5 +1,6 @@
 ﻿using Hotel.Context.Entities;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 
 namespace HS.Context
 {
@@ -7,8 +8,10 @@ namespace HS.Context
     {
         private DbSet<Client> Clients { get; set; }
         private DbSet<Reservation> Reservations { get; set; }
+
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
+            
         }
     }
 }

@@ -2,10 +2,9 @@
 using System.Windows.Input;
 using Hotel.Infrastructure.Commands.Base;
 using Hotel.Views.Windows;
-using HS.ViewModels;
 using HS.ViewModels.Base;
 
-namespace Hotel.ViewModels
+namespace HS.ViewModels
 {
     public class SignInViewModel : ViewModel
     {

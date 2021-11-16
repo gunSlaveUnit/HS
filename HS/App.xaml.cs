@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
-using Hotel.ViewModels;
 using HS.Data;
+using HS.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 

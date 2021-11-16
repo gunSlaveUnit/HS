@@ -1,8 +1,6 @@
-﻿using HS;
-using HS.ViewModels;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace Hotel.ViewModels
+namespace HS.ViewModels
 {
     public class ViewModelLocator
     {

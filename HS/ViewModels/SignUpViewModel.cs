@@ -1,6 +1,6 @@
 ﻿using HS.ViewModels.Base;
 
-namespace Hotel.ViewModels
+namespace HS.ViewModels
 {
     public class SignUpViewModel : ViewModel
     {
