@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using HS.Data;
+using HS.Services;
 using HS.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -15,6 +16,7 @@ namespace HS
 
         public static void ConfigureServices(HostBuilderContext host, IServiceCollection services) => services
             .AddDatabase(host.Configuration.GetSection("Database"))
+            .AddServices()
             .AddViewModels()
         ;
 
