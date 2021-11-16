@@ -11,7 +11,14 @@
                     Command="{StaticResource CloseAppCommand}"/>
     </Window.InputBindings>
     <DockPanel LastChildFill="False">
-        <ContentControl DockPanel.Dock="Top" Content="{Binding CurrentViewModel}"></ContentControl>
+        <Grid>
+            <Grid.Resources>
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="../../Templates/ViewModelsDataTemplates.xaml"></ResourceDictionary>
+                </ResourceDictionary.MergedDictionaries>
+            </Grid.Resources>
+            <ContentControl Content="{Binding CurrentViewModel}"></ContentControl>
+        </Grid>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>Добавлен новый клиент</StatusBarItem>
         </StatusBar>

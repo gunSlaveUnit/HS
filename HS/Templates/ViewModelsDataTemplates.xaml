@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:vm="clr-namespace:HS.ViewModels"
+                    xmlns:v="clr-namespace:HS.Views.Pages">
+    <DataTemplate DataType="{x:Type vm:ClientsViewModel}">
+        <v:ClientsView DataContext="{Binding}"></v:ClientsView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ReservationsViewModel}">
+        <v:ReservationsView DataContext="{Binding}"></v:ReservationsView>
+    </DataTemplate>
+</ResourceDictionary>
