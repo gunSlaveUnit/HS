@@ -10,6 +10,14 @@
         <KeyBinding Modifiers="Control" Key="Q" 
                     Command="{StaticResource CloseAppCommand}"/>
     </Window.InputBindings>
-    <Grid>
-    </Grid>
+    <DockPanel LastChildFill="False">
+        <ContentControl DockPanel.Dock="Top" Content="{Binding CurrentViewModel}"></ContentControl>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem>Добавлен новый клиент</StatusBarItem>
+        </StatusBar>
+        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
+            <RadioButton IsChecked="True" Command="{Binding ShowReservationsViewCommand}" Content="Reservations"></RadioButton>
+            <RadioButton Command="{Binding ShowClientsViewCommand}" Content="Clients"></RadioButton>
+        </StackPanel>
+    </DockPanel>
 </Window>

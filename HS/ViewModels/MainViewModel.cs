@@ -31,7 +31,7 @@ namespace HS.ViewModels
         private ICommand _showReservationsViewCommand;
 
         public ICommand ShowReservationsViewCommand => _showReservationsViewCommand
-            ??= new RelayCommand(OnShowClientsViewCommandExecute, CanShowClientsViewCommandExecute);
+            ??= new RelayCommand(OnShowReservationsViewCommandExecute, CanShowReservationsViewCommandExecute);
         
         private bool CanShowReservationsViewCommandExecute(object parameter) => true;
 
@@ -65,6 +65,7 @@ namespace HS.ViewModels
         {
             _clientsRepository = clientsRepository;
             _reservationsRepository = reservationsRepository;
+            
             var items = clientsRepository.All.ToArray();
             var r = bookingService.Reservate(items.FirstOrDefault(), DateTime.Now, DateTime.Now);
         }
