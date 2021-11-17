@@ -67,7 +67,6 @@ namespace HS.ViewModels
             _reservationsRepository = reservationsRepository;
             
             var items = clientsRepository.All.ToArray();
-            var r = bookingService.Reservate(items.FirstOrDefault(), DateTime.Now, DateTime.Now);
         }
     }
 }

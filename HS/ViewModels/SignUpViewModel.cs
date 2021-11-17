@@ -1,6 +1,4 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using Hotel.Views.Windows;
+﻿using System.Windows.Input;
 using HS.Infrastructure.Commands.Base;
 using HS.Services;
 using HS.ViewModels.Base;
@@ -77,25 +75,23 @@ namespace HS.ViewModels
         
         #region NewUser
 
-        private ICommand _signUpCommand;
-        
-        public ICommand SignUpCommand => _signUpCommand
-            ??= new RelayCommand(OnSignUpCommandExecuted, CanSignUpCommandExecute);
+        public ICommand SignUpCommand { get; }
 
         private void OnSignUpCommandExecuted(object p)
         {
             var currentClient = _clientService.SignUp(
                 Surname, Name, Patronymic, Passport, PhoneNumber, Login, Password
-                );
+            );
         }
 
-        private bool CanSignUpCommandExecute(object p) => Password == PasswordConfirm;
+        private bool CanSignUpCommandExecute(object p) => true;
 
         #endregion
         
         public SignUpViewModel(IClientService clientService)
         {
             _clientService = clientService;
+            SignUpCommand = new RelayCommand(OnSignUpCommandExecuted, CanSignUpCommandExecute);
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using Hotel.Context.Entities;
 using Hotel.Views.Windows;
 using HS.Infrastructure.Commands.Base;
 using HS.ViewModels.Base;
@@ -8,6 +9,13 @@ namespace HS.ViewModels
 {
     public class SignInViewModel : ViewModel
     {
+        private Client _currentUser;
+
+        public Client CurrentUser
+        {
+            get => _currentUser;
+            set => Set(ref _currentUser, value);
+        }
         #region Commands
 
         #region NewUser
@@ -16,7 +24,7 @@ namespace HS.ViewModels
 
         private void OnOpenNewSignUpWindowCommandExecuted(object p)
         {
-            SignUpWindow newUserWindow = new SignUpWindow();
+            var newUserWindow = new SignUpWindow();
             newUserWindow.Owner = Application.Current.MainWindow;
             newUserWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             newUserWindow.ShowDialog();
@@ -28,7 +36,7 @@ namespace HS.ViewModels
 
         #endregion
 
-        public SignInViewModel(MainViewModel mainViewModel)
+        public SignInViewModel()
         {
             #region CommandsInit
 
