@@ -11,6 +11,13 @@ namespace HS.ViewModels
 {
     public class MainViewModel : ViewModel
     {
+        private Client _currentUser;
+
+        public Client CurrentUser
+        {
+            get => _currentUser;
+            set => Set(ref _currentUser, value);
+        }
         #region Commands
 
         #region ShowClientsView

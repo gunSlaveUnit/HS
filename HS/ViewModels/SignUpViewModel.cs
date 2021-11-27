@@ -84,7 +84,6 @@ namespace HS.ViewModels
             var currentClient = _clientService.SignUp(
                 Surname, Name, Patronymic, Passport, PhoneNumber, Login, Password
                 );
-            _locator.SignInViewModel.CurrentUser = currentClient;
         }
 
         private bool CanSignUpCommandExecute(object p) => true;

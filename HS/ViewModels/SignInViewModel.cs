@@ -9,13 +9,8 @@ namespace HS.ViewModels
 {
     public class SignInViewModel : ViewModel
     {
-        private Client _currentUser;
+        //            _locator.SignInViewModel.CurrentUser = currentClient;
 
-        public Client CurrentUser
-        {
-            get => _currentUser;
-            set => Set(ref _currentUser, value);
-        }
         #region Commands
 
         #region NewUser
