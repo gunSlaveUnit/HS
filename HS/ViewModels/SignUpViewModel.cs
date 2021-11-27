@@ -2,6 +2,7 @@
 using HS.Infrastructure.Commands.Base;
 using HS.Services;
 using HS.ViewModels.Base;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace HS.ViewModels
 {
@@ -66,6 +67,7 @@ namespace HS.ViewModels
         }
         
         private string _passwordConfirm;
+        private readonly ViewModelLocator _locator;
 
         public string PasswordConfirm
         {
@@ -79,7 +81,7 @@ namespace HS.ViewModels
 
         private void OnSignUpCommandExecuted(object p)
         {
-            var currentClient = _clientService.SignUp(
+             var currentClient = _clientService.SignUp(
                 Surname, Name, Patronymic, Passport, PhoneNumber, Login, Password
             );
         }
@@ -88,8 +90,9 @@ namespace HS.ViewModels
 
         #endregion
         
-        public SignUpViewModel(IClientService clientService)
+        public SignUpViewModel(IClientService clientService, ViewModelLocator locator)
         {
+            _locator = locator;
             _clientService = clientService;
             SignUpCommand = new RelayCommand(OnSignUpCommandExecuted, CanSignUpCommandExecute);
         }

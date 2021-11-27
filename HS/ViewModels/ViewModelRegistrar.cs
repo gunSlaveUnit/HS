@@ -8,6 +8,7 @@ namespace HS.ViewModels
             .AddSingleton<MainViewModel>()
             .AddSingleton<SignInViewModel>()
             .AddSingleton<SignUpViewModel>()
+            .AddSingleton<ViewModelLocator>()
         ;
     }
 }
