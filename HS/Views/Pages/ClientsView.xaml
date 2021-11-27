@@ -3,10 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:fa="http://schemas.fontawesome.com/icons/"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <TextBlock FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" Text="CLIENTS"></TextBlock>
-        <DataGrid ItemsSource="{Binding Clients}"></DataGrid>
-    </Grid>
+    <StackPanel>
+        <DataGrid ItemsSource="{Binding Clients}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Номер" Binding="{Binding PhoneNumber}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Height="50" Width="50" Background="DarkBlue" BorderBrush="DarkBlue">
+            <fa:ImageAwesome Icon="Solid_PlusCircle" Foreground="WhiteSmoke"/>
+        </Button>
+        <Button Height="50" Width="50" Background="DarkBlue" BorderBrush="DarkBlue">
+            <fa:ImageAwesome Icon="Solid_TrashALt" Foreground="WhiteSmoke"/>
+        </Button>
+    </StackPanel>
 </UserControl>

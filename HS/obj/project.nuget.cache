@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "50/tk3jepGu3snS8DhI+JObEuxRDadZTlWN4xCahAMaCCCpjXVj1R+1ArcnEpETQA0t8YCHUn/cxm7Xs4Ck5yw==",
+  "dgSpecHash": "TqlkTaI27ntA1dDzeVs3ocUxXMneK8klZk3M7kIgeMSwxUzevRVX0GsiZhG5KehyBM4caqcpw807nVrHxDUcZQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\ellmac\\Documents\\Projects\\RiderProjects\\HS\\HS\\HS.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\ellmac\\.nuget\\packages\\fontawesome5\\2.1.4\\fontawesome5.2.1.4.nupkg.sha512",
     "C:\\Users\\ellmac\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\ellmac\\.nuget\\packages\\materialdesigncolors\\2.0.3\\materialdesigncolors.2.0.3.nupkg.sha512",
     "C:\\Users\\ellmac\\.nuget\\packages\\materialdesignthemes\\4.2.1\\materialdesignthemes.4.2.1.nupkg.sha512",
