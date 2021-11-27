@@ -39,8 +39,7 @@ namespace HS.Services
                 Password = hashedSaltedPassword,
                 Salt = salt
             };
-            _clients.AddAsync(newClient);
-            return newClient;
+            return _clients.Add(newClient);
         }
 
         public Client SignIn(string rawLogin, string rawPassword)

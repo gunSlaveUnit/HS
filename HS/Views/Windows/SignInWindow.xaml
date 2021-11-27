@@ -17,7 +17,7 @@
         <TextBlock FontSize="20" Text="Welcome Back,"></TextBlock>
         <TextBlock Foreground="DarkGray" FontSize="20" Text="sign in to continue to Hotel"></TextBlock>
         <StackPanel Margin="0 70 0 0">
-            <TextBox md:HintAssist.Hint="Login" FontSize="15" Width="200" Height="30" 
+            <TextBox md:HintAssist.Hint="Login" FontSize="15" Width="200" Height="30" Text="{Binding CurrentUser.Login}"
                      Margin="0 0 0 20" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
             <PasswordBox md:HintAssist.Hint="Password" FontSize="15" Width="200" Height="30"
                      md:TextFieldAssist.UnderlineBrush="DarkBlue"></PasswordBox>
