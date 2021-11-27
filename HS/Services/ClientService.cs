@@ -19,7 +19,7 @@ namespace HS.Services
         {
             _clients = clients;
         }
-        public async Task<Client> SignUp(string surname, string name, string patronymic, 
+        public Client SignUp(string surname, string name, string patronymic, 
             string passport, string phoneNumber, string login,
             string rawPassword)
         {
@@ -39,11 +39,11 @@ namespace HS.Services
                 Password = hashedSaltedPassword,
                 Salt = salt
             };
-            await _clients.AddAsync(newClient);
+            _clients.AddAsync(newClient);
             return newClient;
         }
 
-        public async Task<Client> SignIn(string rawLogin, string rawPassword)
+        public Client SignIn(string rawLogin, string rawPassword)
         {
             string hashedLogin = GetHashString(rawLogin);
             var clients = _clients.All;
