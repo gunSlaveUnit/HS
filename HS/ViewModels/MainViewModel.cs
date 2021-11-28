@@ -20,8 +20,18 @@ namespace HS.ViewModels
         }
         #region Commands
 
-        private ICommand _showClientReservationCommand;
+        private ICommand _showRoomsCommand;
+        
+        public ICommand ShowRoomsCommand => _showRoomsCommand
+            ??= new RelayCommand(OnShowRoomsCommandExecuted, CanShowRoomsCommandExecute);
+        
+        private bool CanShowRoomsCommandExecute(object parameter) => true;
 
+        private void OnShowRoomsCommandExecuted(object parameter)
+            => CurrentViewModel = new RoomsViewModel(_roomsRepository);
+
+        private ICommand _showClientReservationCommand;
+        
         public ICommand ShowClientReservationCommand => _showClientReservationCommand
             ??= new RelayCommand(OnShowClientReservationCommandExecute, CanShowClientReservationCommandExecute);
         
@@ -67,6 +77,7 @@ namespace HS.ViewModels
         #region CurrentViewModel
 
         private ViewModel _currentViewModel;
+        private readonly IRepository<Room> _roomsRepository;
 
         public ViewModel CurrentViewModel
         {
@@ -78,12 +89,12 @@ namespace HS.ViewModels
         
         #endregion
         public MainViewModel(IRepository<Client> clientsRepository,
-            IRepository<Reservation> reservationsRepository)
+            IRepository<Reservation> reservationsRepository,
+            IRepository<Room> roomsRepository)
         {
             _clientsRepository = clientsRepository;
             _reservationsRepository = reservationsRepository;
-            
-            var items = clientsRepository.All.ToArray();
+            _roomsRepository = roomsRepository;
         }
     }
 }

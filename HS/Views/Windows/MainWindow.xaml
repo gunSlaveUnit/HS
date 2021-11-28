@@ -29,6 +29,7 @@
             <RadioButton IsChecked="True" Command="{Binding ShowReservationsViewCommand}" Content="Reservations"></RadioButton>
             <RadioButton Command="{Binding ShowClientsViewCommand}" Content="Clients"></RadioButton>
             <RadioButton Command="{Binding ShowClientReservationCommand}" Content="Reservation"></RadioButton>
+            <RadioButton Command="{Binding ShowRoomsCommand}" Content="Rooms"></RadioButton>
         </StackPanel>
     </DockPanel>
 </Window>
