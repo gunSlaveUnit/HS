@@ -83,4 +83,10 @@ namespace HS.Data
         public override IQueryable<Reservation> All => base.All.Include(e => e.Client);
         public ReservationsRepository(DataContext context) : base(context) {}
     }
+    
+    class RoomsRepository : DbRepository<Room>
+    {
+        public override IQueryable<Room> All => base.All.Include(e => e.RoomType);
+        public RoomsRepository(DataContext context) : base(context) {}
+    }
 }
