@@ -1,6 +1,6 @@
 ﻿using Hotel.Interfaces;
 
-namespace Hotel.Context.Entities.Base
+namespace HS.Context.Entities.Base
 {
     public abstract class Entity : IEntity
     {
