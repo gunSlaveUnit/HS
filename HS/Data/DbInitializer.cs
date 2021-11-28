@@ -18,6 +18,7 @@ namespace HS.Data
 
         public async Task Initialize()
         {
+            //await _context.Database.EnsureDeletedAsync();
             await _context.Database.EnsureCreatedAsync().ConfigureAwait(false);
             await _context.Database.MigrateAsync();
         }
