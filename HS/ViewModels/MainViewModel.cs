@@ -78,8 +78,7 @@ namespace HS.ViewModels
         
         #endregion
         public MainViewModel(IRepository<Client> clientsRepository,
-            IRepository<Reservation> reservationsRepository,
-            IBookingService bookingService)
+            IRepository<Reservation> reservationsRepository)
         {
             _clientsRepository = clientsRepository;
             _reservationsRepository = reservationsRepository;
