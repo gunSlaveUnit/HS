@@ -87,3 +87,5 @@ C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\bin\Debug\net6.0-windows\Microsoft.Xaml.Behaviors.dll
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\bin\Debug\net6.0-windows\FontAwesome5.Net.dll
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\bin\Debug\net6.0-windows\FontAwesome5.dll
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Pages\ReservationView.g.cs
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Pages\ReservationView.baml

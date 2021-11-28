@@ -28,6 +28,7 @@
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
             <RadioButton IsChecked="True" Command="{Binding ShowReservationsViewCommand}" Content="Reservations"></RadioButton>
             <RadioButton Command="{Binding ShowClientsViewCommand}" Content="Clients"></RadioButton>
+            <RadioButton Command="{Binding ShowClientReservationCommand}" Content="Reservation"></RadioButton>
         </StackPanel>
     </DockPanel>
 </Window>

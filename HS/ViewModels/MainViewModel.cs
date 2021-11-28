@@ -20,6 +20,17 @@ namespace HS.ViewModels
         }
         #region Commands
 
+        private ICommand _showClientReservationCommand;
+
+        public ICommand ShowClientReservationCommand => _showClientReservationCommand
+            ??= new RelayCommand(OnShowClientReservationCommandExecute, CanShowClientReservationCommandExecute);
+        
+        private bool CanShowClientReservationCommandExecute(object parameter) => true;
+
+        private void OnShowClientReservationCommandExecute(object parameter)
+            => CurrentViewModel = new ReservationViewModel(_reservationsRepository);
+
+
         #region ShowClientsView
 
         private ICommand _showClientsViewCommand;
