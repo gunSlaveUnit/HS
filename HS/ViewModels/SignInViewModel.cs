@@ -59,6 +59,7 @@ namespace HS.ViewModels
 
         private void OnOpenNewSignUpWindowCommandExecuted(object p)
         {
+            //TODO: It works, but it is not good in MVVM architecture
             var newUserWindow = new SignUpWindow();
             newUserWindow.Owner = Application.Current.MainWindow;
             newUserWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
