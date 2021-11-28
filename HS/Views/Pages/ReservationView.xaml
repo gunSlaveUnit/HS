@@ -10,7 +10,8 @@
         <TextBlock Text="Your reservation was displayed here"></TextBlock>
         <TextBlock Text="Oh, nothing to show("></TextBlock>
         <TextBlock Text="Do you want to make it?"></TextBlock>
-        <Button Height="50" Width="50" Background="DarkBlue" BorderBrush="DarkBlue">
+        <Button Height="50" Width="50" Background="DarkBlue" BorderBrush="DarkBlue"
+                Command="{Binding MakeReservationCommand}">
             <fa:ImageAwesome Icon="Solid_PlusCircle" Foreground="WhiteSmoke"/>
         </Button>
     </StackPanel>

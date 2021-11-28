@@ -1,5 +1,7 @@
-﻿using Hotel.Context.Entities;
+﻿using System.Windows.Input;
+using Hotel.Context.Entities;
 using Hotel.Interfaces;
+using HS.Infrastructure.Commands.Base;
 using HS.ViewModels.Base;
 
 namespace HS.ViewModels
@@ -15,6 +17,18 @@ namespace HS.ViewModels
         {
             get => _currentUser;
             set => Set(ref _currentUser, value);
+        }
+        
+        private ICommand _makeReservationCommand;
+
+        public ICommand MakeReservationCommand => _makeReservationCommand
+            ??= new RelayCommand(OnMakeReservationCommandExecuted, CanMakeReservationCommandExecute);
+        
+        private bool CanMakeReservationCommandExecute(object parameter) => true;
+
+        private void OnMakeReservationCommandExecuted(object parameter)
+        {
+            
         }
 
         public ReservationViewModel(ViewModelLocator locator,
