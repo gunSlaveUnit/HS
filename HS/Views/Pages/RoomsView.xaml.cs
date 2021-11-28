@@ -2,9 +2,9 @@
 
 namespace HS.Views.Pages
 {
-    public partial class ApartmentsView : UserControl
+    public partial class RoomsView : UserControl
     {
-        public ApartmentsView()
+        public RoomsView()
         {
             InitializeComponent();
         }
