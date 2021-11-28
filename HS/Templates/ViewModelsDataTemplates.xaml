@@ -11,4 +11,7 @@
     <DataTemplate DataType="{x:Type vm:ReservationViewModel}">
         <v:ReservationView DataContext="{Binding}"></v:ReservationView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ApartmentsViewModel}">
+        <v:ApartmentsView DataContext="{Binding}"></v:ApartmentsView>
+    </DataTemplate>
 </ResourceDictionary>
