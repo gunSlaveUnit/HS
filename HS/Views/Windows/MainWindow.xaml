@@ -23,10 +23,6 @@
         </Grid>
         <StatusBar DockPanel.Dock="Bottom">
             <StatusBarItem>
-                <TextBox Text="{Binding CurrentUser.Surname}"></TextBox>
-            </StatusBarItem>
-            <StatusBarItem>
-                <TextBox Text="{Binding CurrentUser.Name}"></TextBox>
             </StatusBarItem>
         </StatusBar>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">

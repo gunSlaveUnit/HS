@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using Hotel;
 using Hotel.Context.Entities;
 using Hotel.Views.Windows;
 using HS.Infrastructure.Commands.Base;
@@ -38,8 +39,14 @@ namespace HS.ViewModels
 
         private void OnSignInCommandExecuted(object p)
         {
+            //TODO: It works, but it is not good in MVVM architecture
             var item = _clientService.SignIn(Login, Password);
             _locator.MainViewModel.CurrentUser = item;
+            MainWindow mw = new MainWindow();
+            Application.Current.MainWindow.Close();
+            Application.Current.MainWindow = mw;
+            mw.DataContext = _locator.MainViewModel;
+            mw.Show();
         }
 
         private bool CanSignInCommandExecute(object p) => true;
