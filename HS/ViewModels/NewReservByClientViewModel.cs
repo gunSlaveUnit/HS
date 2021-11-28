@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows.Input;
-using Hotel.Context.Entities;
 using HS.Infrastructure.Commands.Base;
 using HS.Services;
 using HS.ViewModels.Base;

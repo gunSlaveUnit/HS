@@ -1,9 +1,8 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using HS.Context.Entities.Base;
 
-namespace Hotel.Context.Entities
+namespace HS.Context.Entities
 {
     public class Reservation : Entity
     {

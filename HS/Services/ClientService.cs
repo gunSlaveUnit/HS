@@ -2,8 +2,8 @@
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using Hotel.Context.Entities;
 using Hotel.Interfaces;
+using HS.Context.Entities;
 
 namespace HS.Services
 {

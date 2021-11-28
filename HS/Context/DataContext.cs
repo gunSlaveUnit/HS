@@ -1,6 +1,5 @@
-﻿using Hotel.Context.Entities;
+﻿using HS.Context.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 
 namespace HS.Context
 {

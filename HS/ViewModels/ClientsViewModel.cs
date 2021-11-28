@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
-using Hotel.Context.Entities;
 using Hotel.Interfaces;
+using HS.Context.Entities;
 using HS.ViewModels.Base;
 
 namespace HS.ViewModels

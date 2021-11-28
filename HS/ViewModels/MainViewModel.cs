@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Input;
-using Hotel.Context.Entities;
 using Hotel.Interfaces;
+using HS.Context.Entities;
 using HS.Infrastructure.Commands.Base;
 using HS.Services;
 using HS.ViewModels.Base;

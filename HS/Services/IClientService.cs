@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using Hotel.Context.Entities;
+using HS.Context.Entities;
 
 namespace HS.Services
 {

@@ -2,9 +2,9 @@
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using Hotel.Context.Entities;
 using Hotel.Interfaces;
 using HS.Context;
+using HS.Context.Entities;
 using HS.Context.Entities.Base;
 using Microsoft.EntityFrameworkCore;
 

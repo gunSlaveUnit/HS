@@ -1,5 +1,5 @@
-﻿using Hotel.Context.Entities;
-using Hotel.Interfaces;
+﻿using Hotel.Interfaces;
+using HS.Context.Entities;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace HS.Data

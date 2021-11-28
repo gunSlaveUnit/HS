@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using HS.Context.Entities.Base;
 
-namespace Hotel.Context.Entities
+namespace HS.Context.Entities
 {
     public class Client : Entity
     {

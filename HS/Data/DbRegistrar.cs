@@ -1,6 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
-using Hotel.Context;
 using HS.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
