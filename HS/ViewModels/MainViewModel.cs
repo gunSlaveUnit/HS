@@ -28,7 +28,7 @@ namespace HS.ViewModels
         private bool CanShowClientReservationCommandExecute(object parameter) => true;
 
         private void OnShowClientReservationCommandExecute(object parameter)
-            => CurrentViewModel = new ReservationViewModel(_reservationsRepository);
+            => CurrentViewModel = new ReservationViewModel(new ViewModelLocator(), _reservationsRepository);
 
 
         #region ShowClientsView
