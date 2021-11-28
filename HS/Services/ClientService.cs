@@ -23,9 +23,9 @@ namespace HS.Services
             string rawPassword)
         {
             string salt = GenerateRandomString(10);
-            string saltedLogin = login + salt;
+            //string saltedLogin = login + salt;
             string saltedPassword = rawPassword + salt;
-            string hashedSaltedLogin = GetHashString(saltedLogin);
+            //string hashedSaltedLogin = GetHashString(saltedLogin);
             string hashedSaltedPassword = GetHashString(saltedPassword);
             var newClient = new Client()
             {
@@ -34,7 +34,7 @@ namespace HS.Services
                 Patronymic = patronymic,
                 Passport = passport,
                 PhoneNumber = phoneNumber,
-                Login = hashedSaltedLogin,
+                Login = login,
                 Password = hashedSaltedPassword,
                 Salt = salt
             };
