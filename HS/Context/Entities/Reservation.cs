@@ -12,5 +12,7 @@ namespace HS.Context.Entities
         public DateTime DepartureDate { get; set; }
         public int ClientId { get; set; }
         public virtual Client Client { get; set; }
+        public int RoomId { get; set; }
+        public virtual Room RoomType { get; set; }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using HS.Context.Entities.Base;
 
 namespace HS.Context.Entities
@@ -9,5 +10,6 @@ namespace HS.Context.Entities
         public int Number { get; set; }
         public int RoomTypeId { get; set; }
         public virtual RoomType RoomType { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }
