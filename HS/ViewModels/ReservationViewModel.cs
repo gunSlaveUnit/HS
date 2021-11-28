@@ -1,9 +1,11 @@
-﻿using System.Windows.Input;
+﻿using System.Windows;
+using System.Windows.Input;
 using Hotel.Context.Entities;
 using Hotel.Interfaces;
 using HS.Infrastructure.Commands.Base;
 using HS.Services;
 using HS.ViewModels.Base;
+using HS.Views.Windows.Creation;
 
 namespace HS.ViewModels
 {
@@ -29,7 +31,11 @@ namespace HS.ViewModels
 
         private void OnMakeReservationCommandExecuted(object parameter)
         {
-            
+            //TODO: It works, but it is not good in MVVM architecture
+            var newReservationByClientWindow = new NewReservationByClient();
+            newReservationByClientWindow.Owner = Application.Current.MainWindow;
+            newReservationByClientWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            newReservationByClientWindow.ShowDialog();
         }
 
         public ReservationViewModel(ViewModelLocator locator,

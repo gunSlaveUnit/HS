@@ -1,0 +1,30 @@
+﻿<Window x:Class="HS.Views.Windows.Creation.NewReservationByClient"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{Binding NewReservByClientViewModel, Source={StaticResource Locator}}"
+        Title="Create a reservation" Height="600" Width="400" WindowStartupLocation="CenterScreen">
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="Q" 
+                    Command="{StaticResource CloseAppCommand}"/>
+    </Window.InputBindings>
+    <StackPanel Margin="10" VerticalAlignment="Center"
+                Width="300">
+        <TextBlock FontSize="30" Text="Hotel"></TextBlock>
+        <TextBlock FontSize="15" Text="I see you want to check in with us"></TextBlock>
+        <TextBlock Foreground="DarkGray" FontSize="15" Text="Let's arrange it"></TextBlock>
+        
+        <StackPanel Margin="0 20 0 0">
+            <TextBox md:HintAssist.Hint="Surname" FontSize="15" Width="200" Text="{Binding Surname}"
+                     Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+            <TextBox md:HintAssist.Hint="Name" FontSize="15" Width="200" Text="{Binding Name}"
+                     Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+            
+            <Button Command="{Binding SignUpCommand}" Background="DarkBlue" BorderBrush="DarkBlue" Width="120" Margin="0 30 0 0" 
+                    FontSize="20" Content="Sign Up" Height="40" Foreground="WhiteSmoke"/>
+        </StackPanel>
+    </StackPanel>
+</Window>
