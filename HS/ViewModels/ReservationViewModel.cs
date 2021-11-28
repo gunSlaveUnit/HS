@@ -2,6 +2,7 @@
 using Hotel.Context.Entities;
 using Hotel.Interfaces;
 using HS.Infrastructure.Commands.Base;
+using HS.Services;
 using HS.ViewModels.Base;
 
 namespace HS.ViewModels
@@ -9,6 +10,7 @@ namespace HS.ViewModels
     public class ReservationViewModel : ViewModel
     {
         private IRepository<Reservation> _reservationsRepository;
+        private IBookingService _bookingService;
         private readonly ViewModelLocator _locator;
         
         private Client _currentUser;
@@ -20,7 +22,6 @@ namespace HS.ViewModels
         }
         
         private ICommand _makeReservationCommand;
-
         public ICommand MakeReservationCommand => _makeReservationCommand
             ??= new RelayCommand(OnMakeReservationCommandExecuted, CanMakeReservationCommandExecute);
         
@@ -35,6 +36,7 @@ namespace HS.ViewModels
             IRepository<Reservation> reservationsRepository)
         {
             _locator = locator;
+            _bookingService = new BookingService(reservationsRepository);
             CurrentUser = _locator.MainViewModel.CurrentUser;
             _reservationsRepository = reservationsRepository;
         }
