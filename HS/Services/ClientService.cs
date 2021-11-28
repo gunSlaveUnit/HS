@@ -2,7 +2,6 @@
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using Hotel.Context.Entities;
 using Hotel.Interfaces;
 
@@ -44,7 +43,6 @@ namespace HS.Services
 
         public Client SignIn(string rawLogin, string rawPassword)
         {
-            string hashedLogin = GetHashString(rawLogin);
             var clients = _clients.All;
             var client = clients.FirstOrDefault(c => c.Login == rawLogin);
             if (client == null) return null!;

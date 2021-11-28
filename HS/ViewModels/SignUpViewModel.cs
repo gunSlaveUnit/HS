@@ -90,9 +90,8 @@ namespace HS.ViewModels
 
         #endregion
         
-        public SignUpViewModel(IClientService clientService, ViewModelLocator locator)
+        public SignUpViewModel(IClientService clientService)
         {
-            _locator = locator;
             _clientService = clientService;
             SignUpCommand = new RelayCommand(OnSignUpCommandExecuted, CanSignUpCommandExecute);
         }

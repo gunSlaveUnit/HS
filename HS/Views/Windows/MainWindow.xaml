@@ -22,7 +22,12 @@
             <ContentControl Content="{Binding CurrentViewModel}"></ContentControl>
         </Grid>
         <StatusBar DockPanel.Dock="Bottom">
-            <StatusBarItem>Добавлен новый клиент</StatusBarItem>
+            <StatusBarItem>
+                <TextBox Text="{Binding CurrentUser.Surname}"></TextBox>
+            </StatusBarItem>
+            <StatusBarItem>
+                <TextBox Text="{Binding CurrentUser.Name}"></TextBox>
+            </StatusBarItem>
         </StatusBar>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
             <RadioButton IsChecked="True" Command="{Binding ShowReservationsViewCommand}" Content="Reservations"></RadioButton>

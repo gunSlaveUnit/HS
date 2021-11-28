@@ -3,15 +3,48 @@ using System.Windows.Input;
 using Hotel.Context.Entities;
 using Hotel.Views.Windows;
 using HS.Infrastructure.Commands.Base;
+using HS.Services;
 using HS.ViewModels.Base;
 
 namespace HS.ViewModels
 {
     public class SignInViewModel : ViewModel
     {
-        //            _locator.SignInViewModel.CurrentUser = currentClient;
+        private string _login;
+
+        public string Login
+        {
+            get => _login;
+            set => Set(ref _login, value);
+        }
+        
+        private string _password;
+
+        public string Password
+        {
+            get => _password;
+            set => Set(ref _password, value);
+        }
+        
+        private readonly ViewModelLocator _locator;
+
+        private readonly IClientService _clientService;
 
         #region Commands
+
+        #region SignIn
+
+        public ICommand SignInCommand { get; }
+
+        private void OnSignInCommandExecuted(object p)
+        {
+            var item = _clientService.SignIn(Login, Password);
+            _locator.MainViewModel.CurrentUser = item;
+        }
+
+        private bool CanSignInCommandExecute(object p) => true;
+
+        #endregion
 
         #region NewUser
 
@@ -31,12 +64,16 @@ namespace HS.ViewModels
 
         #endregion
 
-        public SignInViewModel()
+        public SignInViewModel(IClientService clientService, ViewModelLocator locator)
         {
+            _clientService = clientService;
+            _locator = locator;
             #region CommandsInit
 
             OpenNewSignUpWindowCommand =
                 new RelayCommand(OnOpenNewSignUpWindowCommandExecuted, CanOpenNewSignUpWindowCommandExecute);
+            SignInCommand =
+                new RelayCommand(OnSignInCommandExecuted, CanSignInCommandExecute);
             
             #endregion
         }
