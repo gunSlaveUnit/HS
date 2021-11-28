@@ -9,6 +9,7 @@ namespace HS.Data
         public static IServiceCollection AddRepositories(this IServiceCollection services) => services
             .AddTransient<IRepository<Client>, ClientsRepository>()
             .AddTransient<IRepository<Reservation>, ReservationsRepository>()
+            .AddTransient<IRepository<Room>, RoomsRepository>()
         ;
     }
 }
