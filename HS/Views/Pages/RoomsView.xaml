@@ -3,11 +3,14 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:entities="clr-namespace:HS.Context.Entities"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <ListBox ItemsSource="{Binding Rooms}">
-        <ListBoxItem>
-            <TextBlock Text="{Binding Title}"></TextBlock>
-        </ListBoxItem>
+    <ListBox ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}">
+        <ListBox.ItemTemplate>
+            <DataTemplate DataType="entities:Room">
+                <TextBlock Text="{Binding Number}"></TextBlock>
+            </DataTemplate>
+        </ListBox.ItemTemplate>
     </ListBox>
 </UserControl>
