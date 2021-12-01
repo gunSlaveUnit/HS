@@ -11,6 +11,14 @@ namespace HS.ViewModels
 {
     public class MainViewModel : ViewModel
     {
+        private DateTime _date;
+
+        public DateTime Date
+        {
+            get => _date;
+            set => Set(ref _date, value);
+        }
+        
         private Client _currentUser;
 
         public Client CurrentUser
@@ -95,6 +103,8 @@ namespace HS.ViewModels
             _clientsRepository = clientsRepository;
             _reservationsRepository = reservationsRepository;
             _roomsRepository = roomsRepository;
+            
+            Date = DateTime.Now;
         }
     }
 }

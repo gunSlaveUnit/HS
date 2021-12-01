@@ -21,8 +21,8 @@
         <Grid DockPanel.Dock="Top">
             <ContentControl Content="{Binding CurrentViewModel}"></ContentControl>
         </Grid>
-        <StatusBar DockPanel.Dock="Bottom">
-            <StatusBarItem>
+        <StatusBar DockPanel.Dock="Bottom" Background="White">
+            <StatusBarItem HorizontalAlignment="Center" Content="{Binding Date}">
             </StatusBarItem>
         </StatusBar>
         <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
