@@ -91,4 +91,10 @@ namespace HS.Data
         public override IQueryable<Room> All => base.All.Include(e => e.RoomType);
         public RoomsRepository(DataContext context) : base(context) {}
     }
+    
+    class RoomTypesRepository : DbRepository<RoomType>
+    {
+        public override IQueryable<RoomType> All => base.All.Include(e => e.Rooms);
+        public RoomTypesRepository(DataContext context) : base(context) {}
+    }
 }
