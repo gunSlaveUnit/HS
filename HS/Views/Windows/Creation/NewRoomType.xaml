@@ -1,0 +1,34 @@
+﻿<Window x:Class="HS.Views.Windows.Creation.NewRoomType"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d"
+        DataContext="{Binding NewRoomTypeViewModel, Source={StaticResource Locator}}"
+        Title="Create a room type" Height="600" Width="400" WindowStartupLocation="CenterScreen">
+    <Window.InputBindings>
+        <KeyBinding Modifiers="Control" Key="Q" 
+                    Command="{StaticResource CloseAppCommand}"/>
+    </Window.InputBindings>
+    <StackPanel Margin="20" VerticalAlignment="Center"
+                Width="300">
+        <TextBlock FontSize="40" Text="Hotel"></TextBlock>
+        <TextBlock FontSize="20" Text="Add a new type of room for the comfort of our clients"></TextBlock>
+        <StackPanel Margin="0 70 0 0">
+            <TextBox md:HintAssist.Hint="Title" FontSize="15" Width="200" Text="{Binding Title}"
+                     Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+            <TextBox md:HintAssist.Hint="Capacity" FontSize="15" Width="200" Text="{Binding Capacity}"
+                     Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+            <TextBox md:HintAssist.Hint="Cost per hour" FontSize="15" Width="200" Text="{Binding CostPerHour}"
+                     Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+            <TextBox md:HintAssist.Hint="Cost per day" FontSize="15" Width="200" Text="{Binding CostPerDay}"
+                     Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+            <TextBox md:HintAssist.Hint="Description" FontSize="15" Width="200" Text="{Binding Description}"
+                     Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+            <Button Background="DarkBlue" BorderBrush="DarkBlue" 
+                    Width="120" Margin="0 50 0 0" Command="{Binding CreateNewRoomTypeCommand}"
+                    FontSize="20" Content="Create" Height="40" Foreground="WhiteSmoke"/>
+        </StackPanel>
+    </StackPanel>
+</Window>

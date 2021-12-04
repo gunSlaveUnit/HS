@@ -93,3 +93,5 @@ C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\NewReservationByClient.g.cs
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Pages\RoomsView.g.cs
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Pages\RoomsView.baml
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\NewRoomType.baml
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\NewRoomType.g.cs
