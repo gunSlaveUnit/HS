@@ -1,0 +1,18 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:entities="clr-namespace:HS.Context.Entities">
+    <DataTemplate x:Key="RoomDataTemplate" DataType="entities:Room">
+        <Border Width="300" Height="200">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
+                    <GradientStop Color="Navy" Offset="0.0"></GradientStop>
+                    <GradientStop Color="Aqua" Offset="1"></GradientStop>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Border.Clip>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0, 0, 300, 200"></RectangleGeometry>
+            </Border.Clip>
+            <TextBlock Text="{Binding Number}"></TextBlock>
+        </Border>
+    </DataTemplate>
+</ResourceDictionary>

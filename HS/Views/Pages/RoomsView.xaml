@@ -19,13 +19,13 @@
                 </Button.Content>
             </Button>
         </UniformGrid>
-        <ListBox ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}">
-            <ListBox.ItemTemplate>
-                <DataTemplate DataType="entities:Room">
-                    <TextBlock Text="{Binding Number}"></TextBlock>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListView DockPanel.Dock="Top" ItemTemplate="{StaticResource RoomDataTemplate}" ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}">
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+        </ListView>
     </DockPanel>
     
 </UserControl>

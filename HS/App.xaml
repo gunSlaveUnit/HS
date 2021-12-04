@@ -12,6 +12,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
                 <ResourceDictionary Source="../../Templates/ViewModelsDataTemplates.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="../../Templates/RoomDataTemplate.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
              
             <commands:CloseAppCommand x:Key="CloseAppCommand"/>
