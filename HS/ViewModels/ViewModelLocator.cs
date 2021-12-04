@@ -8,5 +8,6 @@ namespace HS.ViewModels
         public SignInViewModel SignInViewModel => App.Services.GetRequiredService<SignInViewModel>();
         public SignUpViewModel SignUpViewModel => App.Services.GetRequiredService<SignUpViewModel>();
         public NewReservByClientViewModel NewReservByClientViewModel => App.Services.GetRequiredService<NewReservByClientViewModel>();
+        public NewRoomTypeViewModel NewRoomTypeViewModel => App.Services.GetRequiredService<NewRoomTypeViewModel>();
     }
 }
