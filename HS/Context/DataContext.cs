@@ -7,6 +7,8 @@ namespace HS.Context
     {
         private DbSet<Client> Clients { get; set; }
         private DbSet<Reservation> Reservations { get; set; }
+        private DbSet<Room> Rooms { get; set; }
+        private DbSet<RoomType> RoomTypes { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
