@@ -9,25 +9,13 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
         <UniformGrid DockPanel.Dock="Bottom">
-            <Button Height="50" Width="50" Background="DarkBlue" BorderBrush="DarkBlue"
-                    Command="{Binding MakeReservationCommand}">
-                <fa5:ImageAwesome Icon="Solid_PlusCircle" Foreground="WhiteSmoke"/>
-            </Button>
-            <Button Command="{Binding CreateNewRoomTypeCommand}">
-                <Button.Content>
-                    <TextBlock Text="Add room type"></TextBlock>
-                </Button.Content>
-            </Button>
-            <Button>
-                <Button.Content>
-                    <TextBlock Text="Delete"></TextBlock>
-                </Button.Content>
-            </Button>
+            
         </UniformGrid>
-        <ListView DockPanel.Dock="Top" ItemTemplate="{StaticResource RoomDataTemplate}" ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}">
+        <ListView Name="RoomsListView" DockPanel.Dock="Top" ItemTemplate="{StaticResource RoomDataTemplate}" 
+                  ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel HorizontalAlignment="Center"></WrapPanel>
+                    <WrapPanel Name="RoomsWrapPanel" Width="1480" HorizontalAlignment="Center"></WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>

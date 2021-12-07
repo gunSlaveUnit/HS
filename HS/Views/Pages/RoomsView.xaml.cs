@@ -7,6 +7,11 @@ namespace HS.Views.Pages
         public RoomsView()
         {
             InitializeComponent();
+            ColorfulRoomsDependType();
+        }
+
+        public void ColorfulRoomsDependType()
+        {
         }
     }
 }

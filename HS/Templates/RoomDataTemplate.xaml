@@ -3,7 +3,7 @@
                     xmlns:fa="http://schemas.fontawesome.com/icons/"
                     xmlns:entities="clr-namespace:HS.Context.Entities">
     <DataTemplate x:Key="RoomDataTemplate" DataType="entities:Room">
-        <Border Width="250" Height="200">
+        <Border Width="270" Height="220">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="Navy" Offset="0.0"></GradientStop>
@@ -28,7 +28,7 @@
                                    FontSize="20" Foreground="WhiteSmoke">
                         </TextBlock>
                     </Border>
-                    <fa:FontAwesome Icon="Solid_Bookmark" DockPanel.Dock="Right"
+                    <fa:FontAwesome Icon="Solid_Bed" DockPanel.Dock="Right" Height="50"
                                     Foreground="WhiteSmoke">
                     </fa:FontAwesome>
                 </DockPanel>
