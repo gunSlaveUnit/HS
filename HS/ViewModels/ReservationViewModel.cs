@@ -22,21 +22,6 @@ namespace HS.ViewModels
             get => _currentUser;
             set => Set(ref _currentUser, value);
         }
-        
-        private ICommand _makeReservationCommand;
-        public ICommand MakeReservationCommand => _makeReservationCommand
-            ??= new RelayCommand(OnMakeReservationCommandExecuted, CanMakeReservationCommandExecute);
-        
-        private bool CanMakeReservationCommandExecute(object parameter) => true;
-
-        private void OnMakeReservationCommandExecuted(object parameter)
-        {
-            //TODO: It works, but it is not good in MVVM architecture
-            var newReservationByClientWindow = new NewReservationByClient();
-            newReservationByClientWindow.Owner = Application.Current.MainWindow;
-            newReservationByClientWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
-            newReservationByClientWindow.ShowDialog();
-        }
 
         public ReservationViewModel(ViewModelLocator locator,
             IRepository<Reservation> reservationsRepository)
