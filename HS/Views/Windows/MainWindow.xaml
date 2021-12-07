@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -30,7 +29,7 @@
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Height="90"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             
@@ -48,13 +47,20 @@
                                  Content="Комнаты" Height="65"
                                  FontSize="16" Foreground="GhostWhite"
                                  Style="{StaticResource MenuItem}"></RadioButton>
+                    <RadioButton Command="{Binding }"
+                                 Content="Услуги" Height="65"
+                                 FontSize="16" Foreground="GhostWhite"
+                                 Style="{StaticResource MenuItem}"></RadioButton>
+                    <RadioButton Command="{Binding ShowClientReservationCommand}"
+                                 Content="Бронь" Height="65"
+                                 FontSize="16" Foreground="GhostWhite"
+                                 Style="{StaticResource MenuItem}"></RadioButton>
                 </StackPanel>
                 <StatusBar DockPanel.Dock="Bottom" Background="#0a0a0a" Foreground="GhostWhite"> 
                     <StatusBarItem HorizontalAlignment="Center" Content="{Binding Date}">
                     </StatusBarItem>
                 </StatusBar>
             </DockPanel>
-            
             <ContentControl Grid.Column="1" Grid.Row="1" Margin="20" Content="{Binding CurrentViewModel}"></ContentControl>
         </Grid>
     </Border>
