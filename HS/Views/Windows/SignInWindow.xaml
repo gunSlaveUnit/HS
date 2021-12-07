@@ -10,6 +10,8 @@
     <Window.InputBindings>
         <KeyBinding Modifiers="Control" Key="Q" 
                     Command="{StaticResource CloseAppCommand}"/>
+        <KeyBinding Key="Enter" 
+                    Command="{Binding SignInCommand}"/>
     </Window.InputBindings>
     <StackPanel Margin="20" VerticalAlignment="Center"
                 Width="300">
