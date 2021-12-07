@@ -32,6 +32,21 @@ namespace HS.ViewModels
         }
         
         #endregion
+        
+        private ICommand _makeReservationCommand;
+        public ICommand MakeReservationCommand => _makeReservationCommand
+            ??= new RelayCommand(OnMakeReservationCommandExecuted, CanMakeReservationCommandExecute);
+        
+        private bool CanMakeReservationCommandExecute(object parameter) => true;
+
+        private void OnMakeReservationCommandExecuted(object parameter)
+        {
+            //TODO: It works, but it is not good in MVVM architecture
+            var newReservationByClientWindow = new NewReservationByClient();
+            newReservationByClientWindow.Owner = Application.Current.MainWindow;
+            newReservationByClientWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            newReservationByClientWindow.ShowDialog();
+        }
 
         #endregion
         private IRepository<Room> _roomsRepository;
