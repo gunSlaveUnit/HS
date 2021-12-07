@@ -5,20 +5,75 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:entities="clr-namespace:HS.Context.Entities"
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <DockPanel>
-        <UniformGrid DockPanel.Dock="Bottom">
-            
-        </UniformGrid>
-        <ListView Name="RoomsListView" DockPanel.Dock="Top" ItemTemplate="{StaticResource RoomDataTemplate}" 
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1200"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <ListView Grid.Column="0" Grid.Row="0" Name="RoomsListView" DockPanel.Dock="Top" ItemTemplate="{StaticResource RoomDataTemplate}" 
                   ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}">
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Name="RoomsWrapPanel" Width="1480" HorizontalAlignment="Center"></WrapPanel>
+                    <WrapPanel Name="RoomsWrapPanel" Width="1160" HorizontalAlignment="Center"></WrapPanel>
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
         </ListView>
-    </DockPanel>
+        
+        <StackPanel Grid.Column="1" Grid.Row="0">
+                <Border  BorderBrush="#1a1a1a" BorderThickness="2" VerticalAlignment="Top"
+                    Width="260" Height="600" CornerRadius="20" Margin="0 0 20 0">
+                <StackPanel>
+                    <TextBlock Text="Цена" FontSize="25" Margin="0 5 20 0"
+                               Foreground="GhostWhite" HorizontalAlignment="Center"></TextBlock>
+                    
+                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5">
+                        <TextBox materialDesign:HintAssist.Hint="Минимальная" FontSize="15" HorizontalContentAlignment="Center"
+                                 HorizontalAlignment="Center" Foreground="GhostWhite"></TextBox>
+                    </Border>
+                    
+                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
+                        <TextBox materialDesign:HintAssist.Hint="Минимальная" FontSize="15" HorizontalContentAlignment="Center"
+                                 HorizontalAlignment="Center" Foreground="GhostWhite"></TextBox>
+                    </Border>
+                    
+                    <TextBlock Text="Даты" FontSize="25" Margin="0 15 20 0"
+                               Foreground="GhostWhite" HorizontalAlignment="Center"></TextBlock>
+                    
+                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
+                        <DatePicker materialDesign:HintAssist.Hint="Въезд" Foreground="GhostWhite" Width="80"
+                                    HorizontalContentAlignment="Center" FontSize="15"></DatePicker> 
+                    </Border>
+                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
+                        <DatePicker materialDesign:HintAssist.Hint="Выезд" Foreground="GhostWhite" Width="80"
+                                    HorizontalContentAlignment="Center" FontSize="15"></DatePicker> 
+                    </Border>
+                    
+                    <TextBlock Text="Время пребывания" FontSize="25" Margin="0 15 20 0"
+                               Foreground="GhostWhite" HorizontalAlignment="Center"></TextBlock>
+                    
+                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
+                        <TextBox materialDesign:HintAssist.Hint="Сколько" FontSize="15" HorizontalContentAlignment="Center"
+                                 HorizontalAlignment="Center" Foreground="GhostWhite"></TextBox> 
+                    </Border>
+                    
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
+                        <RadioButton Content="Часов" Foreground="GhostWhite" 
+                                     FontSize="15" Margin="0 0 10 0"></RadioButton>
+                        <RadioButton Content="Дней" Foreground="GhostWhite" FontSize="15" IsChecked="True"></RadioButton>
+                    </StackPanel>
+                    
+                    <Button Content="Найти" Width="120" Height="50" Foreground="GhostWhite" VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center"/> 
+                    </StackPanel>
+                </Border>
+                
+                <Button Content="Забронировать" Width="180" Height="50" Margin="10" HorizontalAlignment="Center"></Button>
+                <TextBlock Text="* Для бронирования выберите одну из комнат *" FontSize="10" HorizontalAlignment="Center" Foreground="DarkGray"></TextBlock>
+            </StackPanel>
+    </Grid>
     
 </UserControl>
