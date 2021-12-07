@@ -4,32 +4,58 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1200"
-        WindowStartupLocation="CenterScreen">
+        Title="MainWindow"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None" WindowState="Maximized" ResizeMode="NoResize" Background="Transparent"
+        AllowsTransparency="True">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding ShowReservationsViewCommand}"/>
+            <i:InvokeCommandAction Command="{Binding ShowRoomsCommand}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
+    
     <Window.InputBindings>
         <KeyBinding Modifiers="Control" Key="Q" 
                     Command="{StaticResource CloseAppCommand}"/>
     </Window.InputBindings>
-    <DockPanel LastChildFill="False">
-        <Grid DockPanel.Dock="Top">
-            <ContentControl Content="{Binding CurrentViewModel}"></ContentControl>
+    
+    <Border Background="#0a0a0a">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="310"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <fa:ImageAwesome Grid.Column="0" Grid.Row="0" Foreground="GhostWhite" HorizontalAlignment="Center"
+                             Margin="5"
+                             VerticalAlignment="Bottom"
+                             Icon="Solid_Anchor" Height="40"/>
+            
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="60 50 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"
+                       Style="{StaticResource SearchBox}"/>
+            
+            <DockPanel Grid.Row="1" Grid.Column="0" Margin="10 25 10 0" LastChildFill="False">
+                <StackPanel DockPanel.Dock="Top">
+                    <RadioButton Command="{Binding ShowRoomsCommand}" IsChecked="True"
+                                 Content="Комнаты" Height="65"
+                                 FontSize="16" Foreground="GhostWhite"
+                                 Style="{StaticResource MenuItem}"></RadioButton>
+                </StackPanel>
+                <StatusBar DockPanel.Dock="Bottom" Background="#0a0a0a" Foreground="GhostWhite"> 
+                    <StatusBarItem HorizontalAlignment="Center" Content="{Binding Date}">
+                    </StatusBarItem>
+                </StatusBar>
+            </DockPanel>
+            
+            <ContentControl Grid.Column="1" Grid.Row="1" Margin="20" Content="{Binding CurrentViewModel}"></ContentControl>
         </Grid>
-        <StatusBar DockPanel.Dock="Bottom" Background="White">
-            <StatusBarItem HorizontalAlignment="Center" Content="{Binding Date}">
-            </StatusBarItem>
-        </StatusBar>
-        <StackPanel DockPanel.Dock="Bottom" Orientation="Horizontal" HorizontalAlignment="Center">
-            <RadioButton IsChecked="True" Command="{Binding ShowReservationsViewCommand}" Content="Reservations"></RadioButton>
-            <RadioButton Command="{Binding ShowClientsViewCommand}" Content="Clients"></RadioButton>
-            <RadioButton Command="{Binding ShowClientReservationCommand}" Content="Reservation"></RadioButton>
-            <RadioButton Command="{Binding ShowRoomsCommand}" Content="Rooms"></RadioButton>
-        </StackPanel>
-    </DockPanel>
+    </Border>
 </Window>

@@ -96,3 +96,5 @@ C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\NewRoomType.baml
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\NewRoomType.g.cs
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Templates\RoomDataTemplate.baml
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Templates\Themes\MenuItem.baml
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Templates\Themes\SearchBox.baml
