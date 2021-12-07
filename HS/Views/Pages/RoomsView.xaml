@@ -4,10 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:entities="clr-namespace:HS.Context.Entities"
+             xmlns:fa5="http://schemas.fontawesome.com/icons/"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
         <UniformGrid DockPanel.Dock="Bottom">
+            <Button Height="50" Width="50" Background="DarkBlue" BorderBrush="DarkBlue"
+                    Command="{Binding MakeReservationCommand}">
+                <fa5:ImageAwesome Icon="Solid_PlusCircle" Foreground="WhiteSmoke"/>
+            </Button>
             <Button Command="{Binding CreateNewRoomTypeCommand}">
                 <Button.Content>
                     <TextBlock Text="Add room type"></TextBlock>
