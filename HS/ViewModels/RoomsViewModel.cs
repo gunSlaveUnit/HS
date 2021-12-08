@@ -106,6 +106,8 @@ namespace HS.ViewModels
             _roomsRepository = roomsRepository;
             var rooms = _roomsRepository.All;
             Rooms = new ObservableCollection<Room>(rooms);
+            ArrivalDate = DateTime.Now;
+            IsDays = true;
         }
     }
 }
