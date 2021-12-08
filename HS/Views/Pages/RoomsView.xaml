@@ -76,7 +76,7 @@
                 </Border>
                 
                 <Button Content="Забронировать" Width="180" Height="50" Margin="10" HorizontalAlignment="Center"
-                        Command="{Binding MakeReservationCommand}"></Button>
+                        Command="{Binding MakeReservationCommand}" CommandParameter="{Binding SelectedRoom}"></Button>
                 <TextBlock Text="* Для бронирования выберите одну из комнат *" FontSize="10" HorizontalAlignment="Center" Foreground="DarkGray"></TextBlock>
             </StackPanel>
     </Grid>
