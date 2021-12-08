@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -66,6 +67,37 @@ namespace HS.ViewModels
         {
             get => _selectedRoom;
             set => Set(ref _selectedRoom, value);
+        }
+
+        private DateTime _arrivalDate;
+
+        public DateTime ArrivalDate
+        {
+            get => _arrivalDate;
+            set => Set(ref _arrivalDate, value);
+        }
+        private string _periodsAmount;
+
+        public string PeriodsAmount
+        {
+            get => _periodsAmount;
+            set => Set(ref _periodsAmount, value);
+        }
+
+        private bool _isHours;
+
+        public bool IsHours
+        {
+            get => _isHours;
+            set => Set(ref _isHours, value);
+        }
+        
+        private bool _isDays;
+
+        public bool IsDays
+        {
+            get => _isDays;
+            set => Set(ref _isDays, value);
         }
 
         public RoomsViewModel(IRepository<Room> roomsRepository, ViewModelLocator locator)
