@@ -6,6 +6,7 @@
              xmlns:entities="clr-namespace:HS.Context.Entities"
              xmlns:fa5="http://schemas.fontawesome.com/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:sys="clr-namespace:System;assembly=System.Runtime"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
@@ -44,16 +45,13 @@
                                  HorizontalAlignment="Center" Foreground="GhostWhite"></TextBox>
                     </Border>
                     
-                    <TextBlock Text="Даты" FontSize="25" Margin="0 15 20 0"
+                    <TextBlock Text="Дата" FontSize="25" Margin="0 15 20 0"
                                Foreground="GhostWhite" HorizontalAlignment="Center"></TextBlock>
                     
-                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
-                        <DatePicker materialDesign:HintAssist.Hint="Въезд" Foreground="GhostWhite" Width="80"
-                                    HorizontalContentAlignment="Center" FontSize="15"></DatePicker> 
-                    </Border>
-                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
-                        <DatePicker materialDesign:HintAssist.Hint="Выезд" Foreground="GhostWhite" Width="80"
-                                    HorizontalContentAlignment="Center" FontSize="15"></DatePicker> 
+                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="200" Margin="5"> 
+                        <DatePicker materialDesign:HintAssist.Hint="Въезд" Foreground="GhostWhite" Width="170"
+                                    HorizontalContentAlignment="Center" FontSize="15"
+                                    SelectedDate="{Binding ArrivalDate}"></DatePicker> 
                     </Border>
                     
                     <TextBlock Text="Время пребывания" FontSize="25" Margin="0 15 20 0"
@@ -61,13 +59,13 @@
                     
                     <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
                         <TextBox materialDesign:HintAssist.Hint="Сколько" FontSize="15" HorizontalContentAlignment="Center"
-                                 HorizontalAlignment="Center" Foreground="GhostWhite"></TextBox> 
+                                 HorizontalAlignment="Center" Foreground="GhostWhite" Text="{Binding PeriodsAmount}"></TextBox> 
                     </Border>
                     
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                        <RadioButton Content="Часов" Foreground="GhostWhite" 
+                        <RadioButton Content="Часов" Foreground="GhostWhite" IsChecked="{Binding IsHours}"
                                      FontSize="15" Margin="0 0 10 0"></RadioButton>
-                        <RadioButton Content="Дней" Foreground="GhostWhite" FontSize="15" IsChecked="True"></RadioButton>
+                        <RadioButton Content="Дней" Foreground="GhostWhite" FontSize="15" IsChecked="{Binding IsDays}"></RadioButton>
                     </StackPanel>
                     
                     <Button Content="Найти" Width="120" Height="50" Foreground="GhostWhite" VerticalAlignment="Bottom"
