@@ -13,7 +13,13 @@ namespace HS.ViewModels
 
         private ICommand _createNewReservCommand;
         private readonly ViewModelLocator _locator;
-        private readonly Client _currentClient;
+        private Client _currentClient;
+
+        public Client CurrentClient
+        {
+            get => _currentClient;
+            set => Set(ref _currentClient, value);
+        }
         private Room _selectedRoom;
 
         public Room SelectedRoom
@@ -37,29 +43,13 @@ namespace HS.ViewModels
             get => _departureDate;
             set => Set(ref _departureDate, value);
         }
-        
-        private string _periodsAmount;
 
-        public string PeriodsAmount
+        private int _cost;
+
+        public int Cost
         {
-            get => _periodsAmount;
-            set => Set(ref _periodsAmount, value);
-        }
-
-        private bool _isHours;
-
-        public bool IsHours
-        {
-            get => _isHours;
-            set => Set(ref _isHours, value);
-        }
-        
-        private bool _isDays;
-
-        public bool IsDays
-        {
-            get => _isDays;
-            set => Set(ref _isDays, value);
+            get => _cost;
+            set => Set(ref _cost, value);
         }
 
         public ICommand CreateNewReservCommand => _createNewReservCommand
@@ -69,14 +59,13 @@ namespace HS.ViewModels
 
         private void OnCreateNewReservCommandExecuted(object parameter)
         {
-            //_bookingService.Reservate(_locator.MainViewModel.CurrentUser, ArrivalDate, DepartureDate);
+            _bookingService.Reservate(_locator.MainViewModel.CurrentUser, ArrivalDate, DepartureDate, SelectedRoom);
         }
 
         public NewReservByClientViewModel(ViewModelLocator locator, IBookingService bookingService)
         {
             _bookingService = bookingService;
             _locator = locator;
-            _currentClient = _locator.MainViewModel.CurrentUser;
         }
     }
 }
