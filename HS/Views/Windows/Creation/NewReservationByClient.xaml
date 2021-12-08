@@ -11,8 +11,7 @@
         <KeyBinding Modifiers="Control" Key="Q" 
                     Command="{StaticResource CloseAppCommand}"/>
     </Window.InputBindings>
-    <StackPanel Margin="20" VerticalAlignment="Center"
-                Width="300">
+    <StackPanel Margin="20" Width="300">
         <TextBlock FontSize="40" Text="Hotel"></TextBlock>
         <TextBlock FontSize="20" Text="I see you want to check in with us"></TextBlock>
         <TextBlock Foreground="DarkGray" FontSize="20" Text="Let's arrange it"></TextBlock>

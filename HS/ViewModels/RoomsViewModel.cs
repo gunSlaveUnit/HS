@@ -45,6 +45,11 @@ namespace HS.ViewModels
             if (p is not Room) return;
             //TODO: It works, but it is not good in MVVM architecture
             var newReservationByClientWindow = new NewReservationByClient();
+            _locator.NewReservByClientViewModel.ArrivalDate = ArrivalDate;
+            _locator.NewReservByClientViewModel.IsDays = IsDays;
+            _locator.NewReservByClientViewModel.IsHours = IsHours;
+            _locator.NewReservByClientViewModel.SelectedRoom = SelectedRoom;
+            _locator.NewReservByClientViewModel.PeriodsAmount = PeriodsAmount;
             newReservationByClientWindow.Owner = Application.Current.MainWindow;
             newReservationByClientWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             newReservationByClientWindow.ShowDialog();
