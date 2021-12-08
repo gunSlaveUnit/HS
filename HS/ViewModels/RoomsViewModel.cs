@@ -37,10 +37,11 @@ namespace HS.ViewModels
         public ICommand MakeReservationCommand => _makeReservationCommand
             ??= new RelayCommand(OnMakeReservationCommandExecuted, CanMakeReservationCommandExecute);
         
-        private bool CanMakeReservationCommandExecute(object parameter) => true;
+        private bool CanMakeReservationCommandExecute(object p) => p is Room;
 
-        private void OnMakeReservationCommandExecuted(object parameter)
+        private void OnMakeReservationCommandExecuted(object p)
         {
+            if (p is not Room) return;
             //TODO: It works, but it is not good in MVVM architecture
             var newReservationByClientWindow = new NewReservationByClient();
             newReservationByClientWindow.Owner = Application.Current.MainWindow;
@@ -56,6 +57,13 @@ namespace HS.ViewModels
         {
             get => _rooms;
             set => Set(ref _rooms, value);
+        }
+
+        private Room _selectedRoom;
+        public Room SelectedRoom
+        {
+            get => _selectedRoom;
+            set => Set(ref _selectedRoom, value);
         }
 
         public RoomsViewModel(IRepository<Room> roomsRepository)
