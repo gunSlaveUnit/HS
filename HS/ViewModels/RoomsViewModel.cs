@@ -46,10 +46,19 @@ namespace HS.ViewModels
             //TODO: It works, but it is not good in MVVM architecture
             var newReservationByClientWindow = new NewReservationByClient();
             _locator.NewReservByClientViewModel.ArrivalDate = ArrivalDate;
-            _locator.NewReservByClientViewModel.IsDays = IsDays;
-            _locator.NewReservByClientViewModel.IsHours = IsHours;
+            _locator.NewReservByClientViewModel.DepartureDate = ArrivalDate;
             _locator.NewReservByClientViewModel.SelectedRoom = SelectedRoom;
-            _locator.NewReservByClientViewModel.PeriodsAmount = PeriodsAmount;
+            _locator.NewReservByClientViewModel.CurrentClient = _locator.MainViewModel.CurrentUser;
+            if (IsHours)
+            {
+                _locator.NewReservByClientViewModel.DepartureDate = ArrivalDate.AddHours(Convert.ToDouble(PeriodsAmount));
+                _locator.NewReservByClientViewModel.Cost = SelectedRoom.RoomType.CostPerHour * Convert.ToInt32(PeriodsAmount);
+            }
+            if (IsDays)
+            {
+                _locator.NewReservByClientViewModel.DepartureDate = ArrivalDate.AddDays(Convert.ToDouble(PeriodsAmount));
+                _locator.NewReservByClientViewModel.Cost = SelectedRoom.RoomType.CostPerDay * Convert.ToInt32(PeriodsAmount);
+            }
             newReservationByClientWindow.Owner = Application.Current.MainWindow;
             newReservationByClientWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             newReservationByClientWindow.ShowDialog();
@@ -111,7 +120,7 @@ namespace HS.ViewModels
             _roomsRepository = roomsRepository;
             var rooms = _roomsRepository.All;
             Rooms = new ObservableCollection<Room>(rooms);
-            ArrivalDate = DateTime.Now;
+            ArrivalDate = DateTime.Today;
             IsDays = true;
         }
     }
