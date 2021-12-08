@@ -17,12 +17,7 @@
         <TextBlock FontSize="20" Text="I see you want to check in with us"></TextBlock>
         <TextBlock Foreground="DarkGray" FontSize="20" Text="Let's arrange it"></TextBlock>
         <StackPanel Margin="0 70 0 0">
-            <DatePickerTextBox md:HintAssist.Hint="Arrival Date" FontSize="15" Width="200" Height="30" 
-                               Margin="0 0 0 20" md:TextFieldAssist.UnderlineBrush="DarkBlue"
-                               Text="{Binding ArrivalDate}"></DatePickerTextBox>
-            <DatePickerTextBox md:HintAssist.Hint="Departure Date" FontSize="15" Width="200" Height="30" 
-                               Margin="0 0 0 20" md:TextFieldAssist.UnderlineBrush="DarkBlue"
-                               Text="{Binding DepartureDate}"></DatePickerTextBox>
+            
             <Button Background="DarkBlue" BorderBrush="DarkBlue" 
                     Width="120" Margin="0 50 0 0" Command="{Binding CreateNewReservCommand}"
                     FontSize="20" Content="Reservate" Height="40" Foreground="WhiteSmoke"/>
