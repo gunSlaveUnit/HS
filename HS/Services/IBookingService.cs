@@ -6,6 +6,7 @@ namespace HS.Services
 {
     public interface IBookingService
     {
-        public Task<Reservation> Reservate(Client client, DateTime arrivalDate, DateTime departureDate);
+        public Reservation Reservate(Client client, DateTime arrivalDate, DateTime departureDate,
+            Room selectedRoom);
     }
 }

@@ -14,15 +14,17 @@ namespace HS.Services
             _reservations = reservations;
         }
 
-        public async Task<Reservation> Reservate(Client client, DateTime arrivalDate, DateTime departureDate)
+        public Reservation Reservate(Client client, DateTime arrivalDate, DateTime departureDate,
+            Room selectedRoom)
         {
             var reservation = new Reservation
             {
                 ArrivalDate = arrivalDate,
                 DepartureDate = departureDate,
-                Client = client
+                Client = client,
+                Room = selectedRoom
             };
-            await _reservations.AddAsync(reservation);
+            _reservations.Add(reservation);
             return reservation;
         }
     }
