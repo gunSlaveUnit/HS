@@ -29,6 +29,15 @@ namespace HS.ViewModels
             get => _arrivalDate;
             set => Set(ref _arrivalDate, value);
         }
+        
+        private DateTime _departureDate;
+
+        public DateTime DepartureDate
+        {
+            get => _departureDate;
+            set => Set(ref _departureDate, value);
+        }
+        
         private string _periodsAmount;
 
         public string PeriodsAmount
