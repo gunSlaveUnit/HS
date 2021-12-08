@@ -14,18 +14,22 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
-        <ListView Grid.Column="0" Grid.Row="0" Name="RoomsListView" DockPanel.Dock="Top" ItemTemplate="{StaticResource RoomDataTemplate}" 
-                  ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}">
-            <ListView.ItemsPanel>
+        <ListBox Grid.Column="0" Grid.Row="0" DockPanel.Dock="Top"
+                 HorizontalContentAlignment="Stretch"
+                 ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                 ItemTemplate="{StaticResource RoomDataTemplate}" 
+                  ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}"
+                  SelectedItem="{Binding SelectedRoom}" SelectionMode="Single">
+            <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel Name="RoomsWrapPanel" Width="1160" HorizontalAlignment="Center"></WrapPanel>
+                    <WrapPanel ></WrapPanel>
                 </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
-        </ListView>
+            </ListBox.ItemsPanel>
+        </ListBox>
         
-        <StackPanel Grid.Column="1" Grid.Row="0">
+        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
                 <Border  BorderBrush="#1a1a1a" BorderThickness="2" VerticalAlignment="Top"
-                    Width="260" Height="600" CornerRadius="20" Margin="0 0 20 0">
+                    Width="260" Height="500" CornerRadius="20" Margin="0 0 20 0">
                 <StackPanel>
                     <TextBlock Text="Цена" FontSize="25" Margin="0 5 20 0"
                                Foreground="GhostWhite" HorizontalAlignment="Center"></TextBlock>
@@ -67,11 +71,12 @@
                     </StackPanel>
                     
                     <Button Content="Найти" Width="120" Height="50" Foreground="GhostWhite" VerticalAlignment="Bottom"
-                            HorizontalAlignment="Center"/> 
+                            HorizontalAlignment="Center" Margin="0 50 0 0"/> 
                     </StackPanel>
                 </Border>
                 
-                <Button Content="Забронировать" Width="180" Height="50" Margin="10" HorizontalAlignment="Center"></Button>
+                <Button Content="Забронировать" Width="180" Height="50" Margin="10" HorizontalAlignment="Center"
+                        Command="{Binding MakeReservationCommand}"></Button>
                 <TextBlock Text="* Для бронирования выберите одну из комнат *" FontSize="10" HorizontalAlignment="Center" Foreground="DarkGray"></TextBlock>
             </StackPanel>
     </Grid>
