@@ -13,10 +13,27 @@
     </Window.InputBindings>
     <StackPanel Margin="20" Width="300">
         <TextBlock FontSize="40" Text="Hotel"></TextBlock>
-        <TextBlock FontSize="20" Text="I see you want to check in with us"></TextBlock>
-        <TextBlock Foreground="DarkGray" FontSize="20" Text="Let's arrange it"></TextBlock>
+        <TextBlock Foreground="DarkGray" FontSize="20" Text="Итак, вы хотите забронировать комнату"></TextBlock>
         <StackPanel Margin="0 70 0 0">
+            <TextBlock Text="Комната"></TextBlock>
+            <TextBlock Text="{Binding SelectedRoom.Number}"></TextBlock>
+            <TextBlock Text="На"></TextBlock>
+            <TextBlock Text="{Binding SelectedRoom.RoomType.Capacity}"></TextBlock>
+            <TextBlock Text="гостя/-ей"></TextBlock>
             
+            <TextBlock Text="С"></TextBlock>
+            <TextBlock Text="{Binding ArrivalDate}"></TextBlock>
+            <TextBlock Text="По"></TextBlock>
+            <TextBlock Text="{Binding DepartureDate}"></TextBlock>
+            
+            <TextBlock Text="На имя"></TextBlock>
+            <TextBlock Text="{Binding CurrentClient.Surname}"></TextBlock>
+            <TextBlock Text="{Binding CurrentClient.Name}"></TextBlock>
+            <TextBlock Text="Связаться с Вами: "></TextBlock>
+            <TextBlock Text="{Binding CurrentClient.PhoneNumber}"></TextBlock>
+            
+            <TextBlock Text="Итого: "></TextBlock>
+            <TextBlock Text="{Binding Cost}"></TextBlock>
             <Button Background="DarkBlue" BorderBrush="DarkBlue" 
                     Width="120" Margin="0 50 0 0" Command="{Binding CreateNewReservCommand}"
                     FontSize="20" Content="Reservate" Height="40" Foreground="WhiteSmoke"/>
