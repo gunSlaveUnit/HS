@@ -36,7 +36,7 @@ namespace HS.ViewModels
         private bool CanShowRoomsCommandExecute(object parameter) => true;
 
         private void OnShowRoomsCommandExecuted(object parameter)
-            => CurrentViewModel = new RoomsViewModel(_roomsRepository);
+            => CurrentViewModel = new RoomsViewModel(_roomsRepository, new ViewModelLocator());
 
         private ICommand _showClientReservationCommand;
         

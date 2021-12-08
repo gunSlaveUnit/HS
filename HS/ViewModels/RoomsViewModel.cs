@@ -60,14 +60,17 @@ namespace HS.ViewModels
         }
 
         private Room _selectedRoom;
+        private readonly ViewModelLocator _locator;
+
         public Room SelectedRoom
         {
             get => _selectedRoom;
             set => Set(ref _selectedRoom, value);
         }
 
-        public RoomsViewModel(IRepository<Room> roomsRepository)
+        public RoomsViewModel(IRepository<Room> roomsRepository, ViewModelLocator locator)
         {
+            _locator = locator;
             _roomsRepository = roomsRepository;
             var rooms = _roomsRepository.All;
             Rooms = new ObservableCollection<Room>(rooms);
