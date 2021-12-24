@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Threading.Tasks;
 using Hotel.Interfaces;
 using HS.Context.Entities;
@@ -24,7 +26,12 @@ namespace HS.Services
                 Client = client,
                 Room = selectedRoom
             };
-            _reservations.Add(reservation);
+            var crossReservation = new ObservableCollection<Reservation>(_reservations.All.Where(
+                r =>
+                    (r.ArrivalDate <= arrivalDate && arrivalDate <= r.DepartureDate
+                     || r.ArrivalDate <= departureDate && departureDate <= r.DepartureDate)
+                    && r.RoomId == selectedRoom.Id)).FirstOrDefault();
+            if (crossReservation is not null) _reservations.Add(reservation);
             return reservation;
         }
     }
