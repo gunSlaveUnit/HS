@@ -105,4 +105,11 @@ namespace HS.Data
         {
         }
     }
+
+    class OrderedServices : DbRepository<OrderedService>
+    {
+        public OrderedServices([NotNull] DataContext context) : base(context)
+        {
+        }
+    }
 }

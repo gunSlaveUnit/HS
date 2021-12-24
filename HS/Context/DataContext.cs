@@ -10,7 +10,7 @@ namespace HS.Context
         private DbSet<Room> Rooms { get; set; }
         private DbSet<RoomType> RoomTypes { get; set; }
         private DbSet<Service> Services { get; set; }
-        private DbSet<OrderedServices> OrderedServices { get; set; }
+        private DbSet<OrderedService> OrderedServices { get; set; }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {

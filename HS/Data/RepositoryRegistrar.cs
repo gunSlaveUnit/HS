@@ -12,6 +12,7 @@ namespace HS.Data
             .AddTransient<IRepository<Room>, RoomsRepository>()
             .AddTransient<IRepository<RoomType>, RoomTypesRepository>()
             .AddTransient<IRepository<Service>, ServicesRepository>()
+            .AddTransient<IRepository<OrderedService>, OrderedServices>()
         ;
     }
 }
