@@ -47,7 +47,7 @@
                                  Content="Комнаты" Height="65"
                                  FontSize="16" Foreground="GhostWhite"
                                  Style="{StaticResource MenuItem}"></RadioButton>
-                    <RadioButton Command="{Binding }"
+                    <RadioButton Command="{Binding ShowServicesCommand}"
                                  Content="Услуги" Height="65"
                                  FontSize="16" Foreground="GhostWhite"
                                  Style="{StaticResource MenuItem}"></RadioButton>
