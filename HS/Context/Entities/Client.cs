@@ -13,7 +13,7 @@ namespace HS.Context.Entities
         [Required]
         public string Patronymic { get; set; }
         [Required]
-        public string Passport { get; set; }
+        public string Document { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
         [Required]

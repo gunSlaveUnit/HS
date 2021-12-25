@@ -32,7 +32,7 @@ namespace HS.Services
                 Surname = surname,
                 Name = name,
                 Patronymic = patronymic,
-                Passport = passport,
+                Document = passport,
                 PhoneNumber = phoneNumber,
                 Login = login,
                 Password = hashedSaltedPassword,
