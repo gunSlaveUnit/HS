@@ -14,4 +14,7 @@
     <DataTemplate DataType="{x:Type vm:RoomsViewModel}">
         <v:RoomsView DataContext="{Binding}"></v:RoomsView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ServicesViewModel}">
+        <v:ServicesView DataContext="{Binding}"></v:ServicesView>
+    </DataTemplate>
 </ResourceDictionary>
