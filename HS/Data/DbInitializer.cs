@@ -24,10 +24,24 @@ namespace HS.Data
             await _context.Database.EnsureCreatedAsync().ConfigureAwait(false);
             await _context.Database.MigrateAsync();
 
+            await InitializeClientStatuses();
             await InitializeAdminProfile();
             await InitializeServices();
             await InitializeRoomTypes();
             await InitializeRoom();
+        }
+
+        private ClientStatus[] statuses;
+        private async Task InitializeClientStatuses()
+        {
+            statuses = new[]
+            {
+                new ClientStatus {Title = "admin"},
+                new ClientStatus {Title = "employee"},
+                new ClientStatus {Title = "guest"},
+            };
+            await _context.ClientStatuses.AddRangeAsync(statuses);
+            await _context.SaveChangesAsync();
         }
 
         private RoomType[] types;
@@ -93,7 +107,7 @@ namespace HS.Data
             await _context.RoomTypes.AddRangeAsync(types);
             await _context.SaveChangesAsync();
         }
-
+        
         private async Task InitializeAdminProfile()
         {
             Client admin = new Client
@@ -106,6 +120,7 @@ namespace HS.Data
                 Login = "admin",
                 Password = "E550BC898ED418254B8B32A284A333658CF0DC32FFD559665E102B360593C466",
                 Salt = "uQOOOMV7ds",
+                Status = statuses[0]
             };
             await _context.Clients.AddAsync(admin);
             await _context.SaveChangesAsync();
