@@ -76,7 +76,7 @@ namespace HS.Data
     class ClientsRepository : DbRepository<Client>
     {
         public override IQueryable<Client> All 
-            => base.All.Include(e => e.Reservations);
+            => base.All.Include(e => e.Reservations).Include(e => e.Status);
         public ClientsRepository(DataContext context) : base(context) {}
     }
     
@@ -106,9 +106,17 @@ namespace HS.Data
         }
     }
 
-    class OrderedServices : DbRepository<OrderedService>
+    class OrderedServicesRepository : DbRepository<OrderedService>
     {
-        public OrderedServices([NotNull] DataContext context) : base(context)
+        public OrderedServicesRepository([NotNull] DataContext context) : base(context)
+        {
+        }
+    }
+    
+    class ClientStatusesRepository: DbRepository<ClientStatus>
+    {
+        public override IQueryable<ClientStatus> All => base.All.Include(cs => cs.Clients);
+        public ClientStatusesRepository([NotNull] DataContext context) : base(context)
         {
         }
     }
