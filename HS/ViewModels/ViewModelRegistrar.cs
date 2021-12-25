@@ -10,6 +10,7 @@ namespace HS.ViewModels
             .AddSingleton<SignUpViewModel>()
             .AddSingleton<NewReservByClientViewModel>()
             .AddSingleton<NewRoomTypeViewModel>()
+            .AddSingleton<ServiceConfirmViewModel>()
             .AddSingleton<ViewModelLocator>()
         ;
     }
