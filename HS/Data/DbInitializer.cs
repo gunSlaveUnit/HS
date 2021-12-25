@@ -26,6 +26,72 @@ namespace HS.Data
 
             await InitializeAdminProfile();
             await InitializeServices();
+            await InitializeRoomTypes();
+            await InitializeRoom();
+        }
+
+        private RoomType[] types;
+        private async Task InitializeRoom()
+        {
+            Room[] rooms = new[]
+            {
+                new Room{Number = 1, RoomType = types[0]},
+                new Room{Number = 4, RoomType = types[0]},
+                new Room{Number = 9, RoomType = types[0]},
+                new Room{Number = 13, RoomType = types[1]},
+                new Room{Number = 18, RoomType = types[1]},
+                new Room{Number = 20, RoomType = types[1]},
+                new Room{Number = 35, RoomType = types[2]},
+                new Room{Number = 39, RoomType = types[2]},
+                new Room{Number = 69, RoomType = types[2]},
+                new Room{Number = 72, RoomType = types[2]},
+                new Room{Number = 100, RoomType = types[3]},
+                new Room{Number = 101, RoomType = types[3]},
+                new Room{Number = 102, RoomType = types[3]},
+            };
+            await _context.Rooms.AddRangeAsync(rooms);
+            await _context.SaveChangesAsync();
+        }
+
+        private async Task InitializeRoomTypes()
+        {
+            types = new[]
+            {
+                new RoomType
+                {
+                    Capacity = 1, 
+                    CostPerHour = 34, 
+                    CostPerDay = 89, 
+                    Title = "Business", 
+                    Description = "Only for you. Ideal for business travel"
+                },
+                new RoomType
+                {
+                    Capacity = 2, 
+                    CostPerHour = 56, 
+                    CostPerDay = 112, 
+                    Title = "Honeymoon", 
+                    Description = "Ideal for loved ones who want to relax"
+                },
+                new RoomType
+                {
+                    Capacity = 4, 
+                    CostPerHour = 80, 
+                    CostPerDay = 152, 
+                    Title = "Family", 
+                    Description = "Family friendly"
+                },
+                new RoomType
+                {
+                    Capacity = 4, 
+                    CostPerHour = 256, 
+                    CostPerDay = 783, 
+                    Title = "Lux", 
+                    Description = "Without further ado - the best room"
+                },
+            };
+            await _context.RoomTypes.AddRangeAsync(types);
+            await _context.SaveChangesAsync();
         }
 
         private async Task InitializeAdminProfile()
