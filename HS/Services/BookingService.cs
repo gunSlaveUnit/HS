@@ -31,7 +31,7 @@ namespace HS.Services
                     (r.ArrivalDate <= arrivalDate && arrivalDate <= r.DepartureDate
                      || r.ArrivalDate <= departureDate && departureDate <= r.DepartureDate)
                     && r.RoomId == selectedRoom.Id)).FirstOrDefault();
-            if (crossReservation is not null) _reservations.Add(reservation);
+            if (crossReservation is null) _reservations.Add(reservation);
             return reservation;
         }
     }

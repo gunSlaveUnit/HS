@@ -56,9 +56,9 @@ namespace HS.ViewModels
         {
             if (p is not Service) return;
             //TODO: It works, but it is not good in MVVM architecture
-            var confirmOrderService = new ServiceOrderConfirmWindow();
             _locator.ServiceConfirmViewModel.SelectedService = SelectedService;
             _locator.ServiceConfirmViewModel.CurrentClient = _locator.MainViewModel.CurrentUser;
+            var confirmOrderService = new ServiceOrderConfirmWindow();
             confirmOrderService.Owner = Application.Current.MainWindow;
             confirmOrderService.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             confirmOrderService.ShowDialog();

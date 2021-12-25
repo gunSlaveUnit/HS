@@ -13,6 +13,7 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Accent/MaterialDesignColor.Lime.xaml" />
                 <ResourceDictionary Source="../../Templates/ViewModelsDataTemplates.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="../../Templates/RoomDataTemplate.xaml"></ResourceDictionary>
+                <ResourceDictionary Source="../../Templates/ServiceDataTemplate.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="../../Templates/Themes/MenuItem.xaml"></ResourceDictionary>
                 <ResourceDictionary Source="../../Templates/Themes/SearchBox.xaml"></ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>

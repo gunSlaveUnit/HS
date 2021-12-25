@@ -1,0 +1,13 @@
+﻿<Window x:Class="HS.Views.Windows.Creation.ServiceOrderConfirmWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:HS.Views.Windows.Creation"
+        mc:Ignorable="d"
+        DataContext="{Binding ServiceConfirmViewModel, Source={StaticResource Locator}}"
+        Title="ServiceOrderConfirmWindow" Height="450" Width="800">
+    <Grid>
+        <Button Command="{Binding ConfirmOrderServiceCommand}" Content="Confirm order"></Button>
+    </Grid>
+</Window>
