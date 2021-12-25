@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using HS.Context.Entities.Base;
 
 namespace HS.Context.Entities
@@ -11,5 +12,6 @@ namespace HS.Context.Entities
         public string Description { get; set; }
         [Required]
         public int Price { get; set; }
+        public virtual ICollection<OrderedService> OrderedServices { get; set; }
     }
 }
