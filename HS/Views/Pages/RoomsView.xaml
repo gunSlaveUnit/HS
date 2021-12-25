@@ -16,14 +16,32 @@
         </Grid.ColumnDefinitions>
         
         <ListBox Grid.Column="0" Grid.Row="0" DockPanel.Dock="Top"
-                 HorizontalContentAlignment="Stretch"
+                 HorizontalContentAlignment="Stretch" BorderThickness="0"
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  ItemTemplate="{StaticResource RoomDataTemplate}" 
                   ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding SelectedRoom}" SelectionMode="Single">
+                  SelectedItem="{Binding SelectedRoom}" SelectionMode="Single"
+                 HorizontalAlignment="Center" VerticalAlignment="Center">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Opacity" Value="1.0" />
+                    <Style.Resources>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
+                        <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Trigger.Setters>
+                                <Setter Property="Opacity" Value="0.7" />
+                            </Trigger.Setters>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>            
+            </ListBox.ItemContainerStyle>
             <ListBox.ItemsPanel>
                 <ItemsPanelTemplate>
-                    <WrapPanel ></WrapPanel>
+                    <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center"></WrapPanel>
                 </ItemsPanelTemplate>
             </ListBox.ItemsPanel>
         </ListBox>
@@ -41,7 +59,7 @@
                     </Border>
                     
                     <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
-                        <TextBox materialDesign:HintAssist.Hint="Минимальная" FontSize="15" HorizontalContentAlignment="Center"
+                        <TextBox materialDesign:HintAssist.Hint="Максимальная" FontSize="15" HorizontalContentAlignment="Center"
                                  HorizontalAlignment="Center" Foreground="GhostWhite"></TextBox>
                     </Border>
                     

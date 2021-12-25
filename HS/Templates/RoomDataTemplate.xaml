@@ -3,7 +3,7 @@
                     xmlns:fa="http://schemas.fontawesome.com/icons/"
                     xmlns:entities="clr-namespace:HS.Context.Entities">
     <DataTemplate x:Key="RoomDataTemplate" DataType="entities:Room">
-        <Border Width="270" Height="220">
+        <Border Width="270" Height="220" HorizontalAlignment="Center" VerticalAlignment="Center">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="Navy" Offset="0.0"></GradientStop>
