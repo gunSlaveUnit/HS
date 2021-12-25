@@ -55,6 +55,10 @@
                                  Content="Бронь" Height="65"
                                  FontSize="16" Foreground="GhostWhite"
                                  Style="{StaticResource MenuItem}"></RadioButton>
+                    <RadioButton Command="{Binding ShowStatisticsCommand}"
+                                 Content="Статистика" Height="65"
+                                 FontSize="16" Foreground="GhostWhite"
+                                 Style="{StaticResource MenuItem}"></RadioButton>
                 </StackPanel>
                 <StatusBar DockPanel.Dock="Bottom" Background="#0a0a0a" Foreground="GhostWhite"> 
                     <StatusBarItem HorizontalAlignment="Center" Content="{Binding Date}">

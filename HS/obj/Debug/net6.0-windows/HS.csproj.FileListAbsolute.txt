@@ -203,3 +203,5 @@ C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Pages\ServicesView.baml
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\ServiceOrderConfirmWindow.g.cs
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\ServiceOrderConfirmWindow.baml
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Pages\StatisticsView.g.cs
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Pages\StatisticsView.baml

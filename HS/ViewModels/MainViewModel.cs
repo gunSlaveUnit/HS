@@ -40,6 +40,19 @@ namespace HS.ViewModels
         private bool CanShowServicesCommandExecute(object parameter) => true;
 
         #endregion
+        
+        #region ShowStatisticsCommand
+        
+        private ICommand _showStatisticsCommand;
+        public ICommand ShowStatisticsCommand => _showStatisticsCommand
+            ??= new RelayCommand(OnShowStatisticsCommandExecuted, CanShowStatisticsCommandExecute);
+        
+        private void OnShowStatisticsCommandExecuted(object parameter)
+            => CurrentViewModel = new StatisticsViewModel(_statisticsService);
+        
+        private bool CanShowStatisticsCommandExecute(object parameter) => true;
+        
+        #endregion
 
         private ICommand _showRoomsCommand;
         
@@ -100,6 +113,7 @@ namespace HS.ViewModels
         private ViewModel _currentViewModel;
         private readonly IRepository<Room> _roomsRepository;
         private readonly IRepository<Service> _servicesRepository;
+        private readonly IStatisticsService _statisticsService;
 
         public ViewModel CurrentViewModel
         {
@@ -112,12 +126,15 @@ namespace HS.ViewModels
         #endregion
         public MainViewModel(IRepository<Client> clientsRepository,
             IRepository<Reservation> reservationsRepository,
-            IRepository<Room> roomsRepository, IRepository<Service> servicesRepository)
+            IRepository<Room> roomsRepository, IRepository<Service> servicesRepository,
+            IStatisticsService statisticsService)
         {
             _clientsRepository = clientsRepository;
             _reservationsRepository = reservationsRepository;
             _roomsRepository = roomsRepository;
             _servicesRepository = servicesRepository;
+
+            _statisticsService = statisticsService;
             
             Date = DateTime.Now;
         }

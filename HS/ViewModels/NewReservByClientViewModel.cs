@@ -59,7 +59,7 @@ namespace HS.ViewModels
 
         private void OnCreateNewReservCommandExecuted(object parameter)
         {
-            _bookingService.Reservate(_locator.MainViewModel.CurrentUser, ArrivalDate, DepartureDate, SelectedRoom);
+            _bookingService.Reservate(_locator.MainViewModel.CurrentUser, ArrivalDate, DepartureDate, SelectedRoom, Cost);
         }
 
         public NewReservByClientViewModel(ViewModelLocator locator, IBookingService bookingService)

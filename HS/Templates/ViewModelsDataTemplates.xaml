@@ -17,4 +17,7 @@
     <DataTemplate DataType="{x:Type vm:ServicesViewModel}">
         <v:ServicesView DataContext="{Binding}"></v:ServicesView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:StatisticsViewModel}">
+        <v:StatisticsView DataContext="{Binding}"></v:StatisticsView>
+    </DataTemplate>
 </ResourceDictionary>
