@@ -11,7 +11,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <Border.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0, 0, 250, 200"></RectangleGeometry>
+                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0, 0, 270, 220"></RectangleGeometry>
             </Border.Clip>
             <StackPanel Margin="20">
                 <DockPanel>

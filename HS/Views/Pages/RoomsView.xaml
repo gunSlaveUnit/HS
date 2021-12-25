@@ -96,5 +96,4 @@
                 <TextBlock Text="* Для бронирования выберите одну из комнат *" FontSize="10" HorizontalAlignment="Center" Foreground="DarkGray"></TextBlock>
             </StackPanel>
     </Grid>
-    
 </UserControl>
