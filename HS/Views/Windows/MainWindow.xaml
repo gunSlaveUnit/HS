@@ -77,6 +77,11 @@
                                  FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
                                  Converter={StaticResource StatusConverter}}"
                                  Style="{StaticResource MenuItem}"></RadioButton>
+                    <RadioButton Command="{Binding ShowReservationsViewCommand}"
+                                 Content="Типы комнат" Height="65"
+                                 FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
+                                 Converter={StaticResource StatusConverter}}"
+                                 Style="{StaticResource MenuItem}"></RadioButton>
                 </StackPanel>
                 <StatusBar DockPanel.Dock="Bottom" Background="White" Foreground="Black"> 
                     <StatusBarItem HorizontalAlignment="Center" Content="{Binding Date}">

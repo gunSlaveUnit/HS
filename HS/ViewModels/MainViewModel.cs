@@ -112,7 +112,7 @@ namespace HS.ViewModels
         private bool CanShowReservationsViewCommandExecute(object parameter) => true;
 
         private void OnShowReservationsViewCommandExecute(object parameter)
-            => CurrentViewModel = new ReservationsViewModel(_reservationsRepository);
+            => CurrentViewModel = new ReservationsViewModel(_reservationsRepository, _orderedServicesRepository);
 
         #endregion
         
@@ -129,6 +129,7 @@ namespace HS.ViewModels
         private readonly IRepository<Service> _servicesRepository;
         private readonly IStatisticsService _statisticsService;
         private readonly IRepository<RoomType> _roomTypesRepository;
+        private readonly IRepository<OrderedService> _orderedServicesRepository;
 
         public ViewModel CurrentViewModel
         {
@@ -142,6 +143,7 @@ namespace HS.ViewModels
         public MainViewModel(IRepository<Client> clientsRepository,
             IRepository<Reservation> reservationsRepository,
             IRepository<RoomType> roomTypesRepository,
+            IRepository<OrderedService> orderedServicesRepository,
             IRepository<Room> roomsRepository, IRepository<Service> servicesRepository,
             IStatisticsService statisticsService)
         {
@@ -150,6 +152,7 @@ namespace HS.ViewModels
             _reservationsRepository = reservationsRepository;
             _roomsRepository = roomsRepository;
             _servicesRepository = servicesRepository;
+            _orderedServicesRepository = orderedServicesRepository;
 
             _statisticsService = statisticsService;
             

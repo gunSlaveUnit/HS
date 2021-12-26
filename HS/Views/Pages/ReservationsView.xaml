@@ -13,8 +13,8 @@
                 <DataGridTextColumn Header="Выезд" Binding="{Binding DepartureDate}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Height="50" Width="50" Background="DarkBlue" BorderBrush="DarkBlue">
-            <fa:ImageAwesome Icon="Solid_TrashALt" Foreground="WhiteSmoke"/>
+        <Button Height="50" Width="50" Command="{Binding CalculateClientReservation}">
+            <fa:ImageAwesome Icon="Solid_Calculator" Foreground="WhiteSmoke"/>
         </Button>
     </StackPanel>
 </UserControl>
