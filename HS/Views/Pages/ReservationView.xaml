@@ -8,7 +8,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
         <TextBlock Foreground="Gray" FontSize="20" Text="Your reservation was displayed here"></TextBlock>
-        <TextBlock Foreground="GhostWhite" FontSize="20" Text="Oh, nothing to show("></TextBlock>
-        <TextBlock Foreground="GhostWhite" FontSize="20" Text="Do you want to make it? Go to Rooms tab" ></TextBlock>
+        <TextBlock Foreground="Black" FontSize="20" Text="Oh, nothing to show("></TextBlock>
+        <TextBlock Foreground="Black" FontSize="20" Text="Do you want to make it? Go to Rooms tab" ></TextBlock>
     </StackPanel>
 </UserControl>

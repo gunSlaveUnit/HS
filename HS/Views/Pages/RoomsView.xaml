@@ -25,7 +25,7 @@
                  HorizontalAlignment="Center">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
-                    <Setter Property="Opacity" Value="1.0" />
+                    <Setter Property="Opacity" Value="1.0"/>
                     <Style.Resources>
                         <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="Transparent"/>
                         <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent"/>
@@ -34,7 +34,8 @@
                     <Style.Triggers>
                         <Trigger Property="IsSelected" Value="True">
                             <Trigger.Setters>
-                                <Setter Property="Opacity" Value="0.7" />
+                                <Setter Property="Opacity" Value="0.7"/>
+                                <Setter Property="Background" Value="DimGray"></Setter>
                             </Trigger.Setters>
                         </Trigger>
                     </Style.Triggers>
@@ -48,46 +49,46 @@
         </ListBox>
         
         <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
-                <Border  BorderBrush="#1a1a1a" BorderThickness="2" VerticalAlignment="Top"
+                <Border  BorderBrush="Black" BorderThickness="2" VerticalAlignment="Top"
                     Width="260" Height="500" CornerRadius="20" Margin="0 0 20 0">
                 <StackPanel>
                     <TextBlock Text="Цена" FontSize="25" Margin="0 5 20 0"
-                               Foreground="GhostWhite" HorizontalAlignment="Center"></TextBlock>
+                               HorizontalAlignment="Center"></TextBlock>
                     
                     <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5">
                         <TextBox materialDesign:HintAssist.Hint="Минимальная" FontSize="15" HorizontalContentAlignment="Center"
-                                 HorizontalAlignment="Center" Foreground="GhostWhite"></TextBox>
+                                 HorizontalAlignment="Center"></TextBox>
                     </Border>
                     
                     <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
                         <TextBox materialDesign:HintAssist.Hint="Максимальная" FontSize="15" HorizontalContentAlignment="Center"
-                                 HorizontalAlignment="Center" Foreground="GhostWhite"></TextBox>
+                                 HorizontalAlignment="Center" ></TextBox>
                     </Border>
                     
                     <TextBlock Text="Дата" FontSize="25" Margin="0 15 20 0"
-                               Foreground="GhostWhite" HorizontalAlignment="Center"></TextBlock>
+                               HorizontalAlignment="Center"></TextBlock>
                     
                     <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="200" Margin="5"> 
-                        <DatePicker materialDesign:HintAssist.Hint="Въезд" Foreground="GhostWhite" Width="170"
+                        <DatePicker materialDesign:HintAssist.Hint="Въезд"  Width="170"
                                     HorizontalContentAlignment="Center" FontSize="15"
                                     SelectedDate="{Binding ArrivalDate}"></DatePicker> 
                     </Border>
                     
                     <TextBlock Text="Время пребывания" FontSize="25" Margin="0 15 20 0"
-                               Foreground="GhostWhite" HorizontalAlignment="Center"></TextBlock>
+                               HorizontalAlignment="Center"></TextBlock>
                     
                     <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="170" Margin="5"> 
                         <TextBox materialDesign:HintAssist.Hint="Сколько" FontSize="15" HorizontalContentAlignment="Center"
-                                 HorizontalAlignment="Center" Foreground="GhostWhite" Text="{Binding PeriodsAmount}"></TextBox> 
+                                 HorizontalAlignment="Center" Text="{Binding PeriodsAmount}"></TextBox> 
                     </Border>
                     
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
-                        <RadioButton Content="Часов" Foreground="GhostWhite" IsChecked="{Binding IsHours}"
+                        <RadioButton Content="Часов" IsChecked="{Binding IsHours}"
                                      FontSize="15" Margin="0 0 10 0"></RadioButton>
-                        <RadioButton Content="Дней" Foreground="GhostWhite" FontSize="15" IsChecked="{Binding IsDays}"></RadioButton>
+                        <RadioButton Content="Дней" FontSize="15" IsChecked="{Binding IsDays}"></RadioButton>
                     </StackPanel>
                     
-                    <Button Content="Найти" Width="120" Height="50" Foreground="GhostWhite" VerticalAlignment="Bottom"
+                    <Button Content="Найти" Width="120" Height="50" VerticalAlignment="Bottom"
                             HorizontalAlignment="Center" Margin="0 50 0 0"/> 
                     </StackPanel>
                 </Border>

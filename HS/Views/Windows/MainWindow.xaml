@@ -22,7 +22,7 @@
                     Command="{StaticResource CloseAppCommand}"/>
     </Window.InputBindings>
     
-    <Border Background="#0a0a0a">
+    <Border Background="White">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="310"></ColumnDefinition>
@@ -33,34 +33,37 @@
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             
-            <fa:ImageAwesome Grid.Column="0" Grid.Row="0" Foreground="GhostWhite" HorizontalAlignment="Center"
+            <fa:ImageAwesome Grid.Column="0" Grid.Row="0" Foreground="Black" HorizontalAlignment="Center"
                              Margin="5"
                              VerticalAlignment="Bottom"
                              Icon="Solid_Anchor" Height="40"/>
             
-            <TextBox Grid.Row="0" Grid.Column="1" Margin="60 50 0 0" HorizontalAlignment="Left" VerticalAlignment="Center"
+            <TextBox Grid.Row="0" Grid.Column="1" Margin="60 50 0 0" HorizontalAlignment="Left" 
+                     VerticalAlignment="Center"
                        Style="{StaticResource SearchBox}"/>
             
             <DockPanel Grid.Row="1" Grid.Column="0" Margin="10 25 10 0" LastChildFill="False">
                 <StackPanel DockPanel.Dock="Top">
-                    <RadioButton Command="{Binding ShowRoomsCommand}" IsChecked="True"
-                                 Content="Комнаты" Height="65"
-                                 FontSize="16" Foreground="GhostWhite"
-                                 Style="{StaticResource MenuItem}"></RadioButton>
+                    
+                        <RadioButton Command="{Binding ShowRoomsCommand}" IsChecked="True"
+                                     Content="Комнаты" Height="65"
+                                     FontSize="16" Foreground="Black"
+                                     Style="{StaticResource MenuItem}"></RadioButton>
+                    
                     <RadioButton Command="{Binding ShowServicesCommand}"
                                  Content="Услуги" Height="65"
-                                 FontSize="16" Foreground="GhostWhite"
+                                 FontSize="16" Foreground="Black"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowClientReservationCommand}"
                                  Content="Бронь" Height="65"
-                                 FontSize="16" Foreground="GhostWhite"
+                                 FontSize="16" Foreground="Black"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowStatisticsCommand}"
                                  Content="Статистика" Height="65"
-                                 FontSize="16" Foreground="GhostWhite"
+                                 FontSize="16" Foreground="Black"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                 </StackPanel>
-                <StatusBar DockPanel.Dock="Bottom" Background="#0a0a0a" Foreground="GhostWhite"> 
+                <StatusBar DockPanel.Dock="Bottom" Background="White" Foreground="Black"> 
                     <StatusBarItem HorizontalAlignment="Center" Content="{Binding Date}">
                     </StatusBarItem>
                 </StatusBar>
