@@ -11,6 +11,7 @@ namespace HS.ViewModels
             .AddSingleton<NewReservByClientViewModel>()
             .AddSingleton<NewRoomTypeViewModel>()
             .AddSingleton<ServiceConfirmViewModel>()
+            .AddSingleton<NewRoomWindowViewModel>()
             .AddSingleton<ViewModelLocator>()
         ;
     }
