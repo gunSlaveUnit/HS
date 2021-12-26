@@ -1,4 +1,7 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
+using Hotel.Interfaces;
+using HS.Context.Entities;
 using HS.Infrastructure.Commands.Base;
 using HS.Services;
 using HS.ViewModels.Base;
@@ -68,6 +71,8 @@ namespace HS.ViewModels
         
         private string _passwordConfirm;
         private readonly ViewModelLocator _locator;
+        private Client _currentClient;
+        private readonly IRepository<ClientStatus> _clientStatusesRepository;
 
         public string PasswordConfirm
         {
@@ -82,17 +87,31 @@ namespace HS.ViewModels
         private void OnSignUpCommandExecuted(object p)
         {
             var currentClient = _clientService.SignUp(
-                Surname, Name, Patronymic, Passport, PhoneNumber, Login, Password
-                );
+                Surname, Name, Patronymic, Passport, PhoneNumber, Login, Password, Statuses[2]);
+            _currentClient = currentClient;
         }
 
         private bool CanSignUpCommandExecute(object p) => true;
 
         #endregion
         
-        public SignUpViewModel(IClientService clientService)
+        #region Statuses
+
+        private ObservableCollection<ClientStatus> _statuses;
+
+        public ObservableCollection<ClientStatus> Statuses
         {
+            get => _statuses;
+            set => Set(ref _statuses, value);
+        }
+
+        #endregion
+        
+        public SignUpViewModel(IClientService clientService, IRepository<ClientStatus> clientStatusesRepository)
+        {
+            _clientStatusesRepository = clientStatusesRepository;
             _clientService = clientService;
+            Statuses = new ObservableCollection<ClientStatus>(clientStatusesRepository.All);
             SignUpCommand = new RelayCommand(OnSignUpCommandExecuted, CanSignUpCommandExecute);
         }
     }
