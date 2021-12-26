@@ -10,12 +10,12 @@ namespace HS.Infrastructure.Converters
     {
         public object Convert(object v, Type t, object p, CultureInfo c)
         {
-            SolidColorBrush color = null;
+            Color color;
             var type = (string) v;
-            if (type == "Business") color = new SolidColorBrush(Colors.DodgerBlue);
-            if (type == "Honeymoon") color = new SolidColorBrush(Colors.Green);
-            if (type == "Family") color = new SolidColorBrush(Colors.Coral);
-            if (type == "Lux") color = new SolidColorBrush(Colors.Gold);
+            if (type == "Business") color = Colors.DodgerBlue;
+            if (type == "Honeymoon") color = Colors.Green;
+            if (type == "Family") color = Colors.Coral;
+            if (type == "Lux") color = Colors.Gold;
             return color;
         }
 

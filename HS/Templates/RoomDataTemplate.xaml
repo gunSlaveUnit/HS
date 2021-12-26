@@ -10,11 +10,9 @@
         <Border Width="350" Height="400" Margin="20" BorderBrush="Black" BorderThickness="10">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
-                    <GradientStop Color="{Binding RoomType.Title, 
-                    Converter={StaticResource ColorConverter}}" 
+                    <GradientStop Color="{Binding RoomType.Title, Converter={StaticResource ColorConverter}}" 
                                   Offset="0.0"></GradientStop>
-                    <GradientStop Color="{Binding RoomType.Title, 
-                    Converter={StaticResource ColorConverter}}" 
+                    <GradientStop Color="{Binding RoomType.Title, Converter={StaticResource ColorConverter}}" 
                                   Offset="1"></GradientStop>
                 </LinearGradientBrush>
             </Border.Background>
