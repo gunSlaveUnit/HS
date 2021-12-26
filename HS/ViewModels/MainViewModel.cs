@@ -48,7 +48,7 @@ namespace HS.ViewModels
             ??= new RelayCommand(OnShowStatisticsCommandExecuted, CanShowStatisticsCommandExecute);
         
         private void OnShowStatisticsCommandExecuted(object parameter)
-            => CurrentViewModel = new StatisticsViewModel(_statisticsService);
+            => CurrentViewModel = new StatisticsViewModel(_statisticsService, _reservationsRepository);
         
         private bool CanShowStatisticsCommandExecute(object parameter) => true;
         
