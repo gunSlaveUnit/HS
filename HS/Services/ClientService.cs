@@ -20,7 +20,7 @@ namespace HS.Services
         }
         public Client SignUp(string surname, string name, string patronymic, 
             string passport, string phoneNumber, string login,
-            string rawPassword)
+            string rawPassword, ClientStatus status)
         {
             string salt = GenerateRandomString(10);
             //string saltedLogin = login + salt;
@@ -36,7 +36,8 @@ namespace HS.Services
                 PhoneNumber = phoneNumber,
                 Login = login,
                 Password = hashedSaltedPassword,
-                Salt = salt
+                Salt = salt,
+                Status = status
             };
             return _clients.Add(newClient);
         }

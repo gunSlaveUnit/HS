@@ -11,7 +11,8 @@ namespace HS.Services
             string passport,
             string phoneNumber,
             string login,
-            string password);
+            string password,
+            ClientStatus status);
         public Client SignIn(string rawLogin, string rowPassword);
     }
 }
