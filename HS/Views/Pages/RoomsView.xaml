@@ -11,7 +11,7 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1200"></ColumnDefinition>
+            <ColumnDefinition Width="1250"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
         
@@ -20,8 +20,7 @@
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  ItemTemplate="{StaticResource RoomDataTemplate}" 
                   ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding SelectedRoom}" SelectionMode="Single"
-                 HorizontalAlignment="Center" VerticalAlignment="Center">
+                  SelectedItem="{Binding SelectedRoom}" SelectionMode="Single">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Opacity" Value="1.0" />

@@ -3,7 +3,7 @@
                     xmlns:fa="http://schemas.fontawesome.com/icons/"
                     xmlns:entities="clr-namespace:HS.Context.Entities">
     <DataTemplate x:Key="RoomDataTemplate" DataType="entities:Room">
-        <Border Width="270" Height="220" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <Border Width="350" Height="400" Margin="20">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="Navy" Offset="0.0"></GradientStop>
@@ -11,7 +11,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <Border.Clip>
-                <RectangleGeometry RadiusX="10" RadiusY="10" Rect="0, 0, 270, 220"></RectangleGeometry>
+                <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0, 0, 350, 400"></RectangleGeometry>
             </Border.Clip>
             <StackPanel Margin="20">
                 <DockPanel>
