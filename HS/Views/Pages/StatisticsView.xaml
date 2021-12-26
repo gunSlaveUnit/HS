@@ -91,6 +91,7 @@
                     </Border>
                     
                     <Button Content="Сформировать" Width="120" Height="50" Foreground="GhostWhite" VerticalAlignment="Bottom"
+                            Command="{Binding SaveFileCommand}"
                             HorizontalAlignment="Center" Margin="0 50 0 0"/> 
                     </StackPanel>
                 </Border>

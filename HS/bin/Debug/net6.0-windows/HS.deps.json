@@ -14,7 +14,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.0",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.0",
           "Microsoft.Extensions.Hosting": "6.0.0",
-          "Microsoft.Xaml.Behaviors.Wpf": "1.1.37"
+          "Microsoft.Xaml.Behaviors.Wpf": "1.1.37",
+          "Syncfusion.Pdf.Wpf": "19.4.0.38"
         },
         "runtime": {
           "HS.dll": {}
@@ -633,6 +634,34 @@
           }
         }
       },
+      "Syncfusion.Compression.Base/19.4.0.38": {
+        "runtime": {
+          "lib/net5.0/Syncfusion.Compression.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
+      "Syncfusion.Licensing/19.4.0.38": {
+        "runtime": {
+          "lib/net5.0/Syncfusion.Licensing.dll": {
+            "assemblyVersion": "19.4.0.38",
+            "fileVersion": "19.4.0.38"
+          }
+        }
+      },
+      "Syncfusion.Pdf.Wpf/19.4.0.38": {
+        "dependencies": {
+          "Syncfusion.Compression.Base": "19.4.0.38",
+          "Syncfusion.Licensing": "19.4.0.38"
+        },
+        "runtime": {
+          "lib/net5.0-windows7.0/Syncfusion.Pdf.Base.dll": {
+            "assemblyVersion": "19.4500.0.38",
+            "fileVersion": "19.4500.0.38"
+          }
+        }
+      },
       "System.Collections.Immutable/6.0.0": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "6.0.0"
@@ -1097,6 +1126,27 @@
       "sha512": "sha512-TxH7g5I/4UzOHfs0GqD1W4evdl7DIHOQCr/KWc4G4BkgtsAhaHHXAW5JbKrkB7cqClN0JYOX6j9/4v4emCjFIA==",
       "path": "microsoft.xaml.behaviors.wpf/1.1.37",
       "hashPath": "microsoft.xaml.behaviors.wpf.1.1.37.nupkg.sha512"
+    },
+    "Syncfusion.Compression.Base/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-y0FRrLKuv8FOEUR/QL8LuO9qqjZ+5yeFrfGrSUvgV/g1abeBohOyX+vpL8hLm+3Al391c89+0KXnaMSWdTigCA==",
+      "path": "syncfusion.compression.base/19.4.0.38",
+      "hashPath": "syncfusion.compression.base.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.Licensing/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-aO2/KBA53/uYDAs0cj0HYW+Hf3cYnyZUpo96IaijDoVvS+Vi9N7tEUVvnAbW84aQiJFZD5LOUxoEz18Dw74iAw==",
+      "path": "syncfusion.licensing/19.4.0.38",
+      "hashPath": "syncfusion.licensing.19.4.0.38.nupkg.sha512"
+    },
+    "Syncfusion.Pdf.Wpf/19.4.0.38": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-TkANwwbGyBgvghbsYY2aVLE1NL4OQ2Pd6MeOXDK47VyPmKQibjyGuEU3KX6S7BK/U1KgilYgSU05MPyHuL+Xdg==",
+      "path": "syncfusion.pdf.wpf/19.4.0.38",
+      "hashPath": "syncfusion.pdf.wpf.19.4.0.38.nupkg.sha512"
     },
     "System.Collections.Immutable/6.0.0": {
       "type": "package",
