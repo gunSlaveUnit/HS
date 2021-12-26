@@ -47,20 +47,20 @@
                     
                         <RadioButton Command="{Binding ShowRoomsCommand}" IsChecked="True"
                                      Content="Комнаты" Height="65"
-                                     FontSize="16" Foreground="Black"
+                                     FontSize="16"
                                      Style="{StaticResource MenuItem}"></RadioButton>
                     
                     <RadioButton Command="{Binding ShowServicesCommand}"
                                  Content="Услуги" Height="65"
-                                 FontSize="16" Foreground="Black"
+                                 FontSize="16"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowClientReservationCommand}"
                                  Content="Бронь" Height="65"
-                                 FontSize="16" Foreground="Black"
+                                 FontSize="16"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowStatisticsCommand}"
                                  Content="Статистика" Height="65"
-                                 FontSize="16" Foreground="Black"
+                                 FontSize="16"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                 </StackPanel>
                 <StatusBar DockPanel.Dock="Bottom" Background="White" Foreground="Black"> 
