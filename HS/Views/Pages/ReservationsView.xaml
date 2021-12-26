@@ -4,17 +4,34 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:fa="http://schemas.fontawesome.com/icons/"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel Height="700">
-        <DataGrid ItemsSource="{Binding Reservations}" AutoGenerateColumns="False">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1300"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <DataGrid ItemsSource="{Binding Reservations}" AutoGenerateColumns="False"
+                  FontSize="25" Width="Auto" SelectedItem="{Binding SelectedReservation}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Въезд" Binding="{Binding ArrivalDate}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Выезд" Binding="{Binding DepartureDate}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Въезд" Binding="{Binding ArrivalDate}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Выезд" Binding="{Binding DepartureDate}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Клиент" Binding="{Binding Client.Document}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Height="50" Width="50" Command="{Binding CalculateClientReservation}">
-            <fa:ImageAwesome Icon="Solid_Calculator" Foreground="WhiteSmoke"/>
-        </Button>
-    </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Top">
+            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Width="170" Margin="5">
+                <TextBox materialDesign:HintAssist.Hint="Документ" FontSize="15" Text="{Binding Document}"
+                         HorizontalContentAlignment="Center"
+                         HorizontalAlignment="Center"></TextBox>
+            </Border>
+            <Button Content="Search" Command="{Binding SearchReservationByClientDocument}" Margin="0 20"
+                    Width="120" Height="50"/>
+            <Button Height="70" Width="70" Command="{Binding CalculateClientReservation}">
+                <fa:ImageAwesome Icon="Solid_Calculator" Foreground="WhiteSmoke"/>
+            </Button>
+        </StackPanel>
+    </Grid>
 </UserControl>

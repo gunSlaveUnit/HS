@@ -53,7 +53,6 @@
                                  Content="Комнаты" Height="65"
                                  FontSize="16"
                                  Style="{StaticResource MenuItem}"></RadioButton>
-                    
                     <RadioButton Command="{Binding ShowServicesCommand}"
                                  Content="Услуги" Height="65"
                                  FontSize="16"
@@ -78,7 +77,7 @@
                                  Converter={StaticResource StatusConverter}}"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowReservationsViewCommand}"
-                                 Content="Типы комнат" Height="65"
+                                 Content="Бронирования" Height="65"
                                  FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
                                  Converter={StaticResource StatusConverter}}"
                                  Style="{StaticResource MenuItem}"></RadioButton>

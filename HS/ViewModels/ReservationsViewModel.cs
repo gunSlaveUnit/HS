@@ -45,6 +45,18 @@ namespace HS.ViewModels
 
         #endregion
 
+        #region Document
+
+        private string _document;
+
+        public string Document
+        {
+            get => _document;
+            set => Set(ref _document, value);
+        }
+
+        #endregion
+
         #endregion
         
         #region Commands
@@ -66,6 +78,19 @@ namespace HS.ViewModels
             newRoomType.ShowDialog();
         }
 
+        #endregion
+
+        #region SearchReservationByClientDocument
+
+        private ICommand _searchReservationByClientDocument;
+        public ICommand SearchReservationByClientDocument => _searchReservationByClientDocument
+            ??= new RelayCommand(OnSearchReservationByClientDocumentExecute, CanSearchReservationByClientDocumentExecute);
+        
+        private bool CanSearchReservationByClientDocumentExecute(object parameter) => true;
+
+        private void OnSearchReservationByClientDocumentExecute(object parameter)
+            => Reservations = _reservationsRepository.All.Where(r => r.Client.Document == Document).ToList();
+        
         #endregion
 
         #endregion
