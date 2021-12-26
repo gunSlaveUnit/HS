@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Input;
 using Hotel.Interfaces;
@@ -6,6 +8,10 @@ using HS.Context.Entities;
 using HS.Infrastructure.Commands.Base;
 using HS.Services;
 using HS.ViewModels.Base;
+using Microsoft.Win32;
+using Syncfusion.Pdf;
+using Syncfusion.Pdf.Graphics;
+using Syncfusion.Pdf.Grid;
 
 namespace HS.ViewModels
 {
@@ -83,9 +89,67 @@ namespace HS.ViewModels
         private bool CanUpdateStatisticsCommandExecute(object p) => true;
 
         private void OnUpdateStatisticsCommandExecuted(object p) => Update();
+        
+        private string _openedFileName = "Отчет";
+
+        public string OpenedFileName
+        {
+            get => _openedFileName;
+            set => Set(ref _openedFileName, value);
+        }
+
+        private string _openedFileExt = "pdf";
+
+        public string OpenedFileExt
+        {
+            get => _openedFileExt;
+            set => Set(ref _openedFileExt, value);
+        }
+        
+        #region SaveFile 
+        
+        public ICommand SaveFileCommand { get; }
+
+        private void OnSaveFileCommandExecuted(object p) 
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.FileName = OpenedFileName ?? "Отчет";
+            saveFileDialog.DefaultExt = OpenedFileExt ?? "pdf";
+            saveFileDialog.Filter = "Documents (*.PDF)|" + "*.pdf";
+            if (saveFileDialog.ShowDialog() == false) return;
+            using PdfDocument document = new PdfDocument();
+            PdfDocument doc = new PdfDocument();
+            PdfPage page = doc.Pages.Add();
+            PdfGrid pdfGrid = new PdfGrid();
+            DataTable dataTable = new DataTable();
+            
+            dataTable.Columns.Add("Въезд");
+            dataTable.Columns.Add("Выезд");
+            dataTable.Columns.Add("Стоимость проживания");
+            dataTable.Columns.Add("Клиент");
+            dataTable.Columns.Add("Комната");
+
+            var items = _statisticsService.GetReservationsByTime(LowerBound, UpperBound);
+
+            foreach (var item in items)
+            {
+                dataTable.Rows.Add(new object[]{item.ArrivalDate, item.DepartureDate, item.Cost, item.Client.Document, item.Room.Number});
+            }
+            
+            pdfGrid.DataSource = dataTable;
+            pdfGrid.Draw(page, new PointF(10, 10));
+            doc.Save(saveFileDialog.FileName);
+            doc.Close(true);
+        }
+        private bool CanSaveFileCommandExecute(object p) => true;
+        
+        #endregion
+        
         public StatisticsViewModel(IStatisticsService statisticsService,
             IRepository<Reservation> reservationsRepository)
         {
+            SaveFileCommand = new RelayCommand(OnSaveFileCommandExecuted, CanSaveFileCommandExecute);
+            
             _statisticsService = statisticsService;
             _reservationsRepository = reservationsRepository;
 
