@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:entities="clr-namespace:HS.Context.Entities"
-             xmlns:fa5="http://schemas.fontawesome.com/icons/"
+             xmlns:fa="http://schemas.fontawesome.com/icons/"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:sys="clr-namespace:System;assembly=System.Runtime"
              mc:Ignorable="d"
@@ -118,6 +118,10 @@
                 <Button Content="Забронировать" Width="180" Height="50" Margin="10" HorizontalAlignment="Center"
                         Command="{Binding MakeReservationCommand}" CommandParameter="{Binding SelectedRoom}"></Button>
                 <TextBlock Text="* Для бронирования выберите одну из комнат *" FontSize="10" HorizontalAlignment="Center" Foreground="DarkGray"></TextBlock>
+            <Button Height="70" Width="70" Margin="20"
+                     Command="{Binding CreateNewRoomCommand}">
+                <fa:ImageAwesome Icon="Solid_PlusCircle" Foreground="WhiteSmoke"/>
+            </Button>
             </StackPanel>
     </Grid>
 </UserControl>
