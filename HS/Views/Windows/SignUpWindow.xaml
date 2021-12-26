@@ -19,7 +19,7 @@
         
         <StackPanel Margin="0 20 0 0">
             <TextBox md:HintAssist.Hint="Surname" FontSize="15" Width="200" Text="{Binding Surname}"
-                     Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
+                     Margin="0 30 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
             <TextBox md:HintAssist.Hint="Name" FontSize="15" Width="200" Text="{Binding Name}"
                      Margin="0 0 0 10" md:TextFieldAssist.UnderlineBrush="DarkBlue"></TextBox>
             <TextBox md:HintAssist.Hint="Patronymic" FontSize="15" Width="200" Text="{Binding Patronymic}"

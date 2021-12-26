@@ -23,7 +23,7 @@ namespace HS.Services
                 r => r.ArrivalDate >= lowerBound && r.DepartureDate <= upperBound));
 
         public int GetIncome(DateTime lowerBound, DateTime upperBound)
-            => _reservationsRepository.All.Sum(r => r.Cost) 
+            => _reservationsRepository.All.Sum(r => r.Cost)
                + _orderedServicesRepository.All.Sum(o => o.CheckoutPrice);
     }
 }
