@@ -113,13 +113,70 @@ namespace HS.ViewModels
             get => _isDays;
             set => Set(ref _isDays, value);
         }
+        
+        private string _capacityFilter;
+
+        public string CapacityFilter
+        {
+            get => _capacityFilter;
+            set => Set(ref _capacityFilter, value);
+        }
+        
+        private string _minPrice;
+
+        public string MinPrice
+        {
+            get => _minPrice;
+            set => Set(ref _minPrice, value);
+        }
+        
+        private string _maxPrice;
+
+        public string MaxPrice
+        {
+            get => _maxPrice;
+            set => Set(ref _maxPrice, value);
+        }
+
+        #region Commands
+
+        #region ApplyFiltersCommand
+        
+        private ICommand _applyFiltersCommand;
+        
+        public ICommand ApplyFiltersCommand => _applyFiltersCommand
+            ??= new RelayCommand(OnApplyFiltersCommandExecuted, CanApplyFiltersCommandExecute);
+        
+        private bool CanApplyFiltersCommandExecute(object parameter) => true;
+
+        private void OnApplyFiltersCommandExecuted(object parameter)
+        {
+            var rooms = _roomsRepository.All
+                .Where(r => r.RoomType.Capacity == Convert.ToInt32(CapacityFilter));
+            if (IsHours)
+                rooms = rooms.Where(r => r.RoomType.CostPerHour >= Convert.ToInt32(MinPrice) 
+                                         && r.RoomType.CostPerHour <= Convert.ToInt32(MaxPrice));
+            else
+                rooms = rooms.Where(r => r.RoomType.CostPerDay >= Convert.ToInt32(MinPrice) 
+                                         && r.RoomType.CostPerDay <= Convert.ToInt32(MaxPrice));
+            Rooms = new ObservableCollection<Room>(rooms);
+        }
+        
+        #endregion
+
+        #endregion
 
         public RoomsViewModel(IRepository<Room> roomsRepository, ViewModelLocator locator)
         {
+            CapacityFilter = "1";
             _locator = locator;
             _roomsRepository = roomsRepository;
             var rooms = _roomsRepository.All;
             Rooms = new ObservableCollection<Room>(rooms);
+
+            MinPrice = rooms.Min(r => r.RoomType.CostPerHour).ToString();
+            MaxPrice = rooms.Max(r => r.RoomType.CostPerDay).ToString();
+            
             ArrivalDate = DateTime.Today;
             IsDays = true;
         }

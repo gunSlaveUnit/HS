@@ -18,16 +18,19 @@
                 </Setter.Value>
             </Setter>
             
+            <Setter Property="Foreground" Value="Black"></Setter>
             <Setter Property="Background" Value="Transparent"></Setter>
             <Setter Property="BorderThickness" Value="0"></Setter>
         </Style.Setters>
         
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="Gray"></Setter>
+                <Setter Property="Foreground" Value="Black"></Setter>
+                <Setter Property="Background" Value="#c6b5e5"></Setter>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="DimGray"></Setter>
+                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Background" Value="#6737b8"></Setter>
             </Trigger>
         </Style.Triggers>
     </Style>
