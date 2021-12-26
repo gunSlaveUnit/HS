@@ -20,7 +20,9 @@
                  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                  ItemTemplate="{StaticResource RoomDataTemplate}" 
                   ItemsSource="{Binding Rooms, UpdateSourceTrigger=PropertyChanged}"
-                  SelectedItem="{Binding SelectedRoom}" SelectionMode="Single">
+                  SelectedItem="{Binding SelectedRoom}" SelectionMode="Single"
+                 ScrollViewer.VerticalScrollBarVisibility="Hidden"
+                 HorizontalAlignment="Center">
             <ListBox.ItemContainerStyle>
                 <Style TargetType="ListBoxItem">
                     <Setter Property="Opacity" Value="1.0" />

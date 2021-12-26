@@ -14,38 +14,32 @@
                 <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0, 0, 350, 400"></RectangleGeometry>
             </Border.Clip>
             <StackPanel Margin="20">
-                <DockPanel>
-                    <TextBlock Text="{Binding RoomType.Title}"
-                               FontSize="30" Foreground="WhiteSmoke">
+                <fa:ImageAwesome Icon="Solid_Bed" Height="60"></fa:ImageAwesome>
+                <TextBlock Text="{Binding RoomType.Title}"
+                           HorizontalAlignment="Center" VerticalAlignment="Center"
+                           FontSize="50">
                     </TextBlock>
-                    <Border Width="30" Height="30"  BorderBrush="Gainsboro" BorderThickness="3" Margin="10 0">
-                        <Border.Clip>
-                            <RectangleGeometry RadiusX="2" RadiusY="2" Rect="0, 0, 30, 30"></RectangleGeometry>
-                        </Border.Clip>
-                        <TextBlock HorizontalAlignment="Center"
-                                   VerticalAlignment="Center" 
-                                   Text="{Binding Number}"
-                                   FontSize="20" Foreground="WhiteSmoke">
-                        </TextBlock>
-                    </Border>
-                    <fa:FontAwesome Icon="Solid_Bed" DockPanel.Dock="Right" Height="50"
-                                    Foreground="WhiteSmoke">
-                    </fa:FontAwesome>
-                </DockPanel>
-                <StackPanel Orientation="Horizontal" Height="30" Margin="0 10">
-                    <fa:ImageAwesome Icon="Solid_Male" Foreground="Whitesmoke"></fa:ImageAwesome>
+                    <TextBlock HorizontalAlignment="Center" Margin="10"
+                               VerticalAlignment="Center" 
+                               Text="{Binding Number}"
+                               FontSize="40"/>
+                
+                <StackPanel Orientation="Horizontal" Margin="0 10"
+                            HorizontalAlignment="Left">
+                    <fa:ImageAwesome Icon="Solid_Male" Height="40"></fa:ImageAwesome>
                     <TextBlock Text="{Binding RoomType.Capacity}" Margin="10 0"
-                               FontSize="20" Foreground="WhiteSmoke">
+                               FontSize="40">
                     </TextBlock>
                 </StackPanel>
-                <StackPanel Orientation="Horizontal" Height="30" Margin="0 10">
-                    <fa:ImageAwesome Icon="Solid_RubleSign" Foreground="Whitesmoke"></fa:ImageAwesome>
+                <StackPanel Orientation="Horizontal" Margin="0 10"
+                            HorizontalAlignment="Left">
+                    <fa:ImageAwesome Icon="Solid_RubleSign" Height="40"></fa:ImageAwesome>
                     <TextBlock Text="{Binding RoomType.CostPerHour}" Margin="10 0"
-                               FontSize="20" Foreground="WhiteSmoke">
+                               FontSize="40">
                     </TextBlock>
-                    <TextBlock Text="/" FontSize="20" Foreground="WhiteSmoke"></TextBlock>
+                    <TextBlock Text="/" FontSize="40"></TextBlock>
                     <TextBlock Text="{Binding RoomType.CostPerDay}" Margin="10 0"
-                               FontSize="20" Foreground="WhiteSmoke">
+                               FontSize="40">
                     </TextBlock>
                 </StackPanel>
             </StackPanel>
