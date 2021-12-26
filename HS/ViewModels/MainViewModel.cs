@@ -54,6 +54,20 @@ namespace HS.ViewModels
         
         #endregion
 
+        #region ShowRoomTypesCommand
+
+        private ICommand _showRoomTypesCommand;
+        
+        public ICommand ShowRoomTypesCommand => _showRoomTypesCommand
+            ??= new RelayCommand(OnShowRoomTypesCommandExecuted, CanShowRoomTypesCommandExecute);
+        
+        private bool CanShowRoomTypesCommandExecute(object parameter) => true;
+
+        private void OnShowRoomTypesCommandExecuted(object parameter)
+            => CurrentViewModel = new RoomTypesViewModel(_roomTypesRepository);
+
+        #endregion
+
         private ICommand _showRoomsCommand;
         
         public ICommand ShowRoomsCommand => _showRoomsCommand
@@ -114,6 +128,7 @@ namespace HS.ViewModels
         private readonly IRepository<Room> _roomsRepository;
         private readonly IRepository<Service> _servicesRepository;
         private readonly IStatisticsService _statisticsService;
+        private readonly IRepository<RoomType> _roomTypesRepository;
 
         public ViewModel CurrentViewModel
         {
@@ -126,9 +141,11 @@ namespace HS.ViewModels
         #endregion
         public MainViewModel(IRepository<Client> clientsRepository,
             IRepository<Reservation> reservationsRepository,
+            IRepository<RoomType> roomTypesRepository,
             IRepository<Room> roomsRepository, IRepository<Service> servicesRepository,
             IStatisticsService statisticsService)
         {
+            _roomTypesRepository = roomTypesRepository;
             _clientsRepository = clientsRepository;
             _reservationsRepository = reservationsRepository;
             _roomsRepository = roomsRepository;
