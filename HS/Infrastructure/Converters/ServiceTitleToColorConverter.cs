@@ -5,22 +5,21 @@ using System.Windows.Media;
 
 namespace HS.Infrastructure.Converters
 {
-    public class RoomTypeToColorConverter : IValueConverter
+    public class ServiceTitleToColorConverter : IValueConverter
     {
         public object Convert(object v, Type t, object p, CultureInfo c)
         {
             Color color;
             var type = (string) v;
-            if (type == "Business") color = Colors.DodgerBlue;
-            if (type == "Honeymoon") color = Colors.MediumVioletRed;
-            if (type == "Family") color = Colors.Coral;
-            if (type == "Lux") color = Colors.Gold;
+            if (type == "Gym") color = Colors.DarkGray;
+            if (type == "Swimming Pool") color = Colors.DodgerBlue;
+            if (type == "Food") color = Colors.Orange;
             return color;
         }
 
         public object ConvertBack(object v, Type t, object p, CultureInfo c)
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 }
