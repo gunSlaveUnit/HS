@@ -74,7 +74,13 @@
                                HorizontalAlignment="Center"></TextBlock>
                     
                     <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Width="170" Margin="5">
-                        <TextBox materialDesign:HintAssist.Hint="Сколько" FontSize="15" Text="{Binding CapacityFilter}"
+                        <TextBox materialDesign:HintAssist.Hint="Минимум" FontSize="15" Text="{Binding MinCapacityFilter}"
+                                 HorizontalContentAlignment="Center"
+                                 HorizontalAlignment="Center"></TextBox>
+                    </Border>
+                    
+                    <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Width="170" Margin="5">
+                        <TextBox materialDesign:HintAssist.Hint="Максимум" FontSize="15" Text="{Binding MaxCapacityFilter}"
                                  HorizontalContentAlignment="Center"
                                  HorizontalAlignment="Center"></TextBox>
                     </Border>

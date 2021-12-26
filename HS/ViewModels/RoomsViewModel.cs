@@ -114,12 +114,20 @@ namespace HS.ViewModels
             set => Set(ref _isDays, value);
         }
         
-        private string _capacityFilter;
+        private string _minCapacityFilter;
 
-        public string CapacityFilter
+        public string MinCapacityFilter
         {
-            get => _capacityFilter;
-            set => Set(ref _capacityFilter, value);
+            get => _minCapacityFilter;
+            set => Set(ref _minCapacityFilter, value);
+        }
+        
+        private string _maxCapacityFilter;
+
+        public string MaxCapacityFilter
+        {
+            get => _maxCapacityFilter;
+            set => Set(ref _maxCapacityFilter, value);
         }
         
         private string _minPrice;
@@ -152,7 +160,8 @@ namespace HS.ViewModels
         private void OnApplyFiltersCommandExecuted(object parameter)
         {
             var rooms = _roomsRepository.All
-                .Where(r => r.RoomType.Capacity == Convert.ToInt32(CapacityFilter));
+                .Where(r => r.RoomType.Capacity >= Convert.ToInt32(MinCapacityFilter) 
+                            && r.RoomType.Capacity <= Convert.ToInt32(MaxCapacityFilter));
             if (IsHours)
                 rooms = rooms.Where(r => r.RoomType.CostPerHour >= Convert.ToInt32(MinPrice) 
                                          && r.RoomType.CostPerHour <= Convert.ToInt32(MaxPrice));
@@ -168,12 +177,14 @@ namespace HS.ViewModels
 
         public RoomsViewModel(IRepository<Room> roomsRepository, ViewModelLocator locator)
         {
-            CapacityFilter = "1";
             _locator = locator;
             _roomsRepository = roomsRepository;
             var rooms = _roomsRepository.All;
             Rooms = new ObservableCollection<Room>(rooms);
 
+            MinCapacityFilter = rooms.Min(r => r.RoomType.Capacity).ToString();
+            MaxCapacityFilter = rooms.Max(r => r.RoomType.Capacity).ToString();
+            
             MinPrice = rooms.Min(r => r.RoomType.CostPerHour).ToString();
             MaxPrice = rooms.Max(r => r.RoomType.CostPerDay).ToString();
             
