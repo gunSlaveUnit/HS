@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:fa="http://schemas.fontawesome.com/icons/"
+        xmlns:c="clr-namespace:HS.Infrastructure.Converters"
         DataContext="{Binding MainViewModel, Source={StaticResource Locator}}"
         mc:Ignorable="d"
         Title="MainWindow"
@@ -43,12 +44,15 @@
                        Style="{StaticResource SearchBox}"/>
             
             <DockPanel Grid.Row="1" Grid.Column="0" Margin="10 25 10 0" LastChildFill="False">
+                <DockPanel.Resources>
+                    <c:UserStatusVisibilityConverter x:Key="StatusConverter"></c:UserStatusVisibilityConverter>
+                </DockPanel.Resources>
                 <StackPanel DockPanel.Dock="Top">
                     
-                        <RadioButton Command="{Binding ShowRoomsCommand}" IsChecked="True"
-                                     Content="Комнаты" Height="65"
-                                     FontSize="16"
-                                     Style="{StaticResource MenuItem}"></RadioButton>
+                    <RadioButton Command="{Binding ShowRoomsCommand}" IsChecked="True"
+                                 Content="Комнаты" Height="65"
+                                 FontSize="16"
+                                 Style="{StaticResource MenuItem}"></RadioButton>
                     
                     <RadioButton Command="{Binding ShowServicesCommand}"
                                  Content="Услуги" Height="65"
@@ -60,7 +64,18 @@
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowStatisticsCommand}"
                                  Content="Статистика" Height="65"
-                                 FontSize="16"
+                                 FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
+                                 Converter={StaticResource StatusConverter}}"
+                                 Style="{StaticResource MenuItem}"></RadioButton>
+                    <RadioButton Command="{Binding ShowClientsViewCommand}"
+                                 Content="Клиенты" Height="65"
+                                 FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
+                                 Converter={StaticResource StatusConverter}}"
+                                 Style="{StaticResource MenuItem}"></RadioButton>
+                    <RadioButton Command="{Binding ShowRoomTypesCommand}"
+                                 Content="Типы комнат" Height="65"
+                                 FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
+                                 Converter={StaticResource StatusConverter}}"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                 </StackPanel>
                 <StatusBar DockPanel.Dock="Bottom" Background="White" Foreground="Black"> 
