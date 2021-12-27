@@ -12,7 +12,7 @@
                 <DataGridTextColumn Header="Фамилия" Binding="{Binding Surname}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Имя" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Отчество" Binding="{Binding Patronymic}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Паспорт" Binding="{Binding Passport}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Паспорт" Binding="{Binding Document}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Номер" Binding="{Binding PhoneNumber}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>

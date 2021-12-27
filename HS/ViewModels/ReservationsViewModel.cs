@@ -68,10 +68,11 @@ namespace HS.ViewModels
         public ICommand CalculateClientReservation => _calculateClientReservation
             ??= new RelayCommand(OnCalculateClientReservationExecute, CanCalculateClientReservationExecute);
         
-        private bool CanCalculateClientReservationExecute(object parameter) => true;
+        private bool CanCalculateClientReservationExecute(object p) => p is Reservation;
 
         private void OnCalculateClientReservationExecute(object parameter)
         {
+            _locator.MainViewModel.SelectedReservation = SelectedReservation;
             var newRoomType = new PaymentWindow();
             newRoomType.Owner = Application.Current.MainWindow;
             newRoomType.WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -83,6 +84,8 @@ namespace HS.ViewModels
         #region SearchReservationByClientDocument
 
         private ICommand _searchReservationByClientDocument;
+        private readonly ViewModelLocator _locator;
+
         public ICommand SearchReservationByClientDocument => _searchReservationByClientDocument
             ??= new RelayCommand(OnSearchReservationByClientDocumentExecute, CanSearchReservationByClientDocumentExecute);
         
@@ -96,8 +99,10 @@ namespace HS.ViewModels
         #endregion
 
         public ReservationsViewModel(IRepository<Reservation> reservationsRepository,
-            IRepository<OrderedService> orderedServicesRepository)
+            IRepository<OrderedService> orderedServicesRepository,
+            ViewModelLocator locator)
         {
+            _locator = locator;
             _reservationsRepository = reservationsRepository;
             _orderedServicesRepository = orderedServicesRepository;
             Reservations = _reservationsRepository.All.ToList();

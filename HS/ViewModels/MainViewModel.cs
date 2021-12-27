@@ -11,6 +11,18 @@ namespace HS.ViewModels
 {
     public class MainViewModel : ViewModel
     {
+        #region SelectedReservation
+
+        private Reservation _selectedReservation;
+
+        public Reservation SelectedReservation
+        {
+            get => _selectedReservation;
+            set => Set(ref _selectedReservation, value);
+        }
+
+        #endregion
+        
         private DateTime _date;
 
         public DateTime Date
@@ -112,7 +124,7 @@ namespace HS.ViewModels
         private bool CanShowReservationsViewCommandExecute(object parameter) => true;
 
         private void OnShowReservationsViewCommandExecute(object parameter)
-            => CurrentViewModel = new ReservationsViewModel(_reservationsRepository, _orderedServicesRepository);
+            => CurrentViewModel = new ReservationsViewModel(_reservationsRepository, _orderedServicesRepository, _locator);
 
         #endregion
         
@@ -130,6 +142,7 @@ namespace HS.ViewModels
         private readonly IStatisticsService _statisticsService;
         private readonly IRepository<RoomType> _roomTypesRepository;
         private readonly IRepository<OrderedService> _orderedServicesRepository;
+        private readonly ViewModelLocator _locator;
 
         public ViewModel CurrentViewModel
         {
@@ -140,13 +153,17 @@ namespace HS.ViewModels
         #endregion
         
         #endregion
+
         public MainViewModel(IRepository<Client> clientsRepository,
             IRepository<Reservation> reservationsRepository,
             IRepository<RoomType> roomTypesRepository,
             IRepository<OrderedService> orderedServicesRepository,
             IRepository<Room> roomsRepository, IRepository<Service> servicesRepository,
-            IStatisticsService statisticsService)
+            IStatisticsService statisticsService,
+            ViewModelLocator locator)
+
         {
+            _locator = locator;
             _roomTypesRepository = roomTypesRepository;
             _clientsRepository = clientsRepository;
             _reservationsRepository = reservationsRepository;
@@ -155,7 +172,7 @@ namespace HS.ViewModels
             _orderedServicesRepository = orderedServicesRepository;
 
             _statisticsService = statisticsService;
-            
+
             Date = DateTime.Now;
         }
     }

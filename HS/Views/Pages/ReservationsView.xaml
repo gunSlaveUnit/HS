@@ -29,7 +29,8 @@
             </Border>
             <Button Content="Search" Command="{Binding SearchReservationByClientDocument}" Margin="0 20"
                     Width="120" Height="50"/>
-            <Button Height="70" Width="70" Command="{Binding CalculateClientReservation}">
+            <Button Height="70" Width="70" Command="{Binding CalculateClientReservation}" 
+                    CommandParameter="{Binding SelectedReservation}">
                 <fa:ImageAwesome Icon="Solid_Calculator" Foreground="WhiteSmoke"/>
             </Button>
         </StackPanel>

@@ -5,8 +5,12 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:HS.Views.Windows"
         mc:Ignorable="d"
+        DataContext="{Binding PaymentViewModel, Source={StaticResource Locator}}"
         Title="PaymentWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <TextBlock Text="Payment" FontSize="20"></TextBlock>
+        <TextBlock FontSize="20" Text="{Binding StringFormat=Проживание: {0}, Path=LivingPrice}"></TextBlock>
+        <TextBlock FontSize="20" Text="{Binding StringFormat=Услуги: {0}, Path=OrderedServicesPrice}"></TextBlock>
+        <TextBlock FontSize="20" Text="{Binding StringFormat=Итого: {0}, Path=Sum}"></TextBlock>
+    </StackPanel>
 </Window>

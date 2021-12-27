@@ -12,6 +12,7 @@ namespace HS.ViewModels
             .AddSingleton<NewRoomTypeViewModel>()
             .AddSingleton<ServiceConfirmViewModel>()
             .AddSingleton<NewRoomWindowViewModel>()
+            .AddSingleton<PaymentViewModel>()
             .AddSingleton<ViewModelLocator>()
         ;
     }
