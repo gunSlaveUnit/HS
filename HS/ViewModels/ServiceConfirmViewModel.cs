@@ -48,7 +48,7 @@ namespace HS.ViewModels
             ??= new RelayCommand(OnConfirmOrderServiceCommandExecuted, CanConfirmOrderServiceCommandExecute);
 
         private bool CanConfirmOrderServiceCommandExecute(object p)
-            => true;
+            => CurrentClient.Reservations.FirstOrDefault() != default;
 
         private void OnConfirmOrderServiceCommandExecuted(object p)
         {

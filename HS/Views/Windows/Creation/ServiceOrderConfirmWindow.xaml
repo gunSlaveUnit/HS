@@ -6,8 +6,22 @@
         xmlns:local="clr-namespace:HS.Views.Windows.Creation"
         mc:Ignorable="d"
         DataContext="{Binding ServiceConfirmViewModel, Source={StaticResource Locator}}"
-        Title="ServiceOrderConfirmWindow" Height="450" Width="800">
-    <Grid>
-        <Button Command="{Binding ConfirmOrderServiceCommand}" Content="Confirm order"></Button>
-    </Grid>
+        Title="Service Order" Height="600" Width="520">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="30">
+                <TextBlock FontSize="40" Text="Rieverra"></TextBlock>
+                <TextBlock Foreground="DarkGray" FontSize="30" Text="Итак, вы хотите что-то заказать"></TextBlock>
+            
+            <StackPanel Orientation="Horizontal" Margin="0 60" HorizontalAlignment="Center">
+                <TextBlock FontSize="25" Text="На имя: "></TextBlock>
+                <TextBlock FontSize="25" Text="{Binding CurrentClient.Surname}"></TextBlock>
+                <TextBlock FontSize="25" Text="{Binding CurrentClient.Name}"
+                           Margin="10 0 0 0"></TextBlock>
+            </StackPanel>
+            <TextBlock FontSize="25" HorizontalAlignment="Center" Text="{Binding StringFormat=Service: {0}, Path=SelectedService.Title}"></TextBlock>
+            <TextBlock FontSize="25" HorizontalAlignment="Center" Text="{Binding StringFormat=Price: {0}, Path=SelectedService.Price}"></TextBlock>    
+            
+                <Button Margin="10 20"
+                        Width="180" Command="{Binding ConfirmOrderServiceCommand}"
+                        FontSize="25" Content="Заказать" Height="60" Foreground="WhiteSmoke"/>
+        </StackPanel>
 </Window>
