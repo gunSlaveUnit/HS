@@ -69,8 +69,8 @@ namespace HS.ViewModels
             DateTime lowerBound = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
             DateTime upperBound = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 
                 DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month));
-            IncomeCurrentMonth = _statisticsService.GetIncome(lowerBound, upperBound);
-            IncomePreviousMonth = _statisticsService.GetIncome(
+            IncomeCurrentMonth = _statisticsService.GetIncomeByTime(lowerBound, upperBound);
+            IncomePreviousMonth = _statisticsService.GetIncomeByTime(
                 new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1, 1),
                 new DateTime(DateTime.Now.Year, DateTime.Now.Month - 1,
                     DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month - 1)));
