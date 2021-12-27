@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows.Input;
+using System.Windows.Media;
 using Hotel.Interfaces;
 using HS.Context.Entities;
 using HS.Infrastructure.Commands.Base;
@@ -11,6 +12,22 @@ namespace HS.ViewModels
     public class ServiceConfirmViewModel : ViewModel
     {
         #region Properties
+        
+        private string _message;
+
+        public string Message
+        {
+            get => _message;
+            set => Set(ref _message, value);
+        }
+        
+        private SolidColorBrush _messageColor;
+
+        public SolidColorBrush MessageColor
+        {
+            get => _messageColor;
+            set => Set(ref _messageColor, value);
+        }
 
         #region SelectedService
 
@@ -52,12 +69,17 @@ namespace HS.ViewModels
 
         private void OnConfirmOrderServiceCommandExecuted(object p)
         {
-            _orderedServicesRepository.AddAsync(new OrderedService
+            var item = _orderedServicesRepository.Add(new OrderedService
             {
                 Service = SelectedService,
                 Reservation = _reservationsRepository.All.First(r => r.ClientId == CurrentClient.Id),
                 CheckoutPrice = SelectedService.Price
             });
+            if (item is not null)
+            {
+                Message = "Service is ordered successfully. Close this window";
+                MessageColor = new SolidColorBrush(Colors.Green);
+            }
         }
 
         #endregion

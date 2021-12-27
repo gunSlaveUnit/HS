@@ -20,6 +20,10 @@
             <TextBlock FontSize="25" HorizontalAlignment="Center" Text="{Binding StringFormat=Service: {0}, Path=SelectedService.Title}"></TextBlock>
             <TextBlock FontSize="25" HorizontalAlignment="Center" Text="{Binding StringFormat=Price: {0}, Path=SelectedService.Price}"></TextBlock>    
             
+                <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" FontSize="15"
+                           Margin="0 20" TextWrapping="Wrap"
+                           Foreground="{Binding MessageColor}"></TextBlock>
+                
                 <Button Margin="10 20"
                         Width="180" Command="{Binding ConfirmOrderServiceCommand}"
                         FontSize="25" Content="Заказать" Height="60" Foreground="WhiteSmoke"/>
