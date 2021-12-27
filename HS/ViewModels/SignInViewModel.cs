@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 using Hotel;
 using Hotel.Views.Windows;
 using HS.Infrastructure.Commands.Base;
@@ -10,6 +11,22 @@ namespace HS.ViewModels
 {
     public class SignInViewModel : ViewModel
     {
+        private string _message;
+
+        public string Message
+        {
+            get => _message;
+            set => Set(ref _message, value);
+        }
+        
+        private SolidColorBrush _messageColor;
+
+        public SolidColorBrush MessageColor
+        {
+            get => _messageColor;
+            set => Set(ref _messageColor, value);
+        }
+        
         private string _login;
 
         public string Login
@@ -40,15 +57,26 @@ namespace HS.ViewModels
         {
             //TODO: It works, but it is not good in MVVM architecture
             var item = _clientService.SignIn(Login, Password);
-            _locator.MainViewModel.CurrentUser = item;
-            MainWindow mw = new MainWindow();
-            Application.Current.MainWindow.Close();
-            Application.Current.MainWindow = mw;
-            mw.DataContext = _locator.MainViewModel;
-            mw.Show();
+            if (item is not null)
+            {
+                _locator.MainViewModel.CurrentUser = item;
+                MainWindow mw = new MainWindow();
+                Application.Current.MainWindow.Close();
+                Application.Current.MainWindow = mw;
+                mw.DataContext = _locator.MainViewModel;
+                mw.Show();
+            }
+            else
+            {
+                Message = "Can't find user. Check your data";
+                MessageColor = new SolidColorBrush(Colors.Red);
+            }
         }
 
-        private bool CanSignInCommandExecute(object p) => true;
+        private bool CanSignInCommandExecute(object p) 
+            => Login != ""
+            && Password != ""
+            ;
 
         #endregion
 

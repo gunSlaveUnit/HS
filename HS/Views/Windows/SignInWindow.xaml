@@ -21,15 +21,19 @@
         <TextBlock Foreground="DarkGray" FontSize="20" Text="sign in to continue to Hotel"></TextBlock>
         <StackPanel Margin="0 100 0 0">
             <StackPanel Orientation="Horizontal">
-                <fa:ImageAwesome Icon="Solid_User" Height="30"></fa:ImageAwesome>
-                <TextBox md:HintAssist.Hint="Login" FontSize="25" Width="220" Height="50" Text="{Binding Login}"
+                <fa:ImageAwesome Icon="Solid_User" Height="20"></fa:ImageAwesome>
+                <TextBox md:HintAssist.Hint="Login" FontSize="20" Width="220" Height="40" Text="{Binding Login}"
                          Margin="20 0 20 20" ></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <fa:ImageAwesome Icon="Solid_Key" Height="30"></fa:ImageAwesome>
-                <TextBox Margin="20 0" md:HintAssist.Hint="Password" FontSize="25" Width="220" Height="50"
+                <fa:ImageAwesome Icon="Solid_Key" Height="20"></fa:ImageAwesome>
+                <TextBox Margin="20 0" md:HintAssist.Hint="Password" FontSize="20" Width="220" Height="40"
                          Text="{Binding Password}"></TextBox>
             </StackPanel>
+            
+            <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" FontSize="15"
+                       Margin="0 10"
+                       Foreground="{Binding MessageColor}"></TextBlock>
             
             <Button Width="120" Margin="0 50 0 0" Command="{Binding SignInCommand}"
                     FontSize="30" Content="Log In" Height="50" Foreground="WhiteSmoke"/>
