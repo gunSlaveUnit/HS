@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows.Input;
+using System.Windows.Media;
 using Hotel.Interfaces;
 using HS.Context.Entities;
 using HS.Infrastructure.Commands.Base;
@@ -11,6 +12,22 @@ namespace HS.ViewModels
 {
     public class SignUpViewModel : ViewModel
     {
+        private SolidColorBrush _messageColor;
+
+        public SolidColorBrush MessageColor
+        {
+            get => _messageColor;
+            set => Set(ref _messageColor, value);
+        }
+        
+        private string _signUpStatus;
+
+        public string SignUpStatus
+        {
+            get => _signUpStatus;
+            set => Set(ref _signUpStatus, value);
+        }
+        
         private readonly IClientService _clientService;
 
         private string _surname;
@@ -89,9 +106,29 @@ namespace HS.ViewModels
             var currentClient = _clientService.SignUp(
                 Surname, Name, Patronymic, Passport, PhoneNumber, Login, Password, Statuses[2]);
             _currentClient = currentClient;
+            if (_currentClient is null)
+            {
+                SignUpStatus = "Somethins was wrong. Try again";
+                MessageColor = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                SignUpStatus = "Your account was created. Close this window";
+                MessageColor = new SolidColorBrush(Colors.Green);
+            }
         }
 
-        private bool CanSignUpCommandExecute(object p) => true;
+        private bool CanSignUpCommandExecute(object p) 
+            => Password != "" 
+               && PasswordConfirm != ""
+               && Login != ""
+               && Passport != ""
+               && PhoneNumber != ""
+               && Surname != ""
+               && Name != ""
+               && Patronymic != ""
+               && Password == PasswordConfirm
+        ;
 
         #endregion
         
