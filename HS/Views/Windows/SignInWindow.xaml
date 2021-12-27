@@ -7,7 +7,7 @@
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
         DataContext="{Binding SignInViewModel, Source={StaticResource Locator}}"
-        Title="Login" Height="630" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="650" Width="400" WindowStartupLocation="CenterScreen">
     <Window.InputBindings>
         <KeyBinding Modifiers="Control" Key="Q" 
                     Command="{StaticResource CloseAppCommand}"/>
