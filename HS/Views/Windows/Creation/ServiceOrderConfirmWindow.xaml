@@ -23,5 +23,6 @@
                 <Button Margin="10 20"
                         Width="180" Command="{Binding ConfirmOrderServiceCommand}"
                         FontSize="25" Content="Заказать" Height="60" Foreground="WhiteSmoke"/>
+                <TextBlock Text="* Для заказа требуется существующая бронь *" FontSize="15" HorizontalAlignment="Center" Foreground="DarkGray"></TextBlock>
         </StackPanel>
 </Window>
