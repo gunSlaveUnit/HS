@@ -19,6 +19,8 @@
                 <DataGridTextColumn FontWeight="Bold" Header="Въезд" Binding="{Binding ArrivalDate}"></DataGridTextColumn>
                 <DataGridTextColumn FontWeight="Bold" Header="Выезд" Binding="{Binding DepartureDate}"></DataGridTextColumn>
                 <DataGridTextColumn FontWeight="Bold" Header="Клиент" Binding="{Binding Client.Document}"/>
+                <DataGridTextColumn FontWeight="Bold" Header="Стоимость проживания" Binding="{Binding Cost}"/>
+                <DataGridCheckBoxColumn Header="Активна" Binding="{Binding Active}"/>
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Column="1" VerticalAlignment="Top">

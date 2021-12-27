@@ -17,7 +17,7 @@ namespace HS.Services
         }
 
         public Reservation Reservate(Client client, DateTime arrivalDate, DateTime departureDate,
-            Room selectedRoom, int cost)
+            Room selectedRoom, int cost, bool isActive)
         {
             var reservation = new Reservation
             {
@@ -25,7 +25,8 @@ namespace HS.Services
                 DepartureDate = departureDate,
                 Client = client,
                 Room = selectedRoom,
-                Cost = cost
+                Cost = cost,
+                Active = isActive
             };
             var crossReservation = new ObservableCollection<Reservation>(_reservations.All.Where(
                 r =>

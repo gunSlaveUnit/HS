@@ -7,6 +7,6 @@ namespace HS.Services
     public interface IBookingService
     {
         public Reservation Reservate(Client client, DateTime arrivalDate, DateTime departureDate,
-            Room selectedRoom, int cost);
+            Room selectedRoom, int cost, bool isActive);
     }
 }

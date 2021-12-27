@@ -11,6 +11,7 @@ namespace HS.Context.Entities
         [Required]
         public DateTime DepartureDate { get; set; }
         public int Cost { get; set; }
+        public bool Active { get; set; }
         public int ClientId { get; set; }
         public virtual Client Client { get; set; }
         public int RoomId { get; set; }
