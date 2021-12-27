@@ -214,3 +214,5 @@ C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\NewRoomWindowView.baml
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\PaymentWindow.g.cs
 C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\PaymentWindow.baml
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\NewReservationForClient.g.cs
+C:\Users\ellmac\Documents\Projects\RiderProjects\HS\HS\obj\Debug\net6.0-windows\Views\Windows\Creation\NewReservationForClient.baml

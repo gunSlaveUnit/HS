@@ -12,5 +12,6 @@ namespace HS.ViewModels
         public ServiceConfirmViewModel ServiceConfirmViewModel => App.Services.GetRequiredService<ServiceConfirmViewModel>();
         public NewRoomWindowViewModel NewRoomWindowViewModel => App.Services.GetRequiredService<NewRoomWindowViewModel>();
         public PaymentViewModel PaymentViewModel => App.Services.GetRequiredService<PaymentViewModel>();
+        public NewReservationForClientViewModel NewReservationForClientViewModel => App.Services.GetRequiredService<NewReservationForClientViewModel>();
     }
 }

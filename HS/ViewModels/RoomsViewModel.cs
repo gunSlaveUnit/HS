@@ -82,6 +82,36 @@ namespace HS.ViewModels
             newReservationByClientWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
             newReservationByClientWindow.ShowDialog();
         }
+        
+        private ICommand _makeReservationForClientCommand;
+        public ICommand MakeReservationForClientCommand => _makeReservationForClientCommand
+            ??= new RelayCommand(OnMakeReservationForClientCommandExecuted, CanMakeReservationForClientCommandExecute);
+        
+        private bool CanMakeReservationForClientCommandExecute(object p) => p is Room && ArrivalDate >= DateTime.Today;
+
+        private void OnMakeReservationForClientCommandExecuted(object p)
+        {
+            if (p is not Room) return;
+            //TODO: It works, but it is not good in MVVM architecture
+            var newReservationForClientWindow = new NewReservationForClient();
+            _locator.NewReservationForClientViewModel.ArrivalDate = ArrivalDate;
+            _locator.NewReservationForClientViewModel.DepartureDate = ArrivalDate;
+            _locator.NewReservationForClientViewModel.SelectedRoom = SelectedRoom;
+            _locator.NewReservationForClientViewModel.CurrentClient = _locator.MainViewModel.CurrentUser;
+            if (IsHours)
+            {
+                _locator.NewReservationForClientViewModel.DepartureDate = ArrivalDate.AddHours(Convert.ToDouble(PeriodsAmount));
+                _locator.NewReservationForClientViewModel.Cost = SelectedRoom.RoomType.CostPerHour * Convert.ToInt32(PeriodsAmount);
+            }
+            if (IsDays)
+            {
+                _locator.NewReservationForClientViewModel.DepartureDate = ArrivalDate.AddDays(Convert.ToDouble(PeriodsAmount));
+                _locator.NewReservationForClientViewModel.Cost = SelectedRoom.RoomType.CostPerDay * Convert.ToInt32(PeriodsAmount);
+            }
+            newReservationForClientWindow.Owner = Application.Current.MainWindow;
+            newReservationForClientWindow.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            newReservationForClientWindow.ShowDialog();
+        }
 
         #endregion
         private IRepository<Room> _roomsRepository;

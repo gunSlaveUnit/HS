@@ -124,6 +124,9 @@
                 
                 <Button Content="Забронировать" Width="180" Height="50" Margin="10" HorizontalAlignment="Center"
                         Command="{Binding MakeReservationCommand}" CommandParameter="{Binding SelectedRoom}"></Button>
+            
+            <Button Content="Бронь для клиента" Width="180" Height="50" Margin="10" HorizontalAlignment="Center"
+                    Command="{Binding MakeReservationForClientCommand}" CommandParameter="{Binding SelectedRoom}"></Button>
                 <TextBlock Text="* Для бронирования выберите одну из комнат *" FontSize="10" HorizontalAlignment="Center" Foreground="DarkGray"></TextBlock>
             <Button Height="70" Width="70" Margin="20"
                      Command="{Binding CreateNewRoomCommand}">
