@@ -57,7 +57,7 @@ namespace HS.ViewModels
         public ICommand MakeReservationCommand => _makeReservationCommand
             ??= new RelayCommand(OnMakeReservationCommandExecuted, CanMakeReservationCommandExecute);
         
-        private bool CanMakeReservationCommandExecute(object p) => p is Room;
+        private bool CanMakeReservationCommandExecute(object p) => p is Room && ArrivalDate >= DateTime.Today;
 
         private void OnMakeReservationCommandExecuted(object p)
         {
@@ -196,6 +196,7 @@ namespace HS.ViewModels
 
         public RoomsViewModel(IRepository<Room> roomsRepository, ViewModelLocator locator)
         {
+            PeriodsAmount = "1";
             _locator = locator;
             _roomsRepository = roomsRepository;
             var rooms = _roomsRepository.All;
