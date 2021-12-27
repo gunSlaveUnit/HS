@@ -123,13 +123,13 @@ namespace HS.ViewModels
             PdfGrid pdfGrid = new PdfGrid();
             DataTable dataTable = new DataTable();
             
-            dataTable.Columns.Add("Въезд");
-            dataTable.Columns.Add("Выезд");
-            dataTable.Columns.Add("Стоимость проживания");
-            dataTable.Columns.Add("Клиент");
-            dataTable.Columns.Add("Комната");
+            dataTable.Columns.Add("Arrival Date");
+            dataTable.Columns.Add("Departure Date");
+            dataTable.Columns.Add("Living Price");
+            dataTable.Columns.Add("Client Document");
+            dataTable.Columns.Add("Room Number");
 
-            var items = _statisticsService.GetReservationsByTime(LowerBound, UpperBound);
+            var items = _statisticsService.GetReservationsByPeriod(LowerBound, UpperBound);
 
             foreach (var item in items)
             {

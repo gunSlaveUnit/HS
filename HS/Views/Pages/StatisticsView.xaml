@@ -39,7 +39,7 @@
                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                Text="{Binding StringFormat=Текущий месяц: {0}, 
                        Path=ReservationsAmountInCurrentMonth}"></TextBlock>
-                    <TextBlock Foreground="DarkGray" FontSize="30" Margin="10"
+                    <TextBlock Foreground="LightGray" FontSize="30" Margin="10"
                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                Text="{Binding StringFormat=За предыдущий: {0}, 
                        Path=ReservationsAmountInPreviousMonth}"></TextBlock>
@@ -65,7 +65,7 @@
                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                Text="{Binding StringFormat=Текущий месяц: {0}, 
                        Path=IncomeCurrentMonth}"></TextBlock>
-                    <TextBlock Foreground="DarkGray" FontSize="30" Margin="10"
+                    <TextBlock Foreground="LightGray" FontSize="30" Margin="10"
                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                Text="{Binding StringFormat=За предыдущий: {0}, 
                        Path=IncomePreviousMonth}"></TextBlock>
@@ -73,24 +73,24 @@
             </Border>
         </WrapPanel>
         <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
-                <Border  BorderBrush="#1a1a1a" BorderThickness="2" VerticalAlignment="Top"
+                <Border  BorderBrush="Black" BorderThickness="2" VerticalAlignment="Center"
                     Width="260" Height="500" CornerRadius="20" Margin="0 0 20 0">
                 <StackPanel>
                     <TextBlock Text="Отчет в период" FontSize="25" Margin="0 5 20 0"
-                               Foreground="GhostWhite" HorizontalAlignment="Center"></TextBlock>
+                                HorizontalAlignment="Center"></TextBlock>
                     
-                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="200" Margin="5"> 
-                        <DatePicker materialDesign:HintAssist.Hint="Въезд" Foreground="GhostWhite" Width="170"
+                    <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Width="200" Margin="5"> 
+                        <DatePicker materialDesign:HintAssist.Hint="Въезд" Width="170"
                                     HorizontalContentAlignment="Center" FontSize="15"
                                     SelectedDate="{Binding LowerBound}"></DatePicker> 
                     </Border>
-                    <Border CornerRadius="10" BorderBrush="GhostWhite" BorderThickness="2" Width="200" Margin="5"> 
-                        <DatePicker materialDesign:HintAssist.Hint="Въезд" Foreground="GhostWhite" Width="170"
+                    <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Width="200" Margin="5"> 
+                        <DatePicker materialDesign:HintAssist.Hint="Въезд" Width="170"
                                     HorizontalContentAlignment="Center" FontSize="15"
                                     SelectedDate="{Binding UpperBound}"></DatePicker> 
                     </Border>
                     
-                    <Button Content="Сформировать" Width="120" Height="50" Foreground="GhostWhite" VerticalAlignment="Bottom"
+                    <Button Content="Сформировать" Width="140" Height="50" Foreground="GhostWhite" VerticalAlignment="Bottom"
                             Command="{Binding SaveFileCommand}"
                             HorizontalAlignment="Center" Margin="0 50 0 0"/> 
                     </StackPanel>
