@@ -137,7 +137,12 @@ namespace HS.ViewModels
             }
             
             pdfGrid.DataSource = dataTable;
-            pdfGrid.Draw(page, new PointF(10, 10));
+            PdfGraphics graphics = page.Graphics;
+            Update();
+            graphics.DrawString("Rieverra Report", new PdfStandardFont(PdfFontFamily.Helvetica, 20), PdfBrushes.Black, new PointF(10, 10));
+            graphics.DrawString($"Reservations Amount In Current Month: {ReservationsAmountInCurrentMonth}", new PdfStandardFont(PdfFontFamily.Helvetica, 10), PdfBrushes.Black, new PointF(10, 50));
+            graphics.DrawString($"Incomes In Current Month: {IncomeCurrentMonth}", new PdfStandardFont(PdfFontFamily.Helvetica, 10), PdfBrushes.Black, new PointF(10, 60));
+            pdfGrid.Draw(page, new PointF(10, 100));
             doc.Save(saveFileDialog.FileName);
             doc.Close(true);
         }
