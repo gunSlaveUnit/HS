@@ -5,14 +5,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        ResizeMode="NoResize"
         DataContext="{Binding NewReservByClientViewModel, Source={StaticResource Locator}}"
-        Title="Create a reservation" Height="700" Width="700" WindowStartupLocation="CenterScreen">
+        Title="Create a reservation" Height="850" Width="700" WindowStartupLocation="CenterScreen">
     <Window.InputBindings>
         <KeyBinding Modifiers="Control" Key="Q" 
                     Command="{StaticResource CloseAppCommand}"/>
     </Window.InputBindings>
-    <DockPanel LastChildFill="False" Margin="20">
-        <StackPanel DockPanel.Dock="Top">
+    <StackPanel Margin="30">
+         <StackPanel DockPanel.Dock="Top">
             <TextBlock FontSize="40" Text="Rieverra"></TextBlock>
             <TextBlock Foreground="DarkGray" FontSize="30" Text="Итак, вы хотите забронировать комнату"></TextBlock>
             <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
@@ -44,18 +45,24 @@
                 <TextBlock FontSize="25" Text="{Binding CurrentClient.PhoneNumber}"></TextBlock>
             </StackPanel>
         </StackPanel>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    Margin="0 40 0 40" DockPanel.Dock="Bottom">
+            <TextBlock FontSize="40" Text="Итого: "></TextBlock>
+            <TextBlock FontSize="40" Text="{Binding Cost}"></TextBlock>
+            <TextBlock FontSize="40" Text=" рублей/-я"></TextBlock>
+        </StackPanel>
+        
+        <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" FontSize="15"
+                   Margin="0 20" TextWrapping="Wrap"
+                   Foreground="{Binding MessageColor}"></TextBlock>
+        
         <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-            <Button Margin="10 0"
+            <Button Margin="10 20"
                     Width="180" Command="{Binding CreateNewReservCommand}"
                     FontSize="25" Content="Оформить" Height="60" Foreground="WhiteSmoke"/>
             <Button Width="180" Margin="10 0"
                     FontSize="25" Content="Отмена" Height="60" Foreground="WhiteSmoke"/>
         </StackPanel>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" 
-                    Margin="0 20 0 30" DockPanel.Dock="Bottom">
-            <TextBlock FontSize="40" Text="Итого: "></TextBlock>
-            <TextBlock FontSize="40" Text="{Binding Cost}"></TextBlock>
-            <TextBlock FontSize="40" Text=" рублей/-я"></TextBlock>
-        </StackPanel>
-    </DockPanel>
+    </StackPanel>
 </Window>

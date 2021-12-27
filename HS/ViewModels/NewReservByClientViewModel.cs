@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Input;
+using System.Windows.Media;
 using HS.Context.Entities;
 using HS.Infrastructure.Commands.Base;
 using HS.Services;
@@ -9,6 +10,22 @@ namespace HS.ViewModels
 {
     public class NewReservByClientViewModel : ViewModel
     {
+        private string _message;
+
+        public string Message
+        {
+            get => _message;
+            set => Set(ref _message, value);
+        }
+        
+        private SolidColorBrush _messageColor;
+
+        public SolidColorBrush MessageColor
+        {
+            get => _messageColor;
+            set => Set(ref _messageColor, value);
+        }
+        
         private readonly IBookingService _bookingService;
 
         private ICommand _createNewReservCommand;
@@ -59,7 +76,18 @@ namespace HS.ViewModels
 
         private void OnCreateNewReservCommandExecuted(object parameter)
         {
-            _bookingService.Reservate(_locator.MainViewModel.CurrentUser, ArrivalDate, DepartureDate, SelectedRoom, Cost, false);
+            var item = _bookingService.Reservate(_locator.MainViewModel.CurrentUser, 
+                ArrivalDate, DepartureDate, SelectedRoom, Cost, false);
+            if (item is not null)
+            {
+                Message = "Reservation was created successfully. Close this window";
+                MessageColor = new SolidColorBrush(Colors.Green);
+            }
+            else
+            {
+                Message = "Try again. The selected room may be occupied at the time of your booking";
+                MessageColor = new SolidColorBrush(Colors.Green);
+            }
         }
 
         public NewReservByClientViewModel(ViewModelLocator locator, IBookingService bookingService)
