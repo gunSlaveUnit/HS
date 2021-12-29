@@ -16,11 +16,11 @@
     </b:Interaction.Triggers>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1200"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="300"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <WrapPanel>
-            <Border Width="350" Height="400" Margin="20">
+            <Border Width="150" Height="200" Margin="20">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="Orange" Offset="0.0"></GradientStop>
@@ -28,25 +28,25 @@
                     </LinearGradientBrush>
                 </Border.Background>
                 <Border.Clip>
-                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0, 0, 350, 400"></RectangleGeometry>
+                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0, 0, 150, 200"></RectangleGeometry>
                 </Border.Clip>
                 <StackPanel>
-                    <fa:ImageAwesome Margin="40" Icon="Solid_HouseUser" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    <fa:ImageAwesome Margin="20" Icon="Solid_HouseUser" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center"
                                      ></fa:ImageAwesome>
-                    <TextBlock Foreground="WhiteSmoke" FontSize="40" Text="Reservations" Margin="20"
+                    <TextBlock Foreground="WhiteSmoke" FontSize="20" Text="Reservations" Margin="10"
                                HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                    <TextBlock Foreground="WhiteSmoke" FontSize="30" Margin="10"
+                    <TextBlock Foreground="WhiteSmoke" FontSize="15" Margin="5"
                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                Text="{Binding StringFormat=Текущий месяц: {0}, 
                        Path=ReservationsAmountInCurrentMonth}"></TextBlock>
-                    <TextBlock Foreground="LightGray" FontSize="30" Margin="10"
+                    <TextBlock Foreground="LightGray" FontSize="15" Margin="5"
                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                Text="{Binding StringFormat=За предыдущий: {0}, 
                        Path=ReservationsAmountInPreviousMonth}"></TextBlock>
                 </StackPanel>
             </Border>
             
-            <Border Width="350" Height="400" Margin="20">
+            <Border Width="150" Height="200" Margin="20">
                 <Border.Background>
                     <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                         <GradientStop Color="LimeGreen" Offset="0.0"></GradientStop>
@@ -54,27 +54,27 @@
                     </LinearGradientBrush>
                 </Border.Background>
                 <Border.Clip>
-                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0, 0, 350, 400"></RectangleGeometry>
+                    <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0, 0, 150, 200"></RectangleGeometry>
                 </Border.Clip>
                 <StackPanel>
-                    <fa:ImageAwesome Margin="40" Icon="Solid_Coins" Height="80" HorizontalAlignment="Center" VerticalAlignment="Center"
+                    <fa:ImageAwesome Margin="20" Icon="Solid_Coins" Height="40" HorizontalAlignment="Center" VerticalAlignment="Center"
                     ></fa:ImageAwesome>
-                    <TextBlock Foreground="WhiteSmoke" FontSize="40" Text="Incomes" Margin="20"
+                    <TextBlock Foreground="WhiteSmoke" FontSize="20" Text="Incomes" Margin="10"
                                HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
-                    <TextBlock Foreground="WhiteSmoke" FontSize="30" Margin="10"
+                    <TextBlock Foreground="WhiteSmoke" FontSize="15" Margin="5"
                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                Text="{Binding StringFormat=Текущий месяц: {0}, 
                        Path=IncomeCurrentMonth}"></TextBlock>
-                    <TextBlock Foreground="LightGray" FontSize="30" Margin="10"
+                    <TextBlock Foreground="LightGray" FontSize="15" Margin="5"
                                HorizontalAlignment="Center" VerticalAlignment="Center"
                                Text="{Binding StringFormat=За предыдущий: {0}, 
                        Path=IncomePreviousMonth}"></TextBlock>
                 </StackPanel>
             </Border>
         </WrapPanel>
-        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">
+        <StackPanel Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right">
                 <Border  BorderBrush="Black" BorderThickness="2" VerticalAlignment="Center"
-                    Width="260" Height="500" CornerRadius="20" Margin="0 0 20 0">
+                    Width="250" Height="500" CornerRadius="20" Margin="0 0 20 0">
                 <StackPanel>
                     <TextBlock Text="Отчет в период" FontSize="25" Margin="0 5 20 0"
                                 HorizontalAlignment="Center"></TextBlock>

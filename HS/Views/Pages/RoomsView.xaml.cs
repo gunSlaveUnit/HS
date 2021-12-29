@@ -39,10 +39,5 @@ namespace HS.Views.Pages
             if (PeriodsAmountTextBox.Text == "") PeriodsAmountTextBox.Text = "1";
             if (Convert.ToInt32(PeriodsAmountTextBox.Text) <= 0) PeriodsAmountTextBox.Text = "1";
         }
-
-        private void ArrivalDatePicker_OnSelectedDateChanged(object? sender, SelectionChangedEventArgs e)
-        {
-            if (ArrivalDatePicker.SelectedDate < DateTime.Today) ArrivalDatePicker.SelectedDate = DateTime.Today;
-        }
     }
 }

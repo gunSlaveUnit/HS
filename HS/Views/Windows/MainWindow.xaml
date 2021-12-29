@@ -26,13 +26,18 @@
     <Border Background="White">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="310"></ColumnDefinition>
+                <ColumnDefinition Width="150"></ColumnDefinition>
                 <ColumnDefinition Width="*"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                <RowDefinition Height="90"></RowDefinition>
+                <RowDefinition Height="50"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
+            
+            <Button Grid.Column="1" Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Top"
+                    Command="{StaticResource CloseAppCommand}">
+                <fa:ImageAwesome Icon="Solid_Times" Height="10" Foreground="WhiteSmoke"></fa:ImageAwesome>
+            </Button>
             
             <fa:ImageAwesome Grid.Column="0" Grid.Row="0" Foreground="Black" HorizontalAlignment="Center"
                              Margin="5"
@@ -46,39 +51,43 @@
             <DockPanel Grid.Row="1" Grid.Column="0" Margin="10 25 10 0" LastChildFill="False">
                 <DockPanel.Resources>
                     <c:UserStatusVisibilityConverter x:Key="StatusConverter"></c:UserStatusVisibilityConverter>
+                    <c:UserStatusVisibility x:Key="StatusConverter2"></c:UserStatusVisibility>
                 </DockPanel.Resources>
                 <StackPanel DockPanel.Dock="Top">
-                    
                     <RadioButton Command="{Binding ShowRoomsCommand}" IsChecked="True"
-                                 Content="Комнаты" Height="65"
-                                 FontSize="16"
+                                 Content="Комнаты" Height="20"
+                                 FontSize="15"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowServicesCommand}"
-                                 Content="Услуги" Height="65"
-                                 FontSize="16"
+                                 Content="Сервисы" Height="20"
+                                 Visibility="{Binding CurrentUser.Status.Title, 
+                                 Converter={StaticResource StatusConverter2}}"
+                                 FontSize="15"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowClientReservationCommand}"
-                                 Content="Бронь" Height="65"
-                                 FontSize="16"
+                                 Content="Ваша бронь" Height="20"
+                                 Visibility="{Binding CurrentUser.Status.Title, 
+                                 Converter={StaticResource StatusConverter2}}"
+                                 FontSize="15"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowStatisticsCommand}"
-                                 Content="Статистика" Height="65"
-                                 FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
+                                 Content="Статистика" Height="20"
+                                 FontSize="15" Visibility="{Binding CurrentUser.Status.Title, 
                                  Converter={StaticResource StatusConverter}}"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowClientsViewCommand}"
-                                 Content="Клиенты" Height="65"
-                                 FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
+                                 Content="Клиенты" Height="20"
+                                 FontSize="15" Visibility="{Binding CurrentUser.Status.Title, 
                                  Converter={StaticResource StatusConverter}}"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowRoomTypesCommand}"
-                                 Content="Типы комнат" Height="65"
-                                 FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
+                                 Content="Типы комнат" Height="20"
+                                 FontSize="15" Visibility="{Binding CurrentUser.Status.Title, 
                                  Converter={StaticResource StatusConverter}}"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                     <RadioButton Command="{Binding ShowReservationsViewCommand}"
-                                 Content="Бронирования" Height="65"
-                                 FontSize="16" Visibility="{Binding CurrentUser.Status.Title, 
+                                 Content="Бронирования" Height="20"
+                                 FontSize="15" Visibility="{Binding CurrentUser.Status.Title, 
                                  Converter={StaticResource StatusConverter}}"
                                  Style="{StaticResource MenuItem}"></RadioButton>
                 </StackPanel>

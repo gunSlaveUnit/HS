@@ -15,21 +15,21 @@
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
                     Visibility="{Binding CurrentUser, 
                                  Converter={StaticResource StatusConverter}}">
-            <TextBlock Foreground="Gray" FontSize="20" Text="Your reservation was displayed here"></TextBlock>
-            <TextBlock Foreground="Black" FontSize="20" Text="Oh, nothing to show("></TextBlock>
-            <TextBlock Foreground="Black" FontSize="20" Text="Do you want to make it? Go to Rooms tab" ></TextBlock>
+            <TextBlock Foreground="Gray" FontSize="20" Text="Ваша бронь будет отображаться здесь"></TextBlock>
+            <TextBlock Foreground="Black" FontSize="20" Text="Но пока показать нечего("></TextBlock>
+            <TextBlock Foreground="Black" FontSize="20" Text="Хотите исправить. Вам во вкладку Комнаты"></TextBlock>
         </StackPanel>
         
         <StackPanel Margin="20" Visibility="{Binding CurrentUser, 
                                  Converter={StaticResource StatusConverter2}}">
-            <TextBlock Text="Your reservation" FontSize="35" Margin="10"></TextBlock>
-            <TextBlock Text="{Binding StringFormat=Arrival Date: {0}, 
+            <TextBlock Text="Бронь" FontSize="35" Margin="10"></TextBlock>
+            <TextBlock Text="{Binding StringFormat=Въезд: {0}, 
             Path=CurrentReservation.ArrivalDate}" FontSize="25" Margin="10"></TextBlock>
-            <TextBlock Text="{Binding StringFormat=Departure Date: {0}, 
+            <TextBlock Text="{Binding StringFormat=Выезд: {0}, 
             Path=CurrentReservation.DepartureDate}" FontSize="25" Margin="10"></TextBlock>
-            <TextBlock Text="{Binding StringFormat=Living Cost: {0}, 
+            <TextBlock Text="{Binding StringFormat=Стоимость проживания: {0}, 
             Path=CurrentReservation.Cost}" FontSize="25" Margin="10"></TextBlock>
-            <TextBlock Text="{Binding StringFormat=Status: {0}, Path=StatusActiveMessage}"
+            <TextBlock Text="{Binding StringFormat=Статус: {0}, Path=StatusActiveMessage}"
                        FontSize="25" Margin="10"></TextBlock>
         </StackPanel>
     </StackPanel>

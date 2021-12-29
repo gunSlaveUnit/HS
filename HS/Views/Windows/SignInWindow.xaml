@@ -7,7 +7,7 @@
         xmlns:fa="http://schemas.fontawesome.com/icons/"
         mc:Ignorable="d"
         DataContext="{Binding SignInViewModel, Source={StaticResource Locator}}"
-        Title="Login" Height="650" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="550" Width="400" WindowStartupLocation="CenterScreen">
     <Window.InputBindings>
         <KeyBinding Modifiers="Control" Key="Q" 
                     Command="{StaticResource CloseAppCommand}"/>
@@ -16,18 +16,18 @@
     </Window.InputBindings>
     <StackPanel Margin="20" VerticalAlignment="Center" HorizontalAlignment="Center"
                 Width="300">
-        <TextBlock FontSize="45" Text="Hotel"></TextBlock>
-        <TextBlock FontSize="25" Text="Welcome Back,"></TextBlock>
-        <TextBlock Foreground="DarkGray" FontSize="20" Text="sign in to continue to Hotel"></TextBlock>
-        <StackPanel Margin="0 100 0 0">
+        <TextBlock FontSize="45" Text="Rievierra"></TextBlock>
+        <TextBlock FontSize="25" Text="Добро пожаловать,"></TextBlock>
+        <TextBlock Foreground="DarkGray" FontSize="20" Text="войдите, чтобы продолжить"></TextBlock>
+        <StackPanel Margin="0 50 0 0">
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Solid_User" Height="20"></fa:ImageAwesome>
-                <TextBox md:HintAssist.Hint="Login" FontSize="20" Width="220" Height="40" Text="{Binding Login}"
+                <TextBox md:HintAssist.Hint="Логин" FontSize="20" Width="220" Height="40" Text="{Binding Login}"
                          Margin="20 0 20 20" ></TextBox>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <fa:ImageAwesome Icon="Solid_Key" Height="20"></fa:ImageAwesome>
-                <TextBox Margin="20 0" md:HintAssist.Hint="Password" FontSize="20" Width="220" Height="40"
+                <TextBox Margin="20 0" md:HintAssist.Hint="Пароль" FontSize="20" Width="220" Height="40"
                          Text="{Binding Password}"></TextBox>
             </StackPanel>
             
@@ -36,12 +36,12 @@
                        Foreground="{Binding MessageColor}"></TextBlock>
             
             <Button Width="120" Margin="0 50 0 0" Command="{Binding SignInCommand}"
-                    FontSize="30" Content="Log In" Height="50" Foreground="WhiteSmoke"/>
+                    FontSize="30" Content="Войти" Height="50" Foreground="WhiteSmoke"/>
         </StackPanel>
         
-        <StackPanel Margin="0 70 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock FontSize="20" Text="Don't have an account?"></TextBlock>
-            <TextBlock Name="SignUpClickableText" FontSize="20" FontWeight="Bold" Text="Sign Up" Margin="10 0 0 0"
+        <StackPanel Margin="0 35 0 0" Orientation="Horizontal" HorizontalAlignment="Center">
+            <TextBlock FontSize="20" Text="Нет аккаунта?"></TextBlock>
+            <TextBlock Name="SignUpClickableText" FontSize="20" FontWeight="Bold" Text="Регистрация" Margin="10 0 0 0"
                        MouseEnter="SignUpClickableText_OnMouseEnter"
                        MouseLeave="SignUpClickableText_OnMouseLeave">
                 <TextBlock.InputBindings>

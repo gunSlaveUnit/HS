@@ -108,12 +108,12 @@ namespace HS.ViewModels
             _currentClient = currentClient;
             if (_currentClient is null)
             {
-                SignUpStatus = "Somethins was wrong. Try again";
+                SignUpStatus = "Что-то пошло не так, попробуйте еще раз";
                 MessageColor = new SolidColorBrush(Colors.Red);
             }
             else
             {
-                SignUpStatus = "Your account was created. Close this window";
+                SignUpStatus = "Аккаунт успешно создан, вы можете закрыть это окно";
                 MessageColor = new SolidColorBrush(Colors.Green);
             }
         }

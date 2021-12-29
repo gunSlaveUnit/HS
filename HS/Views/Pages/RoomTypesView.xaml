@@ -9,17 +9,17 @@
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1400"></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <DataGrid ItemsSource="{Binding RoomTypes}" AutoGenerateColumns="False"
-                  FontSize="25" Width="Auto" SelectedItem="{Binding SelectedRoomType}">
+                  FontSize="10" Width="Auto" SelectedItem="{Binding SelectedRoomType}">
             <DataGrid.Columns>
-                <DataGridTextColumn FontWeight="Bold" Header="Title" Binding="{Binding Title}"></DataGridTextColumn>
-                <DataGridTextColumn FontWeight="Bold" Header="Cost per hour" Binding="{Binding CostPerHour}"></DataGridTextColumn>
-                <DataGridTextColumn FontWeight="Bold" Header="Cost per day" Binding="{Binding CostPerDay}"></DataGridTextColumn>
-                <DataGridTextColumn FontWeight="Bold" Header="Capacity" Binding="{Binding Capacity}"></DataGridTextColumn>
-                <DataGridTextColumn FontWeight="Bold" Header="Description" Binding="{Binding Description}" Width="Auto">
+                <DataGridTextColumn FontWeight="Bold" Header="Название" Binding="{Binding Title}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Цена за час" Binding="{Binding CostPerHour}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Цена за сутки" Binding="{Binding CostPerDay}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Вместимость" Binding="{Binding Capacity}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Описание" Binding="{Binding Description}" Width="Auto">
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="TextBlock">
                             <Setter Property="TextWrapping" Value="Wrap" />
@@ -35,12 +35,12 @@
             </DataGrid.Columns>
         </DataGrid>
         <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Top">
-            <Button Height="70" Width="70" Background="DarkBlue" Margin="20"
-                    BorderBrush="DarkBlue" Command="{Binding CreateNewRoomTypeCommand}">
+            <Button Height="50" Width="50" Margin="20"
+                    Command="{Binding CreateNewRoomTypeCommand}">
                 <fa:ImageAwesome Icon="Solid_PlusCircle" Foreground="WhiteSmoke"/>
             </Button>
-            <Button Height="70" Width="70" Background="DarkBlue" Margin="20"
-                    BorderBrush="DarkBlue" Command="{Binding DeleteRoomTypeCommand}" 
+            <Button Height="50" Width="50" Margin="20"
+                    Command="{Binding DeleteRoomTypeCommand}" 
                     CommandParameter="{Binding SelectedRoomType}">
                 <fa:ImageAwesome Icon="Solid_TrashALt" Foreground="WhiteSmoke"/>
             </Button>

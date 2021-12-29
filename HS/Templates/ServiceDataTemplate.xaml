@@ -7,7 +7,7 @@
         <DataTemplate.Resources>
             <c:ServiceTitleToColorConverter x:Key="ColorConverter"></c:ServiceTitleToColorConverter>
         </DataTemplate.Resources>
-        <Border Width="350" Height="400" Margin="20" BorderBrush="Black" BorderThickness="10">
+        <Border Width="120" Height="130" Margin="10" BorderBrush="Black" BorderThickness="5">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="1,2">
                     <GradientStop Color="{Binding Title, Converter={StaticResource ColorConverter}}" 
@@ -17,18 +17,18 @@
                 </LinearGradientBrush>
             </Border.Background>
             <Border.Clip>
-                <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0, 0, 350, 400"></RectangleGeometry>
+                <RectangleGeometry RadiusX="20" RadiusY="20" Rect="0, 0, 120, 130"></RectangleGeometry>
             </Border.Clip>
-            <StackPanel Margin="20">
-                <fa:ImageAwesome Icon="Solid_ConciergeBell" Height="60" Foreground="WhiteSmoke"/>
+            <StackPanel Margin="10">
+                <fa:ImageAwesome Icon="Solid_ConciergeBell" Height="30" Foreground="WhiteSmoke"/>
                 <TextBlock Text="{Binding Title}" HorizontalAlignment="Center"
-                           FontSize="40" Foreground="WhiteSmoke">
+                           FontSize="10" Foreground="WhiteSmoke">
                 </TextBlock>
                 <TextBlock Text="{Binding StringFormat=Price: {0}, Path=Price}" Foreground="WhiteSmoke"
-                           FontSize="40" 
+                           FontSize="10" 
                            HorizontalAlignment="Center"></TextBlock>
-                <TextBlock TextWrapping="Wrap" Margin="0 45 0 0" FontStyle="Italic" HorizontalAlignment="Center" Foreground="WhiteSmoke"
-                           FontSize="20" Text="{Binding Description}"></TextBlock>
+                <TextBlock TextWrapping="Wrap" Margin="0 20 0 0" FontStyle="Italic" HorizontalAlignment="Center" Foreground="WhiteSmoke"
+                           FontSize="10" Text="{Binding Description}"></TextBlock>
             </StackPanel>
         </Border>
     </DataTemplate>

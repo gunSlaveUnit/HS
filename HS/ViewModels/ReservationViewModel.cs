@@ -49,8 +49,8 @@ namespace HS.ViewModels
             CurrentReservation = CurrentUser.Reservations.FirstOrDefault();
             if (CurrentReservation is not null)
             {
-                if (CurrentReservation.Active ) StatusActiveMessage = "Active";
-                else StatusActiveMessage = "Not active";
+                if (CurrentReservation.Active ) StatusActiveMessage = "Активна";
+                else StatusActiveMessage = "Неактивна";
             }
             _reservationsRepository = reservationsRepository;
         }

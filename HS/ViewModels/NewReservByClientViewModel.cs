@@ -80,13 +80,13 @@ namespace HS.ViewModels
                 ArrivalDate, DepartureDate, SelectedRoom, Cost, false);
             if (item is not null)
             {
-                Message = "Reservation was created successfully. Close this window";
+                Message = "Успешно забронировано. Можете закрыть это окно";
                 MessageColor = new SolidColorBrush(Colors.Green);
             }
             else
             {
-                Message = "Try again. The selected room may be occupied at the time of your booking";
-                MessageColor = new SolidColorBrush(Colors.Green);
+                Message = "Попробуйте еще раз. Возможно, выбранная комната занята на это время";
+                MessageColor = new SolidColorBrush(Colors.Red);
             }
         }
 

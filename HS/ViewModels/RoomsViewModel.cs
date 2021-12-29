@@ -223,6 +223,14 @@ namespace HS.ViewModels
         #endregion
 
         #endregion
+        
+        private Client _currentUser;
+
+        public Client CurrentUser
+        {
+            get => _currentUser;
+            set => Set(ref _currentUser, value);
+        }
 
         public RoomsViewModel(IRepository<Room> roomsRepository, ViewModelLocator locator)
         {
@@ -231,6 +239,8 @@ namespace HS.ViewModels
             _roomsRepository = roomsRepository;
             var rooms = _roomsRepository.All;
             Rooms = new ObservableCollection<Room>(rooms);
+            
+            CurrentUser = _locator.MainViewModel.CurrentUser;
 
             MinCapacityFilter = rooms.Min(r => r.RoomType.Capacity).ToString();
             MaxCapacityFilter = rooms.Max(r => r.RoomType.Capacity).ToString();

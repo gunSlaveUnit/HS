@@ -68,7 +68,7 @@ namespace HS.ViewModels
             }
             else
             {
-                Message = "Can't find user. Check your data";
+                Message = "Неверный логин или пароль. Попробуйте еще раз";
                 MessageColor = new SolidColorBrush(Colors.Red);
             }
         }

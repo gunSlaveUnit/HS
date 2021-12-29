@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Input;
@@ -23,9 +24,9 @@ namespace HS.ViewModels
 
         #region Reservations
 
-        private List<Reservation> _reservations;
+        private ObservableCollection<Reservation> _reservations;
 
-        public List<Reservation> Reservations
+        public ObservableCollection<Reservation> Reservations
         {
             get => _reservations;
             set => Set(ref _reservations, value);
@@ -81,6 +82,26 @@ namespace HS.ViewModels
 
         #endregion
 
+        
+        #region ActivateReservationCommand
+
+        private ICommand _activateReservationCommand;
+
+        public ICommand ActivateReservationCommand => _activateReservationCommand
+            ??= new RelayCommand(OnActivateReservationCommandExecute, CanActivateReservationCommandExecute);
+        
+        private bool CanActivateReservationCommandExecute(object p) => p is Reservation;
+
+        private void OnActivateReservationCommandExecute(object p)
+        {
+            if (p is not Reservation) return;
+            var r = (Reservation) p;
+            if (r.Active) r.Active = false;
+            else r.Active = true;
+            _reservationsRepository.Update(r);
+        }
+
+        #endregion
         #region SearchReservationByClientDocument
 
         private ICommand _searchReservationByClientDocument;
@@ -92,7 +113,7 @@ namespace HS.ViewModels
         private bool CanSearchReservationByClientDocumentExecute(object parameter) => true;
 
         private void OnSearchReservationByClientDocumentExecute(object parameter)
-            => Reservations = _reservationsRepository.All.Where(r => r.Client.Document == Document).ToList();
+            => Reservations = new ObservableCollection<Reservation>(_reservationsRepository.All.Where(r => r.Client.Document == Document).ToList());
         
         #endregion
 
@@ -105,7 +126,7 @@ namespace HS.ViewModels
             _locator = locator;
             _reservationsRepository = reservationsRepository;
             _orderedServicesRepository = orderedServicesRepository;
-            Reservations = _reservationsRepository.All.ToList();
+            Reservations = new ObservableCollection<Reservation>(_reservationsRepository.All.ToList());
         }
     }
 }

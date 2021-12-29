@@ -6,11 +6,18 @@
         xmlns:local="clr-namespace:HS.Views.Windows"
         mc:Ignorable="d"
         DataContext="{Binding PaymentViewModel, Source={StaticResource Locator}}"
-        Title="PaymentWindow" Height="450" Width="800">
-    <StackPanel>
-        <TextBlock Text="Payment" FontSize="20"></TextBlock>
-        <TextBlock FontSize="20" Text="{Binding StringFormat=Проживание: {0}, Path=LivingPrice}"></TextBlock>
-        <TextBlock FontSize="20" Text="{Binding StringFormat=Услуги: {0}, Path=OrderedServicesPrice}"></TextBlock>
-        <TextBlock FontSize="20" Text="{Binding StringFormat=Итого: {0}, Path=Sum}"></TextBlock>
+        Title="PaymentWindow" Height="450" Width="400">
+    <StackPanel Margin="30" VerticalAlignment="Center">
+        <TextBlock Text="Платеж" FontSize="40" HorizontalAlignment="Center"></TextBlock>
+        <TextBlock Margin="0 50 0 0" FontSize="20" HorizontalAlignment="Center" Text="{Binding StringFormat=Проживание: {0}, Path=LivingPrice}"></TextBlock>
+        <TextBlock FontSize="20" HorizontalAlignment="Center" Text="{Binding StringFormat=Услуги: {0}, Path=OrderedServicesPrice}"></TextBlock>
+        <TextBlock FontSize="20" HorizontalAlignment="Center" Text="{Binding StringFormat=Итого: {0}, Path=Sum}"></TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button Margin="10 20"
+                    Width="180" Command="{Binding }"
+                    FontSize="25" Content="Оформить" Height="60" Foreground="WhiteSmoke"/>
+            <Button Width="180" Margin="10 0"
+                    FontSize="25" Content="Отмена" Height="60" Foreground="WhiteSmoke"/>
+        </StackPanel>
     </StackPanel>
 </Window>
