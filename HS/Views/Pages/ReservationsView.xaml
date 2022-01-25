@@ -4,17 +4,42 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:fa="http://schemas.fontawesome.com/icons/"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel Height="700">
-        <DataGrid ItemsSource="{Binding Reservations}" AutoGenerateColumns="False">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+            <ColumnDefinition Width="100"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        
+        <DataGrid ItemsSource="{Binding Reservations}" AutoGenerateColumns="False"
+                  FontSize="10" Width="Auto" SelectedItem="{Binding SelectedReservation}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Въезд" Binding="{Binding ArrivalDate}"></DataGridTextColumn>
-                <DataGridTextColumn Header="Выезд" Binding="{Binding DepartureDate}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Въезд" Binding="{Binding ArrivalDate}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Выезд" Binding="{Binding DepartureDate}"></DataGridTextColumn>
+                <DataGridTextColumn FontWeight="Bold" Header="Клиент" Binding="{Binding Client.Document}"/>
+                <DataGridTextColumn FontWeight="Bold" Header="Стоимость" Binding="{Binding Cost}"/>
+                <DataGridTextColumn FontWeight="Bold" Header="Комната" Binding="{Binding Room.Number}"/>
+                <DataGridCheckBoxColumn Header="Активна" Binding="{Binding Active}"/>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Height="50" Width="50" Background="DarkBlue" BorderBrush="DarkBlue">
-            <fa:ImageAwesome Icon="Solid_TrashALt" Foreground="WhiteSmoke"/>
-        </Button>
-    </StackPanel>
+        <StackPanel Grid.Column="1" VerticalAlignment="Top">
+            <Border CornerRadius="10" BorderBrush="Black" BorderThickness="2" Width="90" Margin="5">
+                <TextBox materialDesign:HintAssist.Hint="Документ" FontSize="10" Text="{Binding Document}"
+                         HorizontalContentAlignment="Center"
+                         HorizontalAlignment="Center"></TextBox>
+            </Border>
+            <Button Content="Найти" Command="{Binding SearchReservationByClientDocument}" Margin="0 20"
+                    Width="80" Height="30"/>
+            <Button Height="50" Width="50" Command="{Binding CalculateClientReservation}" Margin="0 20"
+                    CommandParameter="{Binding SelectedReservation}">
+                <fa:ImageAwesome Icon="Solid_Calculator" Foreground="WhiteSmoke"/>
+            </Button>
+            <Button Height="50" Width="50" Command="{Binding ActivateReservationCommand}" Margin="0 20"
+                    CommandParameter="{Binding SelectedReservation}">
+                <fa:ImageAwesome Icon="Solid_Check" Foreground="WhiteSmoke"/>
+            </Button>
+        </StackPanel>
+    </Grid>
 </UserControl>

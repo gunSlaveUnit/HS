@@ -11,6 +11,18 @@ namespace HS.ViewModels
 {
     public class MainViewModel : ViewModel
     {
+        #region SelectedReservation
+
+        private Reservation _selectedReservation;
+
+        public Reservation SelectedReservation
+        {
+            get => _selectedReservation;
+            set => Set(ref _selectedReservation, value);
+        }
+
+        #endregion
+        
         private DateTime _date;
 
         public DateTime Date
@@ -27,6 +39,46 @@ namespace HS.ViewModels
             set => Set(ref _currentUser, value);
         }
         #region Commands
+
+        #region ShowServicesCommand
+
+        private ICommand _showServicesCommand;
+        public ICommand ShowServicesCommand => _showServicesCommand
+            ??= new RelayCommand(OnShowServicesCommandExecuted, CanShowServicesCommandExecute);
+        
+        private void OnShowServicesCommandExecuted(object parameter)
+            => CurrentViewModel = new ServicesViewModel(new ViewModelLocator(), _servicesRepository);
+        
+        private bool CanShowServicesCommandExecute(object parameter) => true;
+
+        #endregion
+        
+        #region ShowStatisticsCommand
+        
+        private ICommand _showStatisticsCommand;
+        public ICommand ShowStatisticsCommand => _showStatisticsCommand
+            ??= new RelayCommand(OnShowStatisticsCommandExecuted, CanShowStatisticsCommandExecute);
+        
+        private void OnShowStatisticsCommandExecuted(object parameter)
+            => CurrentViewModel = new StatisticsViewModel(_statisticsService, _reservationsRepository);
+        
+        private bool CanShowStatisticsCommandExecute(object parameter) => true;
+        
+        #endregion
+
+        #region ShowRoomTypesCommand
+
+        private ICommand _showRoomTypesCommand;
+        
+        public ICommand ShowRoomTypesCommand => _showRoomTypesCommand
+            ??= new RelayCommand(OnShowRoomTypesCommandExecuted, CanShowRoomTypesCommandExecute);
+        
+        private bool CanShowRoomTypesCommandExecute(object parameter) => true;
+
+        private void OnShowRoomTypesCommandExecuted(object parameter)
+            => CurrentViewModel = new RoomTypesViewModel(_roomTypesRepository);
+
+        #endregion
 
         private ICommand _showRoomsCommand;
         
@@ -72,7 +124,7 @@ namespace HS.ViewModels
         private bool CanShowReservationsViewCommandExecute(object parameter) => true;
 
         private void OnShowReservationsViewCommandExecute(object parameter)
-            => CurrentViewModel = new ReservationsViewModel(_reservationsRepository);
+            => CurrentViewModel = new ReservationsViewModel(_reservationsRepository, _orderedServicesRepository, _locator);
 
         #endregion
         
@@ -86,6 +138,11 @@ namespace HS.ViewModels
 
         private ViewModel _currentViewModel;
         private readonly IRepository<Room> _roomsRepository;
+        private readonly IRepository<Service> _servicesRepository;
+        private readonly IStatisticsService _statisticsService;
+        private readonly IRepository<RoomType> _roomTypesRepository;
+        private readonly IRepository<OrderedService> _orderedServicesRepository;
+        private readonly ViewModelLocator _locator;
 
         public ViewModel CurrentViewModel
         {
@@ -96,14 +153,26 @@ namespace HS.ViewModels
         #endregion
         
         #endregion
+
         public MainViewModel(IRepository<Client> clientsRepository,
             IRepository<Reservation> reservationsRepository,
-            IRepository<Room> roomsRepository)
+            IRepository<RoomType> roomTypesRepository,
+            IRepository<OrderedService> orderedServicesRepository,
+            IRepository<Room> roomsRepository, IRepository<Service> servicesRepository,
+            IStatisticsService statisticsService,
+            ViewModelLocator locator)
+
         {
+            _locator = locator;
+            _roomTypesRepository = roomTypesRepository;
             _clientsRepository = clientsRepository;
             _reservationsRepository = reservationsRepository;
             _roomsRepository = roomsRepository;
-            
+            _servicesRepository = servicesRepository;
+            _orderedServicesRepository = orderedServicesRepository;
+
+            _statisticsService = statisticsService;
+
             Date = DateTime.Now;
         }
     }

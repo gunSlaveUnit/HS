@@ -14,4 +14,13 @@
     <DataTemplate DataType="{x:Type vm:RoomsViewModel}">
         <v:RoomsView DataContext="{Binding}"></v:RoomsView>
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:ServicesViewModel}">
+        <v:ServicesView DataContext="{Binding}"></v:ServicesView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:StatisticsViewModel}">
+        <v:StatisticsView DataContext="{Binding}"></v:StatisticsView>
+    </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:RoomTypesViewModel}">
+        <v:RoomTypesView DataContext="{Binding}"></v:RoomTypesView>
+    </DataTemplate>
 </ResourceDictionary>

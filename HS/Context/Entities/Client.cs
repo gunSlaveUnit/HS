@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Dynamic;
 using HS.Context.Entities.Base;
 
 namespace HS.Context.Entities
@@ -13,7 +14,7 @@ namespace HS.Context.Entities
         [Required]
         public string Patronymic { get; set; }
         [Required]
-        public string Passport { get; set; }
+        public string Document { get; set; }
         [Required]
         public string PhoneNumber { get; set; }
         [Required]
@@ -22,6 +23,9 @@ namespace HS.Context.Entities
         public string Password { get; set; }
         [Required]
         public string Salt { get; set; }
+        
+        public int StatusId { get; set; }
+        public virtual ClientStatus Status { get; set; }
         public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

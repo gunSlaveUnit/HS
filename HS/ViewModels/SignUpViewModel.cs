@@ -1,4 +1,8 @@
-﻿using System.Windows.Input;
+﻿using System.Collections.ObjectModel;
+using System.Windows.Input;
+using System.Windows.Media;
+using Hotel.Interfaces;
+using HS.Context.Entities;
 using HS.Infrastructure.Commands.Base;
 using HS.Services;
 using HS.ViewModels.Base;
@@ -8,6 +12,22 @@ namespace HS.ViewModels
 {
     public class SignUpViewModel : ViewModel
     {
+        private SolidColorBrush _messageColor;
+
+        public SolidColorBrush MessageColor
+        {
+            get => _messageColor;
+            set => Set(ref _messageColor, value);
+        }
+        
+        private string _signUpStatus;
+
+        public string SignUpStatus
+        {
+            get => _signUpStatus;
+            set => Set(ref _signUpStatus, value);
+        }
+        
         private readonly IClientService _clientService;
 
         private string _surname;
@@ -68,6 +88,8 @@ namespace HS.ViewModels
         
         private string _passwordConfirm;
         private readonly ViewModelLocator _locator;
+        private Client _currentClient;
+        private readonly IRepository<ClientStatus> _clientStatusesRepository;
 
         public string PasswordConfirm
         {
@@ -82,17 +104,51 @@ namespace HS.ViewModels
         private void OnSignUpCommandExecuted(object p)
         {
             var currentClient = _clientService.SignUp(
-                Surname, Name, Patronymic, Passport, PhoneNumber, Login, Password
-                );
+                Surname, Name, Patronymic, Passport, PhoneNumber, Login, Password, Statuses[2]);
+            _currentClient = currentClient;
+            if (_currentClient is null)
+            {
+                SignUpStatus = "Что-то пошло не так, попробуйте еще раз";
+                MessageColor = new SolidColorBrush(Colors.Red);
+            }
+            else
+            {
+                SignUpStatus = "Аккаунт успешно создан, вы можете закрыть это окно";
+                MessageColor = new SolidColorBrush(Colors.Green);
+            }
         }
 
-        private bool CanSignUpCommandExecute(object p) => true;
+        private bool CanSignUpCommandExecute(object p) 
+            => Password != "" 
+               && PasswordConfirm != ""
+               && Login != ""
+               && Passport != ""
+               && PhoneNumber != ""
+               && Surname != ""
+               && Name != ""
+               && Patronymic != ""
+               && Password == PasswordConfirm
+        ;
 
         #endregion
         
-        public SignUpViewModel(IClientService clientService)
+        #region Statuses
+
+        private ObservableCollection<ClientStatus> _statuses;
+
+        public ObservableCollection<ClientStatus> Statuses
         {
+            get => _statuses;
+            set => Set(ref _statuses, value);
+        }
+
+        #endregion
+        
+        public SignUpViewModel(IClientService clientService, IRepository<ClientStatus> clientStatusesRepository)
+        {
+            _clientStatusesRepository = clientStatusesRepository;
             _clientService = clientService;
+            Statuses = new ObservableCollection<ClientStatus>(clientStatusesRepository.All);
             SignUpCommand = new RelayCommand(OnSignUpCommandExecuted, CanSignUpCommandExecute);
         }
     }

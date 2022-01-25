@@ -3,6 +3,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using Hotel.Interfaces;
+using HS.Annotations;
 using HS.Context;
 using HS.Context.Entities;
 using HS.Context.Entities.Base;
@@ -75,7 +76,7 @@ namespace HS.Data
     class ClientsRepository : DbRepository<Client>
     {
         public override IQueryable<Client> All 
-            => base.All.Include(e => e.Reservations);
+            => base.All.Include(e => e.Reservations).Include(e => e.Status);
         public ClientsRepository(DataContext context) : base(context) {}
     }
     
@@ -96,5 +97,27 @@ namespace HS.Data
     {
         public override IQueryable<RoomType> All => base.All.Include(e => e.Rooms);
         public RoomTypesRepository(DataContext context) : base(context) {}
+    }
+
+    class ServicesRepository : DbRepository<Service>
+    {
+        public ServicesRepository([NotNull] DataContext context) : base(context)
+        {
+        }
+    }
+
+    class OrderedServicesRepository : DbRepository<OrderedService>
+    {
+        public OrderedServicesRepository([NotNull] DataContext context) : base(context)
+        {
+        }
+    }
+    
+    class ClientStatusesRepository: DbRepository<ClientStatus>
+    {
+        public override IQueryable<ClientStatus> All => base.All.Include(cs => cs.Clients);
+        public ClientStatusesRepository([NotNull] DataContext context) : base(context)
+        {
+        }
     }
 }

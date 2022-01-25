@@ -6,7 +6,7 @@
         xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         DataContext="{Binding NewRoomTypeViewModel, Source={StaticResource Locator}}"
-        Title="Create a room type" Height="600" Width="400" WindowStartupLocation="CenterScreen">
+        Title="Create a room type" Height="500" Width="400" WindowStartupLocation="CenterScreen">
     <Window.InputBindings>
         <KeyBinding Modifiers="Control" Key="Q" 
                     Command="{StaticResource CloseAppCommand}"/>

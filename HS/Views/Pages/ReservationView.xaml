@@ -4,11 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:fa="http://schemas.fontawesome.com/icons/"
+             xmlns:c="clr-namespace:HS.Infrastructure.Converters"
              mc:Ignorable="d"
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-        <TextBlock Foreground="Gray" FontSize="20" Text="Your reservation was displayed here"></TextBlock>
-        <TextBlock Foreground="GhostWhite" FontSize="20" Text="Oh, nothing to show("></TextBlock>
-        <TextBlock Foreground="GhostWhite" FontSize="20" Text="Do you want to make it? Go to Rooms tab" ></TextBlock>
+    <UserControl.Resources>
+        <c:ClientReservationNotExistToVisibility x:Key="StatusConverter"></c:ClientReservationNotExistToVisibility>
+        <c:ClientReservationExistToVisibility x:Key="StatusConverter2"></c:ClientReservationExistToVisibility>
+    </UserControl.Resources>
+    <StackPanel>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" 
+                    Visibility="{Binding CurrentUser, 
+                                 Converter={StaticResource StatusConverter}}">
+            <TextBlock Foreground="Gray" FontSize="20" Text="Ваша бронь будет отображаться здесь"></TextBlock>
+            <TextBlock Foreground="Black" FontSize="20" Text="Но пока показать нечего("></TextBlock>
+            <TextBlock Foreground="Black" FontSize="20" Text="Хотите исправить. Вам во вкладку Комнаты"></TextBlock>
+        </StackPanel>
+        
+        <StackPanel Margin="20" Visibility="{Binding CurrentUser, 
+                                 Converter={StaticResource StatusConverter2}}">
+            <TextBlock Text="Бронь" FontSize="35" Margin="10"></TextBlock>
+            <TextBlock Text="{Binding StringFormat=Въезд: {0}, 
+            Path=CurrentReservation.ArrivalDate}" FontSize="25" Margin="10"></TextBlock>
+            <TextBlock Text="{Binding StringFormat=Выезд: {0}, 
+            Path=CurrentReservation.DepartureDate}" FontSize="25" Margin="10"></TextBlock>
+            <TextBlock Text="{Binding StringFormat=Стоимость проживания: {0}, 
+            Path=CurrentReservation.Cost}" FontSize="25" Margin="10"></TextBlock>
+            <TextBlock Text="{Binding StringFormat=Статус: {0}, Path=StatusActiveMessage}"
+                       FontSize="25" Margin="10"></TextBlock>
+        </StackPanel>
     </StackPanel>
 </UserControl>
